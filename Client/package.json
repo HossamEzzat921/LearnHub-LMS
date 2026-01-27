@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "npx tailwindcss -i ./src/input.css -o ./css/style.css --watch"
+    
   },
   "keywords": [],
   "author": "",
@@ -11,5 +12,8 @@
   "devDependencies": {
     "tailwindcss": "^4.1.18"
   },
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.18"
+  }
 }
