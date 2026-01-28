@@ -1,0 +1,38 @@
+@import "tailwindcss";
+@theme {
+  --color-dark: #1f242e;
+  /* body text */
+  --color-gray: #676f7e;
+  /* cards */
+  --color-white: #ffffff;
+  /* ========= Buttons ========= */
+  --color-cream: #fcfaf8;
+  --color-light-gray: #dcdfe5;
+  --color-teal: #259d91;
+
+  --color-dark-teal: #246b6b;
+  /* ========= Accents ========= */
+  --color-green: #21c45d;
+  --color-yellow: #eab308;
+  --color-orange: #f06e42;
+
+  --color-black: #000000;
+
+  --shadow-soft: "0 4px 20px -4px hsl(220 20% 15% / 0.08)";
+}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  button {
+    cursor: pointer;
+  }
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-gray);
+    font-family: "Inter", sans-serif;
+  }
+  .font-plus {
+    font-family: "Plus Jakarta Sans", sans-serif;
+  }
+}
