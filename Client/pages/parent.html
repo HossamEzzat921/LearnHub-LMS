@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="LearnHub Parent Panel – track your child’s progress, courses, and performance." />
+
+    <!-- Tailwind compiled CSS -->
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <title>LearnH ub | Parent Panel</title>
+</head>
+
+<body class="lg:bg-[#FCFAF8] lg:min-h-screen min-h-screen bg-[#FCFAF8]">
+
+    <!-- start nav -->
+    <nav class="bg-white shadow-md px-6 py-4">
+        <h1 class="lg:text-xl lg:font-bold lg:text-blue-600">
+            Parent Panel
+        </h1>
+    </nav>
+
+    <!-- end nav -->
+    <!-- start welcome section  -->
+    <header class="md:m-10 m-5">
+        <!-- start welcom dev  -->
+        <div class="welcom-parent md:mb-8 mb-4 ">
+            <h2 class="md:text-[30px] md:font-[700] text-[25px] font-[700]  ">
+                Welcome, parent! 👨‍👩‍👧
+            </h2>
+            <p class="md:text-[16px] md:font-[400] md:text-[#6C717E] text-[14px] font-[400] text-[#6C717E]">
+                Monitor your children's learning progress and achievements.
+            </p>
+        </div>
+        <!-- end welcome dev -->
+        <!-- start view dev  -->
+        <div class="lg:grid-cols-4 lg:gap-6 grid grid-cols-2 gap-4">
+            <!-- start student-num -->
+            <div class="student-num md:rounded-2xl  md:min-h-[140px] md:p-6  rounded-xl  bg-white min-h-[100px] p-3">
+                <div class="svg icon-wrapper-lg lg:bg-[#7C3BED] bg-[#7C3BED] icon-wrapper-phone">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
+                    </svg>
+
+                </div>
+                <div class=" md:flex md:flex-col md:pt-3 flex flex-col pt-3  ">
+                    <span class="  text-[24px] font-[700] ">
+                        2
+                    </span>
+                    <span class=" text-[#9D767E] ">
+                        Linked Students
+
+                    </span>
+                </div>
+
+            </div>
+            <!-- end student-num -->
+            <!-- start Active Courses -->
+            <div class="active-course md:rounded-2xl md:min-h-[140px] md:p-6 rounded-xl bg-white min-h-[100px] p-3">
+                <div class="svg icon-wrapper-lg  icon-wrapper-phone bg-[#259D91] ">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                    </svg>
+                </div>
+                <div class=" flex flex-col pt-3">
+                    <span class=" text-[24px] font-[700]">
+                        5
+
+                    </span>
+                    <span class="text-[#9D767E]">
+                        Active Courses
+
+                    </span>
+                </div>
+
+
+
+            </div>
+            <!-- end Active Courses -->
+            <!-- start Avg. Progress -->
+            <div
+                class="Avg-Progres md:rounded-2xl md:bg-white md:min-h-[140px] md:p-6  rounded-xl bg-white min-h-[100px] p-3">
+                <div class="svg icon-wrapper-lg  icon-wrapper-phone bg-[#F06E42] ">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5m.75-9 3-3 2.148 2.148A12.061 12.061 0 0 1 16.5 7.605" />
+                    </svg>
+                </div>
+                <div class=" flex flex-col pt-3 ">
+                    <span class="text-[24px] font-[700]">
+                        57%
+
+                    </span>
+                    <span class="text-[#9D767E]">
+                        Avg. Progress
+
+                    </span>
+                </div>
+
+
+
+            </div>
+            <!-- end Avg. Progress -->
+            <!-- start Notifications -->
+            <div
+                class="Notifications md:rounded-2xl md:bg-white md:min-h-[140px] md:p-6 rounded-xl  bg-white min-h-[100px] p-3 ">
+                <div class="svg icon-wrapper-lg  icon-wrapper-phone bg-[#EF4343]">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+                    </svg>
+
+                </div>
+                <div class="flex flex-col pt-3">
+                    <span class="text-[24px] font-[700]">
+                        3
+                    </span>
+                    <span class="text-[#9D767E]">
+                        Notifications
+
+                    </span>
+                </div>
+
+            </div>
+            <!-- end Notifications -->
+        </div>
+        <!-- end view dev -->
+    </header>
+    <!-- end welcome section  -->
+
+
+    <!-- start Linked Students -->
+    <section class="Linked-Students md:m-10 m-5 ">
+        <h2 class="md:mb-8 mb-4 text-[20px] font-[600]">
+            Linked Students
+
+        </h2>
+
+        <div class="students  md:gap-6 grid grid-cols-2 gap-3">
+            <!-- start first student  -->
+
+            <div
+                class="first-student md:rounded-2xl md:bg-white md:min-h-[140px] md:p-6  rounded-xl bg-white min-h-[100px] p-3 ">
+                <div class="personal md:gap-6 flex gap-3">
+                    <!-- start circle -->
+                    <div class="circle lg:w-15 lg:h-15  lg:bg-[#E5D8FB]  
+                         w-10 h-10 rounded-[50%] bg-[#E5D8FB] content-center text-center grid ">
+                        <span class=" md:text-[24px] 
+                        font-[700] text-[20px] text-[#7C3BED]">
+                            E
+                        </span>
+                    </div>
+                    <!-- start name  -->
+                    <div class="name  
+                    content-center text-center grid">
+                        <span class=" md:text-[18px] 
+                        font-[600] text-[14px]">
+
+                            Emma Johnson
+                        </span>
+                        <span class=" md:text-[14px]   font-[400] text-[12px]  text-[#676F7E] text-start">
+                            8th Grade
+                        </span>
+                    </div>
+                </div>
+                <!-- start courses and average  -->
+                <div class="total md:gap-6 md:mb-8
+                
+                grid grid-cols-2 gap-2 mb-4">
+                    <div class="number md:rounded-2xl md:max-h-[80px] md:p-6  md:mt-7
+                        rounded-xl bg-[#F6F5F2] max-h-[60px] p-1 grid  grid-cols-1 
+                        content-center  text-center  mt-4
+                        
+                        ">
+                        <span class=" md:text-[20px]  text-[15px]  ">3</span>
+                        <span class=" md:text-[12px] 
+                        font-[400]  text-[14px] text-[#746F95]
+                        ">Courses</span>
+                    </div>
+                    <div class="number md:rounded-2xl  md:max-h-[80px] md:p-6  md:mt-7  rounded-2xl bg-[#F6F5F2]  max-h-[60px] p-1 grid 
+                        grid-cols-1 content-center text-center mt-4">
+                        <span class=" md:text-[20px] 
+                         text-[15px]
+                        ">68%
+                        </span>
+                        <span class=" md:text-[12px] text-[#746F95]
+                        text-[10px] font-[400]
+                        ">Avg. Progress
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <!-- end courses and average  -->
+
+
+                <div class="   flex justify-between mb-4 ">
+
+                    <span class=" font-[400] text-[14px] text-[#98867E]">
+                        Overall Progress
+
+                    </span>
+
+
+                    <span class=" font-[500] text-[14px] ">
+                        68%
+                    </span>
+
+
+                </div>
+                <!-- start progress bar  -->
+                <div class="h-2 w-full rounded-xl
+bg-gray-200">
+                    <div class="h-2 w-full rounded-xl bg-teal-500" style="width: 68%;">
+                    </div>
+                </div>
+                <!-- end progress bar  -->
+            </div>
+            <!-- end first student -->
+            <!-- ///////////////////// -->
+            <!-- start second student  -->
+
+            <div
+                class="second-student md:rounded-2xl md:bg-white md:min-h-[140px] md:p-6  rounded-xl bg-white min-h-[100px] p-3 ">
+                <div class="personal md:gap-6 flex gap-3">
+                    <!-- start circle -->
+                    <div class="circle lg:w-15 lg:h-15  lg:bg-[#E5D8FB]  
+                                     w-10 h-10 rounded-[50%] bg-[#E5D8FB] content-center text-center grid ">
+                        <span class=" md:text-[24px] 
+                                    font-[700] text-[20px] text-[#7C3BED]">
+                            E
+                        </span>
+                    </div>
+                    <!-- start name  -->
+                    <div class="name  
+                                content-center text-center grid">
+                        <span class=" md:text-[18px] 
+                                    font-[600] text-[14px]">
+
+                            Emma Johnson
+                        </span>
+                        <span class=" md:text-[14px]   font-[400] text-[12px]  text-[#676F7E] text-start">
+                            8th Grade
+                        </span>
+                    </div>
+                </div>
+                <!-- start courses and average  -->
+                <div class="total md:gap-6 md:mb-8
+                            
+                            grid grid-cols-2 gap-2 mb-4">
+                    <div class="number md:rounded-2xl md:max-h-[80px] md:p-6  md:mt-7
+                                    rounded-xl bg-[#F6F5F2] max-h-[60px] p-1 grid  grid-cols-1 
+                                    content-center  text-center  mt-4
+                                    
+                                    ">
+                        <span class=" md:text-[20px]  text-[15px]  ">3</span>
+                        <span class=" md:text-[12px] 
+                                    font-[400]  text-[14px] text-[#746F95]
+                                    ">Courses</span>
+                    </div>
+                    <div class="number md:rounded-2xl  md:max-h-[80px] md:p-6  md:mt-7  rounded-2xl bg-[#F6F5F2]  max-h-[60px] p-1 grid 
+                                    grid-cols-1 content-center text-center mt-4">
+                        <span class=" md:text-[20px] 
+                                     text-[15px]
+                                    ">68%
+                        </span>
+                        <span class=" md:text-[12px] text-[#746F95]
+                                    text-[10px] font-[400]
+                                    ">Avg. Progress
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <!-- end courses and average  -->
+
+
+                <div class="   flex justify-between mb-4 ">
+
+                    <span class=" font-[400] text-[14px] text-[#98867E]">
+                        Overall Progress
+
+                    </span>
+
+
+                    <span class=" font-[500] text-[14px] ">
+                        68%
+                    </span>
+
+
+                </div>
+                <!-- start progress bar  -->
+                <div class="h-2 w-full rounded-xl
+            bg-gray-200">
+                    <div class="h-2 w-full rounded-xl bg-teal-500" style="width: 68%;">
+                    </div>
+                </div>
+                <!-- end progress bar  -->
+            </div>
+            <!-- end second student -->
+        </div>
+
+
+
+
+    </section>
+
+    <!-- end Linked Students -->
+
+
+    <!-- start courses section -->
+    <section class="courses md:m-10 m-5">
+        <h2 class="mb-4 text-[20px] font-[600] mb-2">Recent courses</h2>
+        <!-- start first course  -->
+        <div class="first-course flex gap-4 bg-white h-15 rounded-t-xl p-2 items-center mb-1 ">
+            <!-- start circle  -->
+            <div class="circle  
+                w-8 h-8 rounded-[50%] bg-[#E5D8FB] content-center text-center grid
+                ">
+                <span class="font-[700] text-[14px] text-[#7C3BED ]
+                ">
+                    E
+                </span>
+            </div>
+            <div>
+                <p class="text-[14px] font-[500] ">
+                    HTML Basics course
+                </p>
+            </div>
+
+            <!-- end circle  -->
+        </div>
+        <!-- end first course  -->
+
+        <!-- start second course  -->
+        <div class="second-course flex gap-4 bg-white h-15 rounded-t-xl p-2 items-center mb-1 ">
+            <!-- start circle  -->
+            <div class="circle  
+                        w-8 h-8 rounded-[50%] bg-[#E5D8FB] content-center text-center grid
+                        ">
+                <span class="font-[700] text-[14px] text-[#7C3BED ]
+                        ">
+                    E
+                </span>
+            </div>
+            <div>
+                <p class="text-[14px] font-[500] ">
+                    HTML Basics course
+                </p>
+            </div>
+
+            <!-- end circle  -->
+        </div>
+        <!-- end second course  -->
+
+        <!-- start third course  -->
+        <div class="third-course flex gap-4 bg-white h-15 rounded-t-xl p-2 items-center mb-1 ">
+            <!-- start circle  -->
+            <div class="circle  
+                    w-8 h-8 rounded-[50%] bg-[#E5D8FB] content-center text-center grid
+                    ">
+                <span class="font-[700] text-[14px] text-[#7C3BED ]
+                    ">
+                    E
+                </span>
+            </div>
+            <div>
+                <p class="text-[14px] font-[500] ">
+                    HTML Basics course
+                </p>
+            </div>
+
+            <!-- end circle  -->
+        </div>
+        <!-- end third course  -->
+
+    </section>
+    <!-- end courses section  -->
+</body>
+
+</html>
