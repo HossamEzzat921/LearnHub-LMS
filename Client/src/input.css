@@ -1,3 +1,80 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@theme {
+  --color-dark: #1f242e;
+  /* body text */
+  --color-gray: #676f7e;
+  /* cards */
+  --color-white: #ffffff;
+  /* ========= Buttons ========= */
+  --color-cream: #fcfaf8;
+  --color-light-gray: #f4f1eb80;
+  --color-teal: #259d91;
+
+  --color-dark-teal: #246b6b;
+  /* ========= Accents ========= */
+  --color-green: #21c45d;
+  --color-yellow: #eab308;
+  --color-orange: #f06e42;
+
+  --color-black: #000000;
+
+  --hero-gradient: linear-gradient(
+    135deg,
+    hsl(174 62% 38%) 0%,
+    hsl(180 50% 28%) 100%
+  );
+
+  --shadow-soft: "0 4px 20px -4px hsl(220 20% 15% / 0.08)";
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  button {
+    cursor: pointer;
+  }
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-gray);
+    font-family: "Inter", sans-serif;
+  }
+  .font-plus {
+    font-family: "Plus Jakarta Sans", sans-serif;
+  }
+}
+
+.text-\[var\(--color-gray\)\] {
+  color: #b9b9b9;
+}
+
+.gradient-primary {
+  background: var(--hero-gradient);
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
