@@ -7,26 +7,27 @@
     <link href="./css/style.css" rel="stylesheet">
 </head>
 
-<body class="bg-[var(--color-cream)] text-[var(--color-gray)] antialiased">
+<body class="bg-[var(--color-cream)] antialiased">
 
     <!-- Navbar (Replacing Layout) -->
-    <!-- <nav
-        class="sticky top-0 z-50 w-full border-b border-[var(--color-light-gray)] bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60"> -->
-    <div class="px-4 h-16 w-90% bg-contain mx-auto flex justify-between content-center items-center">
-        <div class=" overflow-hidden">
-            <img class="w-40 h-44 object-cover aspect-video relative"
-                src="./assets/images/learnhub-logo-clean-removebg-preview.png" alt="Logo">
+    <nav class="bg-[var(--color-white)] shadow-md">
+        <div class="px-4 h-16 w-90% bg-contain mx-auto flex justify-between content-center items-center">
+            <div class=" overflow-hidden">
+                <img class="w-40 h-44 object-cover aspect-video relative"
+                    src="./assets/images/learnhub-logo-clean-removebg-preview.png" alt="Logo">
+            </div>
+            <div class="hidden md:flex gap-6 text-md font-semibold text-center">
+                <a href="#" class="transition-colors text-foreground">Courses</a>
+            </div>
+            <div class="flex gap-4">
+                <button
+                    class="text-black rounded-md p-2 text-sm hover:bg-orange hover:text-white transition-colors font-light">Log
+                    In</button>
+                <button class="text-white px-4 py-2 rounded-xl text-sm font-medium hover:opacity-90 transition-colors"
+                    style="background-color: var(--color-teal)">Sign
+                    Up</button>
+            </div>
         </div>
-        <div class="hidden md:flex gap-6 text-md font-semibold text-center">
-            <a href="#" class="hover:opacity-80 transition-colors" style="color: var(--color-gray)">Courses</a>
-        </div>
-        <div class="flex gap-4">
-            <button class="rounded-md p-2 text-sm font-semibold hover:bg-orange hover:text-white transition-colors">Log
-                in</button>
-            <button class="text-white px-4 py-2 rounded-md text-sm font-medium hover:opacity-90 transition-colors"
-                style="background-color: var(--color-teal)">Sign up</button>
-        </div>
-    </div>
     </nav>
 
     <main>
@@ -142,46 +143,50 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 cursor-pointer">
-                    <!-- Course Card 1 -->
-                    <div class="bg-white rounded-xl border overflow-hidden hover:shadow-lg duration-300 hover:transition-all group"
-                        style="background-color: var(--color-white); border-color: var(--color-light-gray)">
-                        <div class="relative h-48 bg-slate-200 duration-500 transition-transform hover:transform-3d">
-                            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800"
-                                alt="Web Development"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute top-3 right-3 backdrop-blur px-3 py-1 rounded-full text-xs font-bold"
-                                style="background-color: var(--color-orange); color: white;">
-                                Intermediate</div>
-                        </div>
-                        <div class="p-5">
-                            <h3
-                                class="font-plus font-bold text-lg mb-2 group-hover:text-teal text-dark transition-colors duration-300">
-                                Complete Web Development Bootcamp</h3>
-                            <p class="text-sm mb-3" style="color: var(--color-gray)">John Doe</p>
-                            <div class="flex items-center gap-4 mb-4 text-sm">
-                                <div class="flex items-center gap-1" style="color: var(--color-orange)">
-                                    <span>⭐</span>
-                                    <span class="font-bold">4.8</span>
-                                    <span style="color: var(--color-gray)">(180k)</span>
-                                </div>
-                                <div style="color: var(--color-gray)">
-                                    ⏱️ 42 hours
-                                </div>
+                    <!-- Course Card 1 (clickable) -->
+                    <a href="./pages/course-1.html" class="block">
+                        <div class="bg-white rounded-xl border overflow-hidden hover:shadow-lg duration-300 hover:transition-all group"
+                            style="background-color: var(--color-white); border-color: var(--color-light-gray)">
+                            <div
+                                class="relative h-48 bg-slate-200 duration-500 transition-transform hover:transform-3d">
+                                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800"
+                                    alt="Web Development"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute top-3 right-3 backdrop-blur px-3 py-1 rounded-full text-xs font-bold"
+                                    style="background-color: var(--color-orange); color: white;">
+                                    Intermediate</div>
                             </div>
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <div style="color: var(--color-dark); font-weight: bold; font-size: 1.25rem;">$89.99
+                            <div class="p-5">
+                                <h3
+                                    class="font-plus font-bold text-lg mb-2 group-hover:text-teal text-dark transition-colors duration-300">
+                                    Complete Web Development Bootcamp</h3>
+                                <p class="text-sm mb-3" style="color: var(--color-gray)">John Doe</p>
+                                <div class="flex items-center gap-4 mb-4 text-sm">
+                                    <div class="flex items-center gap-1" style="color: var(--color-orange)">
+                                        <span>⭐</span>
+                                        <span class="font-bold">4.8</span>
+                                        <span style="color: var(--color-gray)">(180k)</span>
                                     </div>
-                                    <div
-                                        style="color: var(--color-gray); text-decoration: line-through; font-size: 0.875rem;">
-                                        $109.99</div>
+                                    <div style="color: var(--color-gray)">
+                                        ⏱️ 42 hours
+                                    </div>
                                 </div>
-                                <div style="color: var(--color-gray); text-align: right;">
-                                    <div style="font-size: 0.75rem;">📚 280 lessons</div>
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <div style="color: var(--color-dark); font-weight: bold; font-size: 1.25rem;">
+                                            $89.99
+                                        </div>
+                                        <div
+                                            style="color: var(--color-gray); text-decoration: line-through; font-size: 0.875rem;">
+                                            $109.99</div>
+                                    </div>
+                                    <div style="color: var(--color-gray); text-align: right;">
+                                        <div style="font-size: 0.75rem;">📚 280 lessons</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
 
                     <!-- Course Card 2 -->
                     <div class="bg-white rounded-xl border overflow-hidden hover:shadow-lg transition-shadow duration-300 group"
