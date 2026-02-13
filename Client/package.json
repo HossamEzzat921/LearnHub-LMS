@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "npx tailwindcss -i ./src/input.css -o ./css/style.css --watch"
     
+    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./css/style.css --watch"
   },
   "keywords": [],
   "author": "",
@@ -16,4 +17,8 @@
   "dependencies": {
     "@tailwindcss/cli": "^4.1.18"
   }
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.18"
+  },
+  "description": ""
 }

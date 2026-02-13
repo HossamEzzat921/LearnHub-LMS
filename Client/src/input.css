@@ -20,6 +20,69 @@
 
   --shadow-soft: "0 4px 20px -4px hsl(220 20% 15% / 0.08)";
 }
+
+@layer components {
+
+    /* icons style in header */
+    .icon-wrapper-lg {
+        @apply md:inline-flex md:rounded-xl md:justify-center md:items-center md:w-10 md:h-10;
+    }
+}
+
+.icon-wrapper-phone {
+    @apply inline-flex rounded-xl justify-center items-center w-10 h-10;
+}
+@theme {
+  --color-dark: #1f242e;
+  --color-dark-rgb: 31 36 46;
+  /* body text */
+  --color-gray: #676f7e;
+  --color-gray-rgb: 103 111 126;
+  /* cards */
+  --color-white: #ffffff;
+  --color-white-rgb: 255 255 255;
+  /* ========= Buttons ========= */
+  --color-cream: #fcfaf8;
+  --color-light-gray: #f4f1eb80;
+  --color-teal: #259d91;
+  --color-teal-rgb: 37 157 145;
+
+  --color-dark-teal: #246b6b;
+  --color-dark-teal-rgb: 36 107 107;
+  /* ========= Accents ========= */
+  --color-green: #21c45d;
+  --color-green-rgb: 33 196 93;
+  --color-yellow: #eab308;
+  --color-yellow-rgb: 234 179 8;
+  --color-orange: #f06e42;
+  --color-orange-rgb: 240 110 66;
+
+  --color-black: #000000;
+  --color-black-rgb: 0 0 0;
+
+  /* RGB versions — used by Tailwind to support alpha (bg-primary/50, etc.) */
+  --color-dark-rgb: 31 36 46;
+  --color-gray-rgb: 103 111 126;
+  --color-white-rgb: 255 255 255;
+  --color-cream-rgb: 252 250 248;
+  --color-light-gray-rgb: 244 241 235;
+  --color-teal-rgb: 37 157 145;
+  --color-dark-teal-rgb: 36 107 107;
+  --color-green-rgb: 33 196 93;
+  --color-yellow-rgb: 234 179 8;
+  --color-orange-rgb: 240 110 66;
+  --color-black-rgb: 0 0 0;
+  --color-foreground: 220 10% 45%;
+
+  --hero-gradient: linear-gradient(
+    135deg,
+    hsl(174 62% 38%) 0%,
+    hsl(180 50% 28%) 100%
+  );
+
+  --shadow-soft: "0 4px 20px -4px hsl(220 20% 15% / 0.08)";
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -35,4 +98,39 @@
   .font-plus {
     font-family: "Plus Jakarta Sans", sans-serif;
   }
+}
+
+.text-\[var\(--color-gray\)\] {
+  color: #b9b9b9;
+}
+
+.gradient-primary {
+  background: var(--hero-gradient);
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
 }
