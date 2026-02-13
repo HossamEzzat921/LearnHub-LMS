@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Course</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h2>header</h2>
+    </header>
+    <section class="container mx-auto max-w-4xl">
+     
+      <!-- title -->
+      <div
+        class="flex flex-col gap-4 md:flex-row justify-between items-center my-12"
+      >
+        <div class="flex gap-2 items-center">
+          <div
+            class="w-9 h-9 hover:bg-orange cursor-pointer hover:text-white transition-all rounded-lg flex items-center justify-center"
+          >
+          <a href="http://127.0.0.1:5501/pages/teacher-dashboard.html">
+           <i class="fa-solid fa-arrow-down text-base rotate-90"></i>
+        </a>
+           
+          </div>
+          <div>
+            <h3 class="font-plus font-bold text-2xl leading-8 text-dark">
+              Create New Course
+            </h3>
+            <p class="font-normal text-base leading-6">
+              Fill in the details to create your course
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div>
+            <button
+              class="flex items-center gap-2 h-10 px-4 py-2 bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all text-dark text-sm leading-5 font-medium rounded-lg"
+            >
+              <i class="fa-regular fa-floppy-disk text-xl font-semibold"></i>
+
+              <span>Save Draft </span>
+            </button>
+          </div>
+          <div>
+            <button
+              class="flex items-center gap-2 h-10 px-4 py-2 bg-linear-to-r from-teal to-dark-teal text-white text-sm leading-5 font-medium rounded-lg"
+            >
+              <span>Publish Course</span>
+            </button>
+          </div>
+        </div>
+      </div>
+   
+      <!-- basic info  -->
+      <div
+        class="bg-white rounded-xl p-6 shadow-soft space-y-4 border border-light-gray mb-8"
+      >
+        <div class="flex items-center gap-2 mb-10">
+          <i class="fa-solid fa-book-open text-teal text-lg"></i>
+
+          <h2 class="font-plus font-semibold text-2xl leading-6 text-dark">
+            Basic Information
+          </h2>
+        </div>
+        <form class="space-y-6">
+          <div>
+            <label
+              htmlFor="title"
+              class="block text-dark text-sm font-medium leading-3.5 mb-2"
+            >
+              Course Title *
+            </label>
+            <input
+              id="title"
+              required
+              placeholder="eg.,Complete javascript MasterClass"
+              class="w-full placeholder:text-sm px-4 py-3 bg-cream rounded-xl border border-light-gray focus:border-teal focus:ring-1 focus:ring-teal outline-none transition-all"
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="description"
+              class="block text-dark  text-sm font-medium leading-3.5 mb-2"
+            >
+              Description *
+            </label>
+            <textarea
+              id="description"
+              required
+              placeholder="Describe what students will learn ..."
+              rows="4"
+              class="w-full placeholder:text-sm px-4 py-3 bg-cream rounded-xl border border-light-gray focus:border-teal focus:ring-1 focus:ring-teal outline-none transition-all resize-none"
+            ></textarea>
+          </div>
+          <div class="grid md:grid-cols-2 gap-6 md:gap-3">
+            <div>
+              <label
+                htmlFor="category"
+                class="block text-dark  text-sm font-medium leading-3.5 mb-2"
+              >
+                Category *
+              </label>
+              <select
+                id="category"
+                class="appearance-none placeholder:text-sm w-full px-5 py-3 bg-cream rounded-xl border border-light-gray focus:border-teal focus:ring-1 focus:ring-teal outline-none transition-all"
+              >
+                <option value="">Select Category</option>
+                <option class="bg-white" value="dev">Grade 1</option>
+                <option value="ux">ux ui</option>
+                <option value="cd">docker</option>
+              </select>
+            </div>
+            <div>
+              <label
+                htmlFor="level"
+                class="block  text-dark text-sm font-medium leading-3.5 mb-2"
+              >
+                Level *
+              </label>
+              <select
+                id="level"
+                class="appearance-none placeholder:text-sm w-full px-5 py-3 bg-cream rounded-xl border border-light-gray focus:border-teal focus:ring-1 focus:ring-teal outline-none transition-all"
+              >
+                <option value="">Select Level</option>
+                <option class="bg-white" value="dev">Grade 1</option>
+                <option value="ux">ux ui</option>
+                <option value="cd">docker</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label htmlFor="email" class="block  text-dark text-sm font-medium mb-2">
+              Course Thumbnail
+            </label>
+            <div
+              class="w-full px-4 py-10 bg-white rounded-xl border border-light-gray border-dashed flex justify-center items-center"
+            >
+              <div class="grid gap-4 items-center">
+                <div class="flex justify-center">
+                  <i class="fa-solid fa-upload text-xl"></i>
+                </div>
+
+                <p class="text-center text-sm">
+                  Drag and drop an image, or click to browse
+                </p>
+                <div class="flex justify-center">
+                  <button
+                    class="flex items-center gap-2 h-10 px-4 py-2 bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all text-dark text-sm leading-5 font-medium rounded-lg"
+                  >
+                    <span>Upload Image </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Course Curriculum -->
+      <div
+        class="bg-white rounded-xl p-6 shadow-soft space-y-4 border border-light-gray mb-8"
+      >
+        <div class="flex justify-between items-center">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-video text-teal text-lg mt-1.5"></i>
+            <h2 class="font-plus font-semibold text-2xl leading-6 text-dark">
+              Course Curriculum
+            </h2>
+          </div>
+          <div class="flex justify-center">
+            <button
+              class="flex items-center gap-2 h-10 px-4 py-2 bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all text-dark text-sm leading-5 font-medium rounded-lg"
+            >
+              <i class="fa-solid fa-plus text-sm font-medium"></i>
+
+              <span class="font-medium text-sm leading-5">Add Section </span>
+            </button>
+          </div>
+        </div>
+        <!-- lessons -->
+        <div class="border border-light-gray rounded-lg overflow-hidden">
+          <div class="bg-cream p-4 flex items-center justify-between gap-3">
+            <div class="flex items-center gap-2">
+              <span class="">
+                <i class="fa-solid fa-braille text-sm"></i>
+              </span>
+              <h2 class="font-medium text-sm leading-5">Introduction</h2>
+            </div>
+            <div>
+              <button
+                class="flex items-center gap-2 h-10 px-4 py-2 bg-cream hover:bg-orange hover:text-white transition-all text-dark text-sm leading-5 font-medium rounded-lg"
+              >
+                <i class="fa-solid fa-plus text-sm font-medium"></i>
+
+                <span class="font-medium text-sm leading-5">Lesson</span>
+              </button>
+            </div>
+          </div>
+          <div class="flex justify-center item-center px-4 py-10">
+            <p class="font-normal text-sm leading-5">
+              No lessons yet. Click "Lesson" to add one.
+            </p>
+          </div>
+        </div>
+        <!-- footer -->
+        <div class="flex justify-between items-center mt-2">
+          <p class="font-normal text-sm leading-5">1 section(s)</p>
+          <p class="font-normal text-sm leading-5">0 lesson(s)</p>
+        </div>
+      </div>
+
+      <!-- pricing -->
+      <div
+        class="bg-white rounded-xl p-6 shadow-soft space-y-4 border border-light-gray mb-8"
+      >
+        <div class="flex items-center gap-2 mb-8">
+         <span class="text-teal font-semibold text-xl">$</span>
+
+          <h2 class="font-plus font-semibold text-2xl leading-6 text-dark">
+         Pricing
+          </h2>
+        </div>
+        <div>
+          <label htmlFor="price" class="block text-dark text-sm font-medium mb-2">
+           Course Price (EGP)
+          </label>
+          <input
+            id="pric"
+            type="number"
+            required
+            placeholder="$ 0.00"
+            class="w-full px-4 py-3 bg-cream rounded-xl border border-light-gray focus:border-teal focus:ring-1 focus:ring-teal outline-none transition-all"
+          />
+          <p class="mt-2 text-sm leading-s">Set to 0 for a free course</p>
+        </div>
+
+        <div
+          class="rounded-xl p-6 shadow-soft bg-cream space-y-4 mt-7 border border-light-gray/30"
+        >
+          <p class="font-plus text-dark font-medium text-base leading-6">Pricing Tips</p>
+         <div class="space-y-2">
+          <div class="flex gap-1.5 items-center">
+            <span class=" block bg-gray/70 w-1.5 h-1.5 rounded-full" ></span>
+            <p class="font-normal text-sm leading-5">Consider your course length and depth</p>
+          </div>
+          <div class="flex gap-1.5 items-center">
+            <span class=" block bg-gray/70 w-1.5 h-1.5 rounded-full" ></span>
+            <p class="font-normal text-sm leading-5">Research similar courses in your category</p>
+          </div>
+          <div class="flex gap-1.5 items-center">
+            <span class=" block bg-gray/70 w-1.5 h-1.5 rounded-full" ></span>
+            <p class="font-normal text-sm leading-5">Start with a lower price to build reviews</p>
+          </div>
+          <div class="flex gap-1.5 items-center">
+            <span class=" block bg-gray/70 w-1.5 h-1.5 rounded-full" ></span>
+            <p class="font-normal text-sm leading-5">You can update pricing anytime</p>
+          </div>
+         </div>
+        </div>
+      </div>
+     <hr class="text-light-gray"/>
+      <div class="flex justify-end gap-4 my-6">
+        <div>
+            <button
+              class="flex items-center gap-2 h-10 px-4 py-2 bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all text-dark text-sm leading-5 font-medium rounded-lg"
+            >
+            
+
+              <span>Cancel</span>
+            </button>
+          </div>
+<div>
+            <button
+              class="flex items-center gap-2 h-10 px-4 py-2 bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all text-dark text-sm leading-5 font-medium rounded-lg"
+            >
+              <i class="fa-regular fa-floppy-disk text-xl font-semibold"></i>
+
+              <span>Save Draft </span>
+            </button>
+          </div>
+           <div>
+            <button
+              class="flex items-center gap-2 h-10 px-4 py-2 bg-linear-to-r from-teal to-dark-teal text-white text-sm leading-5 font-medium rounded-lg"
+            >
+              <span>Publish Course</span>
+            </button>
+          </div>
+      </div>
+    </section>
+  </body>
+</html>
