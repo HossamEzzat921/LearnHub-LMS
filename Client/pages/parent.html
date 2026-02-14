@@ -15,10 +15,25 @@
 <body class="lg:bg-[#FCFAF8] lg:min-h-screen min-h-screen bg-[#FCFAF8]">
 
     <!-- start nav -->
-    <nav class="bg-white shadow-md px-6 py-4">
-        <h1 class="lg:text-xl lg:font-bold lg:text-blue-600">
-            Parent Panel
-        </h1>
+    <nav class="bg-[var(--color-white)] shadow-md">
+        <div class="px-4 h-16 w-90% bg-contain mx-auto flex justify-between content-center items-center">
+            <div class=" overflow-hidden">
+                <img class="w-40 h-44 object-cover aspect-video relative"
+                    src="../assets/images/learnhub-logo-clean-removebg-preview.png" alt="Logo">
+            </div>
+            <div class="hidden md:flex gap-6 text-md font-semibold text-center">
+                <a href="#" class="transition-colors text-foreground">Courses</a>
+            </div>
+            <div class="flex gap-4">
+                <button
+                    class="text-black rounded-md p-2 text-sm hover:bg-orange hover:text-white transition-colors font-light">
+                    <a href="pages/signIn.html">Log
+                        In</a></button>
+                <button class="text-white px-4 py-2 rounded-xl text-sm font-medium hover:opacity-90 transition-colors"
+                    style="background-color: var(--color-teal)"> <a href="pages/signup.html"> Sign
+                        Up</a></button>
+            </div>
+        </div>
     </nav>
 
     <!-- end nav -->
@@ -385,6 +400,49 @@ bg-gray-200">
 
     </section>
     <!-- end courses section  -->
+
+    <footer style="background-color: var(--color-dark);">
+        <div class="container mx-auto px-4 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+                <!-- Brand -->
+                <div>
+                    <div class="w-24 h-12 bg-white mb-6" aria-hidden="true"></div>
+                    <p style="color: var(--color-gray); font-size: 0.95rem; line-height: 1.7;">
+                        Empowering learners worldwide with quality education. Access thousands of courses and learn at
+                        your own pace.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-plus font-bold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:opacity-80" style="color: var(--color-gray);">All Courses</a></li>
+                        <li><a href="#" class="hover:opacity-80" style="color: var(--color-gray);">Become a Student</a>
+                        </li>
+                        <li><a href="#" class="hover:opacity-80" style="color: var(--color-gray);">Teach on LearnHub</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h4 class="font-plus font-bold text-white mb-4">Support</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:opacity-80" style="color: var(--color-gray);">Help Center</a></li>
+                        <li><a href="#" class="hover:opacity-80" style="color: var(--color-gray);">Contact Us</a></li>
+                        <li><a href="#" class="hover:opacity-80" style="color: var(--color-gray);">Privacy Policy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                style="border-top:1px solid; border-color: var(--color-light-gray); padding-top:2rem; text-align:center;">
+                <p style="color: var(--color-gray); font-size:0.95rem;">© 2024 LearnHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>

@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LearnHub | Sign In</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* كلاس مخصص لتأثير الضغط على الدور */
+        .role-active {
+            border-color: #14b8a6 !important;
+            background-color: #f0fdfa !important;
+            ring: 2px;
+            ring-color: #14b8a6;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex bg-white">
+
+    <div class="hidden lg:flex w-1/2 relative">
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=80"
+            alt="Learning" class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-teal-600/85 flex items-center justify-center px-16">
+            <div class="text-white text-center">
+                <h1 class="text-4xl font-bold mb-4">Welcome Back 👋</h1>
+                <p class="text-lg opacity-90 max-w-md leading-relaxed">
+                    Sign in to continue your learning journey with LearnHub.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-full lg:w-1/2 flex items-center justify-center p-8">
+        <div class="w-full max-w-md">
+
+            <div class="flex items-center gap-2 mb-10">
+                <div class="bg-teal-500 p-2 rounded-lg shadow-sm">
+                    <i data-lucide="book-open" class="text-white w-6 h-6"></i>
+                </div>
+                <span class="text-2xl font-bold tracking-tight text-slate-900">
+                    Learn<span class="text-teal-600">Hub</span>
+                </span>
+            </div>
+
+            <h2 class="text-2xl font-bold text-slate-900">Welcome back!</h2>
+            <p class="text-slate-500 mb-8 mt-1">Sign in to continue your learning journey</p>
+
+            <label class="block text-sm font-semibold text-slate-700 mb-3">I am</label>
+            <div class="grid grid-cols-3 gap-3 mb-8" id="roleButtons">
+                <a href="student-dashboard.html" type="button" data-role="student"
+                    class="flex flex-col items-center justify-center border border-slate-200 rounded-xl py-4 transition-all hover:bg-slate-50 bg-slate-50/50">
+
+                    <span class="text-2xl mb-1">👨‍🎓</span>
+                    <span class="text-xs font-bold text-slate-600 uppercase tracking-wider">Student</span>
+
+                </a>
+                <a href="./parent.html" type="button" data-role="parent"
+                    class="flex flex-col items-center justify-center border border-slate-200 rounded-xl py-4 transition-all hover:bg-slate-50 bg-slate-50/50">
+                    <span class="text-2xl mb-1">👨‍👩‍👧</span>
+                    <span class="text-xs font-bold text-slate-600 uppercase tracking-wider">Parent</span>
+                </a>
+                <a href="teacher-dashboard.html" type="button" data-role="teacher"
+                    class="flex flex-col items-center justify-center border border-slate-200 rounded-xl py-4 transition-all hover:bg-slate-50 bg-slate-50/50">
+                    <span class="text-2xl mb-1">👩‍🏫</span>
+                    <span class="text-xs font-bold text-slate-600 uppercase tracking-wider">Teacher</span>
+                </a>
+            </div>
+
+            <form class="space-y-5">
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1.5">Email Address</label>
+                    <div class="relative group">
+                        <span
+                            class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400 group-focus-within:text-teal-500 transition-colors">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        </span>
+                        <input type="email" placeholder="you@example.com"
+                            class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all text-sm" />
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1.5">Password</label>
+                    <div class="relative group">
+                        <span
+                            class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400 group-focus-within:text-teal-500 transition-colors">
+                            <i data-lucide="lock" class="w-5 h-5"></i>
+                        </span>
+                        <input type="password" placeholder="••••••••"
+                            class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all text-sm" />
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between text-sm">
+                    <label class="flex items-center gap-2 cursor-pointer group">
+                        <input type="checkbox"
+                            class="w-4 h-4 rounded border-slate-300 text-teal-600 focus:ring-teal-500 accent-teal-500" />
+                        <span class="text-slate-600 group-hover:text-slate-800 transition-colors font-medium">Remember
+                            me</span>
+                    </label>
+                    <a href="#" class="text-teal-600 font-semibold hover:text-teal-700 hover:underline">Forgot
+                        password?</a>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-teal-500 hover:bg-teal-600 text-white py-3.5 rounded-xl font-bold text-sm transition-all transform active:scale-[0.98] shadow-md shadow-teal-500/20 mt-2">
+                    Sign In →
+                </button>
+            </form>
+
+            <p class="text-center text-sm text-slate-500 mt-8">
+                Don’t have an account?
+                <a href="signup.html" class="text-teal-600 font-bold hover:underline">Create one now</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // تفعيل الأيقونات
+        lucide.createIcons();
+
+        // منطق اختيار الأدوار
+        const roleButtons = document.querySelectorAll("#roleButtons button");
+        roleButtons.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                roleButtons.forEach((b) => b.classList.remove("role-active", "ring-2", "ring-teal-500/50"));
+                btn.classList.add("role-active", "ring-2", "ring-teal-500/50");
+            });
+        });
+    </script>
+
+</body>
+
+</html>
