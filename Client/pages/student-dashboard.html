@@ -1,980 +1,695 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Student Dashboard</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../css/style.css" />
-    <style>
-      .modal {
-        display: none;
-      }
-      .modal.active {
-        display: flex;
-      }
-    </style>
-  </head>
 
-  <body class="bg-gray-50 min-h-screen">
-    <!-- Main Content -->
-    <main class="container mx-auto px-4 py-8">
-      <!-- Welcome Section -->
-      <div
-        class="flex flex-col gap-4 md:flex-row md:justify-between md:items-center mb-8"
-      >
-        <div class="space-y-2.5">
-          <h1
-            class="font-['Plus_Jakarta_Sans'] font-bold text-3xl text-gray-900 leading-9"
-          >
-            Welcome back, ashrakatalkholy! 👋
-          </h1>
-          <p
-            class="font-['Inter'] font-normal text-base text-gray-600 leading-6"
-          >
-            Continue your learning journey where you left off.
-          </p>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .modal {
+      display: none;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 min-h-screen">
+  <nav class="bg-[var(--color-white)] shadow-md">
+    <div class="px-4 h-16 w-90% bg-contain mx-auto flex justify-between content-center items-center">
+      <div class=" overflow-hidden">
+        <img class="w-40 h-44 object-cover aspect-video relative"
+          src="./assets/images/learnhub-logo-clean-removebg-preview.png" alt="Logo">
       </div>
-
-      <!-- Student Widgets -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <!-- Widget 1 -->
-        <div
-          class="bg-white rounded-xl p-5 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06)]"
-        >
-          <div
-            class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center mb-3"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="h-5 w-5 text-white"
-            >
-              <path d="M12 7v14"></path>
-              <path
-                d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 0-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"
-              ></path>
-            </svg>
-          </div>
-          <p
-            class="font-['Plus_Jakarta_Sans'] font-bold text-3xl text-gray-900 leading-9"
-          >
-            2
-          </p>
-          <p
-            class="font-['Inter'] font-normal text-base text-gray-600 leading-6"
-          >
-            Enrolled Courses
-          </p>
-        </div>
-
-        <!-- Widget 2 -->
-        <div
-          class="bg-white rounded-xl p-5 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06)]"
-        >
-          <div
-            class="w-10 h-10 bg-teal-500 rounded-lg flex items-center justify-center mb-3"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="h-5 w-5 text-white"
-            >
-              <polygon points="6 3 20 12 6 21 6 3"></polygon>
-            </svg>
-          </div>
-          <p
-            class="font-['Plus_Jakarta_Sans'] font-bold text-3xl text-gray-900 leading-9"
-          >
-            24
-          </p>
-          <p
-            class="font-['Inter'] font-normal text-base text-gray-600 leading-6"
-          >
-            Lessons Completed
-          </p>
-        </div>
-
-        <!-- Widget 3 -->
-        <div
-          class="bg-white rounded-xl p-5 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06)]"
-        >
-          <div
-            class="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center mb-3"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="h-5 w-5 text-white"
-            >
-              <circle cx="12" cy="12" r="10"></circle>
-              <polyline points="12 6 12 12 16 14"></polyline>
-            </svg>
-          </div>
-          <p
-            class="font-['Plus_Jakarta_Sans'] font-bold text-3xl text-gray-900 leading-9"
-          >
-            18.5
-          </p>
-          <p
-            class="font-['Inter'] font-normal text-base text-gray-600 leading-6"
-          >
-            Hours Learned
-          </p>
-        </div>
-
-        <!-- Widget 4 -->
-        <div
-          class="bg-white rounded-xl p-5 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06)]"
-        >
-          <div
-            class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center mb-3"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="h-5 w-5 text-white"
-            >
-              <path
-                d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
-              ></path>
-              <polyline points="14 2 14 8 20 8"></polyline>
-            </svg>
-          </div>
-          <p
-            class="font-['Plus_Jakarta_Sans'] font-bold text-3xl text-gray-900 leading-9"
-          >
-            3
-          </p>
-          <p
-            class="font-['Inter'] font-normal text-base text-gray-600 leading-6"
-          >
-            Assignments
-          </p>
-        </div>
+      <div class="hidden md:flex gap-6 text-md font-semibold text-center">
+        <a href="#" class="transition-colors text-foreground">Courses</a>
       </div>
-
-      <!-- Main Content Grid with Sidebar -->
-      <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
-        <!-- Sidebar -->
-        <div class="lg:col-span-1">
-          <div
-            class="bg-white rounded-xl p-4 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06)]"
-          >
-            <nav class="space-y-2">
-              <button
-                onclick="showCourses()"
-                id="coursesTab"
-                class="w-full flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                  />
-                </svg>
-                <span class="font-['Inter'] font-medium">My Courses</span>
-              </button>
-              <button
-                onclick="showAssignments()"
-                id="assignmentsTab"
-                class="w-full flex items-center gap-3 px-4 py-3 bg-teal-600 text-white rounded-lg transition-colors"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                  />
-                </svg>
-                <span class="font-['Inter'] font-medium">Assignments</span>
-              </button>
-            </nav>
-          </div>
-        </div>
-
-        <!-- Main Content Area -->
-        <div class="lg:col-span-3">
-          <!-- Courses View -->
-          <div id="coursesView" class="hidden">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              <!-- Current Courses Card -->
-              <div
-                class="lg:col-span-2 bg-white rounded-xl p-6 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06)]"
-              >
-                <div class="flex items-center justify-between mb-6">
-                  <h2
-                    class="font-['Plus_Jakarta_Sans'] font-semibold text-xl text-gray-900"
-                  >
-                    Current Courses
-                  </h2>
-                  <a href="/courses">
-                    <button
-                      class="flex items-center gap-1 text-sm font-medium text-gray-900 hover:text-teal-600 transition-colors"
-                    >
-                      View All
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-4 w-4"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="m9 18 6-6-6-6"></path>
-                      </svg>
-                    </button>
-                  </a>
-                </div>
-
-                <!-- Course List -->
-                <div class="space-y-6">
-                  <!-- Course 1 -->
-                  <div class="flex items-start gap-4">
-                    <div class="flex-shrink-0">
-                      <div
-                        class="w-40 h-24 bg-gray-200 rounded-lg overflow-hidden"
-                      >
-                        <img
-                          src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=240&fit=crop"
-                          alt="Web Development"
-                          class="w-full h-full object-cover"
-                        />
-                      </div>
-                    </div>
-
-                    <div class="flex-1 min-w-0">
-                      <div class="mb-3">
-                        <h3
-                          class="font-['Plus_Jakarta_Sans'] font-semibold text-lg text-gray-900 mb-1"
-                        >
-                          Complete Web Development Bootcamp
-                        </h3>
-                        <p class="text-gray-500 text-sm">Dr. Angela Yu</p>
-                      </div>
-
-                      <div class="flex items-center gap-4">
-                        <div class="flex-1">
-                          <div
-                            class="h-2 bg-gray-200 rounded-full overflow-hidden"
-                          >
-                            <div
-                              class="h-full bg-teal-600 rounded-full transition-all"
-                              style="width: 35%"
-                            ></div>
-                          </div>
-                        </div>
-                        <span
-                          class="font-['Plus_Jakarta_Sans'] font-bold text-xl text-gray-900 w-12 text-right"
-                          >35%</span
-                        >
-                        <button
-                          class="flex-shrink-0 w-10 h-10 bg-teal-600 rounded-full flex items-center justify-center hover:bg-teal-700 transition-colors"
-                          onclick="window.location.href = 'coursecontent.html'"
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="h-5 w-5 text-white ml-0.5"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path d="M8 5v14l11-7z" />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="border-t border-gray-100"></div>
-
-                  <!-- Course 2 -->
-                  <div class="flex items-start gap-4">
-                    <div class="flex-shrink-0">
-                      <div
-                        class="w-40 h-24 bg-gray-200 rounded-lg overflow-hidden"
-                      >
-                        <img
-                          src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=240&fit=crop"
-                          alt="UI/UX Design"
-                          class="w-full h-full object-cover"
-                        />
-                      </div>
-                    </div>
-
-                    <div class="flex-1 min-w-0">
-                      <div class="mb-3">
-                        <h3
-                          class="font-['Plus_Jakarta_Sans'] font-semibold text-lg text-gray-900 mb-1"
-                        >
-                          UI/UX Design Masterclass
-                        </h3>
-                        <p class="text-gray-500 text-sm">Daniel Scott</p>
-                      </div>
-
-                      <div class="flex items-center gap-4">
-                        <div class="flex-1">
-                          <div
-                            class="h-2 bg-gray-200 rounded-full overflow-hidden"
-                          >
-                            <div
-                              class="h-full bg-teal-600 rounded-full transition-all"
-                              style="width: 72%"
-                            ></div>
-                          </div>
-                        </div>
-                        <span
-                          class="font-['Plus_Jakarta_Sans'] font-bold text-xl text-gray-900 w-12 text-right"
-                          >72%</span
-                        >
-                        <button
-                          class="flex-shrink-0 w-10 h-10 bg-teal-600 rounded-full flex items-center justify-center hover:bg-teal-700 transition-colors"
-                          onclick="window.location.href = 'coursecontent.html'"
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="h-5 w-5 text-white ml-0.5"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path d="M8 5v14l11-7z" />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Saved Videos Card -->
-              <div
-                class="bg-white rounded-xl p-6 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06)]"
-              >
-                <div class="flex items-center justify-between mb-6">
-                  <h2
-                    class="font-['Plus_Jakarta_Sans'] font-semibold text-xl text-gray-900"
-                  >
-                    Saved Videos
-                  </h2>
-                  <button
-                    class="flex items-center justify-center p-2 rounded-lg text-gray-600 hover:text-teal-600 hover:bg-gray-100 transition-colors duration-200"
-                    onclick="window.location.href = 'coursecontent.html'"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
-                      />
-                    </svg>
-                  </button>
-                </div>
-
-                <!-- Video List -->
-                <div class="space-y-5">
-                  <!-- Video 1 -->
-                  <div>
-                    <div class="flex items-start gap-3">
-                      <button
-                        onclick="window.location.href = 'coursecontent.html'"
-                        class="flex-shrink-0 w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors mt-0.5"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="h-4 w-4 text-gray-700 ml-0.5"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M8 5v14l11-7z" />
-                        </svg>
-                      </button>
-                      <div class="flex-1 min-w-0">
-                        <h4
-                          class="font-['Plus_Jakarta_Sans'] font-medium text-gray-900 mb-1"
-                        >
-                          Introduction to Web Development
-                        </h4>
-                        <p class="text-gray-500 text-sm">
-                          Complete Web Development Bootcamp
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Video 2 -->
-                  <div>
-                    <div class="flex items-start gap-3">
-                      <button
-                        onclick="window.location.href = 'coursecontent.html'"
-                        class="flex-shrink-0 w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors mt-0.5"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="h-4 w-4 text-gray-700 ml-0.5"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M8 5v14l11-7z" />
-                        </svg>
-                      </button>
-                      <div class="flex-1 min-w-0">
-                        <h4
-                          class="font-['Plus_Jakarta_Sans'] font-medium text-gray-900 mb-1"
-                        >
-                          HTML Basics
-                        </h4>
-                        <p class="text-gray-500 text-sm">
-                          Complete Web Development Bootcamp
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Video 3 -->
-                  <div>
-                    <div class="flex items-start gap-3">
-                      <button
-                        onclick="window.location.href = 'coursecontent.html'"
-                        class="flex-shrink-0 w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors mt-0.5"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="h-4 w-4 text-gray-700 ml-0.5"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M8 5v14l11-7z" />
-                        </svg>
-                      </button>
-                      <div class="flex-1 min-w-0">
-                        <h4
-                          class="font-['Plus_Jakarta_Sans'] font-medium text-gray-900 mb-1"
-                        >
-                          Introduction to Design
-                        </h4>
-                        <p class="text-gray-500 text-sm">
-                          UI/UX Design Masterclass
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Assignments View -->
-          <div
-            id="assignmentsView"
-            class="grid grid-cols-1 lg:grid-cols-2 gap-6"
-          >
-            <!-- Assignment Card 1 - Pending -->
-            <div
-              class="bg-white rounded-xl p-6 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06)]"
-            >
-              <div class="flex items-start justify-between mb-4">
-                <div class="flex items-start gap-3">
-                  <div
-                    class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5 text-blue-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3
-                      class="font-['Plus_Jakarta_Sans'] font-semibold text-lg text-gray-900 mb-1"
-                    >
-                      HTML & CSS Portfolio Project
-                    </h3>
-                    <p class="text-gray-600 text-sm">
-                      Complete Web Development Bootcamp
-                    </p>
-                  </div>
-                </div>
-                <span
-                  class="inline-flex items-center gap-1 px-3 py-1 bg-yellow-100 text-yellow-700 text-sm font-medium rounded-full"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                  Pending
-                </span>
-              </div>
-
-              <p class="text-gray-600 mb-4 text-sm">
-                Create a personal portfolio website using HTML and CSS. Include
-                at least 3 pages with navigation, images, and responsive design.
-              </p>
-
-              <div class="flex items-center justify-between mb-4 text-sm">
-                <div>
-                  <span class="text-gray-600">Due: </span>
-                  <span class="text-red-600 font-medium">2024-02-15</span>
-                </div>
-                <div>
-                  <span class="text-gray-600">By: </span>
-                  <span class="text-gray-900 font-medium">Dr. Angela Yu</span>
-                </div>
-              </div>
-
-              <div class="flex gap-3">
-                <button
-                  class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors text-sm"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                    />
-                  </svg>
-                  Download PDF
-                </button>
-                <button
-                  onclick="openSubmitModal()"
-                  class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-teal-600 text-white font-medium rounded-lg hover:bg-teal-700 transition-colors text-sm"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
-                    />
-                  </svg>
-                  Submit Answer
-                </button>
-              </div>
-            </div>
-
-            <!-- Assignment Card 2 - Submitted -->
-            <div
-              class="bg-white rounded-xl p-6 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06)]"
-            >
-              <div class="flex items-start justify-between mb-4">
-                <div class="flex items-start gap-3">
-                  <div
-                    class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5 text-blue-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3
-                      class="font-['Plus_Jakarta_Sans'] font-semibold text-lg text-gray-900 mb-1"
-                    >
-                      JavaScript Functions Exercise
-                    </h3>
-                    <p class="text-gray-600 text-sm">
-                      Complete Web Development Bootcamp
-                    </p>
-                  </div>
-                </div>
-                <span
-                  class="inline-flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-700 text-sm font-medium rounded-full"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                  Submitted
-                </span>
-              </div>
-
-              <p class="text-gray-600 mb-4 text-sm">
-                Complete the JavaScript exercises focusing on functions, scope,
-                and closures.
-              </p>
-
-              <div class="flex items-center justify-between mb-4 text-sm">
-                <div>
-                  <span class="text-gray-600">Due: </span>
-                  <span class="text-gray-900 font-medium">2024-02-20</span>
-                </div>
-                <div>
-                  <span class="text-gray-600">By: </span>
-                  <span class="text-gray-900 font-medium">Dr. Angela Yu</span>
-                </div>
-              </div>
-
-              <div class="flex gap-3">
-                <button
-                  class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors text-sm"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                    />
-                  </svg>
-                  Download PDF
-                </button>
-              </div>
-            </div>
-
-            <!-- Assignment Card 3 - Graded -->
-            <div
-              class="bg-white rounded-xl p-6 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06)]"
-            >
-              <div class="flex items-start justify-between mb-4">
-                <div class="flex items-start gap-3">
-                  <div
-                    class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5 text-blue-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3
-                      class="font-['Plus_Jakarta_Sans'] font-semibold text-lg text-gray-900 mb-1"
-                    >
-                      Wireframe Design Assignment
-                    </h3>
-                    <p class="text-gray-600 text-sm">
-                      UI/UX Design Masterclass
-                    </p>
-                  </div>
-                </div>
-                <span
-                  class="inline-flex items-center gap-1 px-3 py-1 bg-green-100 text-green-700 text-sm font-medium rounded-full"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                  Graded: 92%
-                </span>
-              </div>
-
-              <p class="text-gray-600 mb-4 text-sm">
-                Design wireframes for a mobile app using Figma. Include at least
-                5 screens with user flow.
-              </p>
-
-              <div class="flex items-center justify-between mb-4 text-sm">
-                <div>
-                  <span class="text-gray-600">Submitted: </span>
-                  <span class="text-gray-900 font-medium">2024-02-10</span>
-                </div>
-                <div>
-                  <span class="text-gray-600">By: </span>
-                  <span class="text-gray-900 font-medium">Daniel Scott</span>
-                </div>
-              </div>
-
-              <div class="flex gap-3">
-                <button
-                  class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors text-sm"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                    />
-                  </svg>
-                  View Feedback
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="flex gap-4">
+        <button class="text-black rounded-md p-2 text-sm hover:bg-orange hover:text-white transition-colors font-light">
+          <a href="pages/signIn.html">Log
+            In</a></button>
+        <button class="text-white px-4 py-2 rounded-xl text-sm font-medium hover:opacity-90 transition-colors"
+          style="background-color: var(--color-teal)"> <a href="pages/signup.html"> Sign
+            Up</a></button>
       </div>
-    </main>
+    </div>
+  </nav>
 
-    <!-- Submit Assignment Modal -->
-    <div
-      id="submitModal"
-      class="modal fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50"
-    >
-      <div class="bg-white rounded-2xl p-6 max-w-md w-full mx-4">
-        <div class="flex items-center justify-between mb-6">
-          <h3
-            class="font-['Plus_Jakarta_Sans'] font-semibold text-xl text-gray-900"
-          >
-            Submit: HTML & CSS Portfolio Project
-          </h3>
-          <button
-            onclick="closeSubmitModal()"
-            class="text-gray-400 hover:text-gray-600 transition-colors"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
-        </div>
-
-        <div class="mb-6">
-          <label class="block font-['Inter'] font-medium text-gray-700 mb-3"
-            >Your Answer (PDF)</label
-          >
-          <div
-            class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-teal-500 transition-colors cursor-pointer"
-          >
-            <div class="flex flex-col items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-12 w-12 text-gray-400 mb-3"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
-                />
-              </svg>
-              <p class="text-gray-600 mb-1">Drag and drop or click to upload</p>
-              <p class="text-gray-400 text-sm">PDF files only</p>
-            </div>
-            <input type="file" accept=".pdf" class="hidden" id="fileInput" />
-          </div>
-          <button
-            onclick="document.getElementById('fileInput').click()"
-            class="mt-3 w-full px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
-          >
-            Browse Files
-          </button>
-        </div>
-
-        <div class="flex gap-3">
-          <button
-            onclick="closeSubmitModal()"
-            class="flex-1 px-4 py-2.5 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
-          >
-            Cancel
-          </button>
-          <button
-            class="flex-1 px-4 py-2.5 bg-teal-600 text-white font-medium rounded-lg hover:bg-teal-700 transition-colors"
-          >
-            Submit
-          </button>
-        </div>
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-8">
+    <!-- Welcome Section -->
+    <div class="flex flex-col gap-4 md:flex-row md:justify-between md:items-center mb-8">
+      <div class="space-y-2.5">
+        <h1 class="font-['Plus_Jakarta_Sans'] font-bold text-3xl text-gray-900 leading-9">
+          Welcome back, ashrakatalkholy! 👋
+        </h1>
+        <p class="font-['Inter'] font-normal text-base text-gray-600 leading-6">
+          Continue your learning journey where you left off.
+        </p>
       </div>
     </div>
 
-    <script>
-      // Tab switching functionality
-      function showCourses() {
-        document.getElementById("coursesView").classList.remove("hidden");
-        document.getElementById("assignmentsView").classList.add("hidden");
+    <!-- Student Widgets -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+      <!-- Widget 1 -->
+      <div class="bg-white rounded-xl p-5 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06)]">
+        <div class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="h-5 w-5 text-white">
+            <path d="M12 7v14"></path>
+            <path
+              d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 0-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z">
+            </path>
+          </svg>
+        </div>
+        <p class="font-['Plus_Jakarta_Sans'] font-bold text-3xl text-gray-900 leading-9">
+          2
+        </p>
+        <p class="font-['Inter'] font-normal text-base text-gray-600 leading-6">
+          Enrolled Courses
+        </p>
+      </div>
 
-        // Update active tab styling
-        document
-          .getElementById("coursesTab")
-          .classList.remove("text-gray-700", "hover:bg-gray-100");
-        document
-          .getElementById("coursesTab")
-          .classList.add("bg-teal-600", "text-white");
-        document
-          .getElementById("assignmentsTab")
-          .classList.remove("bg-teal-600", "text-white");
-        document
-          .getElementById("assignmentsTab")
-          .classList.add("text-gray-700", "hover:bg-gray-100");
-      }
+      <!-- Widget 2 -->
+      <div class="bg-white rounded-xl p-5 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06)]">
+        <div class="w-10 h-10 bg-teal-500 rounded-lg flex items-center justify-center mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="h-5 w-5 text-white">
+            <polygon points="6 3 20 12 6 21 6 3"></polygon>
+          </svg>
+        </div>
+        <p class="font-['Plus_Jakarta_Sans'] font-bold text-3xl text-gray-900 leading-9">
+          24
+        </p>
+        <p class="font-['Inter'] font-normal text-base text-gray-600 leading-6">
+          Lessons Completed
+        </p>
+      </div>
 
-      function showAssignments() {
-        document.getElementById("coursesView").classList.add("hidden");
-        document.getElementById("assignmentsView").classList.remove("hidden");
+      <!-- Widget 3 -->
+      <div class="bg-white rounded-xl p-5 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06)]">
+        <div class="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="h-5 w-5 text-white">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <p class="font-['Plus_Jakarta_Sans'] font-bold text-3xl text-gray-900 leading-9">
+          18.5
+        </p>
+        <p class="font-['Inter'] font-normal text-base text-gray-600 leading-6">
+          Hours Learned
+        </p>
+      </div>
 
-        // Update active tab styling
-        document
-          .getElementById("assignmentsTab")
-          .classList.remove("text-gray-700", "hover:bg-gray-100");
-        document
-          .getElementById("assignmentsTab")
-          .classList.add("bg-teal-600", "text-white");
-        document
-          .getElementById("coursesTab")
-          .classList.remove("bg-teal-600", "text-white");
-        document
-          .getElementById("coursesTab")
-          .classList.add("text-gray-700", "hover:bg-gray-100");
-      }
+      <!-- Widget 4 -->
+      <div class="bg-white rounded-xl p-5 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06)]">
+        <div class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="h-5 w-5 text-white">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+        </div>
+        <p class="font-['Plus_Jakarta_Sans'] font-bold text-3xl text-gray-900 leading-9">
+          3
+        </p>
+        <p class="font-['Inter'] font-normal text-base text-gray-600 leading-6">
+          Assignments
+        </p>
+      </div>
+    </div>
 
-      // Modal functionality
-      function openSubmitModal() {
-        document.getElementById("submitModal").classList.add("active");
-      }
+    <!-- Main Content Grid with Sidebar -->
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+      <!-- Sidebar -->
+      <div class="lg:col-span-1">
+        <div class="bg-white rounded-xl p-4 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06)]">
+          <nav class="space-y-2">
+            <button onclick="showCourses()" id="coursesTab"
+              class="w-full flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+              <span class="font-['Inter'] font-medium">My Courses</span>
+            </button>
+            <button onclick="showAssignments()" id="assignmentsTab"
+              class="w-full flex items-center gap-3 px-4 py-3 bg-teal-600 text-white rounded-lg transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <span class="font-['Inter'] font-medium">Assignments</span>
+            </button>
+          </nav>
+        </div>
+      </div>
 
-      function closeSubmitModal() {
-        document.getElementById("submitModal").classList.remove("active");
-      }
+      <!-- Main Content Area -->
+      <div class="lg:col-span-3">
+        <!-- Courses View -->
+        <div id="coursesView" class="hidden">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Current Courses Card -->
+            <div
+              class="lg:col-span-2 bg-white rounded-xl p-6 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06)]">
+              <div class="flex items-center justify-between mb-6">
+                <h2 class="font-['Plus_Jakarta_Sans'] font-semibold text-xl text-gray-900">
+                  Current Courses
+                </h2>
+                <a href="/courses">
+                  <button
+                    class="flex items-center gap-1 text-sm font-medium text-gray-900 hover:text-teal-600 transition-colors">
+                    View All
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" stroke="currentColor"
+                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                      <path d="m9 18 6-6-6-6"></path>
+                    </svg>
+                  </button>
+                </a>
+              </div>
 
-      // Initialize with assignments view (as shown in the images)
-      showAssignments();
-    </script>
-  </body>
+              <!-- Course List -->
+              <div class="space-y-6">
+                <!-- Course 1 -->
+                <div class="flex items-start gap-4">
+                  <div class="flex-shrink-0">
+                    <div class="w-40 h-24 bg-gray-200 rounded-lg overflow-hidden">
+                      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=240&fit=crop"
+                        alt="Web Development" class="w-full h-full object-cover" />
+                    </div>
+                  </div>
+
+                  <div class="flex-1 min-w-0">
+                    <div class="mb-3">
+                      <h3 class="font-['Plus_Jakarta_Sans'] font-semibold text-lg text-gray-900 mb-1">
+                        Complete Web Development Bootcamp
+                      </h3>
+                      <p class="text-gray-500 text-sm">Dr. Angela Yu</p>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                      <div class="flex-1">
+                        <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                          <div class="h-full bg-teal-600 rounded-full transition-all" style="width: 35%"></div>
+                        </div>
+                      </div>
+                      <span
+                        class="font-['Plus_Jakarta_Sans'] font-bold text-xl text-gray-900 w-12 text-right">35%</span>
+                      <button
+                        class="flex-shrink-0 w-10 h-10 bg-teal-600 rounded-full flex items-center justify-center hover:bg-teal-700 transition-colors"
+                        onclick="window.location.href = 'coursecontent.html'">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white ml-0.5" fill="currentColor"
+                          viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="border-t border-gray-100"></div>
+
+                <!-- Course 2 -->
+                <div class="flex items-start gap-4">
+                  <div class="flex-shrink-0">
+                    <div class="w-40 h-24 bg-gray-200 rounded-lg overflow-hidden">
+                      <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=240&fit=crop"
+                        alt="UI/UX Design" class="w-full h-full object-cover" />
+                    </div>
+                  </div>
+
+                  <div class="flex-1 min-w-0">
+                    <div class="mb-3">
+                      <h3 class="font-['Plus_Jakarta_Sans'] font-semibold text-lg text-gray-900 mb-1">
+                        UI/UX Design Masterclass
+                      </h3>
+                      <p class="text-gray-500 text-sm">Daniel Scott</p>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                      <div class="flex-1">
+                        <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                          <div class="h-full bg-teal-600 rounded-full transition-all" style="width: 72%"></div>
+                        </div>
+                      </div>
+                      <span
+                        class="font-['Plus_Jakarta_Sans'] font-bold text-xl text-gray-900 w-12 text-right">72%</span>
+                      <button
+                        class="flex-shrink-0 w-10 h-10 bg-teal-600 rounded-full flex items-center justify-center hover:bg-teal-700 transition-colors"
+                        onclick="window.location.href = 'coursecontent.html'">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white ml-0.5" fill="currentColor"
+                          viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Saved Videos Card -->
+            <div
+              class="bg-white rounded-xl p-6 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06)]">
+              <div class="flex items-center justify-between mb-6">
+                <h2 class="font-['Plus_Jakarta_Sans'] font-semibold text-xl text-gray-900">
+                  Saved Videos
+                </h2>
+                <button
+                  class="flex items-center justify-center p-2 rounded-lg text-gray-600 hover:text-teal-600 hover:bg-gray-100 transition-colors duration-200"
+                  onclick="window.location.href = 'coursecontent.html'">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Video List -->
+              <div class="space-y-5">
+                <!-- Video 1 -->
+                <div>
+                  <div class="flex items-start gap-3">
+                    <button onclick="window.location.href = 'coursecontent.html'"
+                      class="flex-shrink-0 w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors mt-0.5">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-700 ml-0.5" fill="currentColor"
+                        viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </button>
+                    <div class="flex-1 min-w-0">
+                      <h4 class="font-['Plus_Jakarta_Sans'] font-medium text-gray-900 mb-1">
+                        Introduction to Web Development
+                      </h4>
+                      <p class="text-gray-500 text-sm">
+                        Complete Web Development Bootcamp
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Video 2 -->
+                <div>
+                  <div class="flex items-start gap-3">
+                    <button onclick="window.location.href = 'coursecontent.html'"
+                      class="flex-shrink-0 w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors mt-0.5">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-700 ml-0.5" fill="currentColor"
+                        viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </button>
+                    <div class="flex-1 min-w-0">
+                      <h4 class="font-['Plus_Jakarta_Sans'] font-medium text-gray-900 mb-1">
+                        HTML Basics
+                      </h4>
+                      <p class="text-gray-500 text-sm">
+                        Complete Web Development Bootcamp
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Video 3 -->
+                <div>
+                  <div class="flex items-start gap-3">
+                    <button onclick="window.location.href = 'coursecontent.html'"
+                      class="flex-shrink-0 w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors mt-0.5">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-700 ml-0.5" fill="currentColor"
+                        viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </button>
+                    <div class="flex-1 min-w-0">
+                      <h4 class="font-['Plus_Jakarta_Sans'] font-medium text-gray-900 mb-1">
+                        Introduction to Design
+                      </h4>
+                      <p class="text-gray-500 text-sm">
+                        UI/UX Design Masterclass
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Assignments View -->
+        <div id="assignmentsView" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- Assignment Card 1 - Pending -->
+          <div class="bg-white rounded-xl p-6 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06)]">
+            <div class="flex items-start justify-between mb-4">
+              <div class="flex items-start gap-3">
+                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-['Plus_Jakarta_Sans'] font-semibold text-lg text-gray-900 mb-1">
+                    HTML & CSS Portfolio Project
+                  </h3>
+                  <p class="text-gray-600 text-sm">
+                    Complete Web Development Bootcamp
+                  </p>
+                </div>
+              </div>
+              <span
+                class="inline-flex items-center gap-1 px-3 py-1 bg-yellow-100 text-yellow-700 text-sm font-medium rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Pending
+              </span>
+            </div>
+
+            <p class="text-gray-600 mb-4 text-sm">
+              Create a personal portfolio website using HTML and CSS. Include
+              at least 3 pages with navigation, images, and responsive design.
+            </p>
+
+            <div class="flex items-center justify-between mb-4 text-sm">
+              <div>
+                <span class="text-gray-600">Due: </span>
+                <span class="text-red-600 font-medium">2024-02-15</span>
+              </div>
+              <div>
+                <span class="text-gray-600">By: </span>
+                <span class="text-gray-900 font-medium">Dr. Angela Yu</span>
+              </div>
+            </div>
+
+            <div class="flex gap-3">
+              <button
+                class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Download PDF
+              </button>
+              <button onclick="openSubmitModal()"
+                class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-teal-600 text-white font-medium rounded-lg hover:bg-teal-700 transition-colors text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                </svg>
+                Submit Answer
+              </button>
+            </div>
+          </div>
+
+          <!-- Assignment Card 2 - Submitted -->
+          <div class="bg-white rounded-xl p-6 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06)]">
+            <div class="flex items-start justify-between mb-4">
+              <div class="flex items-start gap-3">
+                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-['Plus_Jakarta_Sans'] font-semibold text-lg text-gray-900 mb-1">
+                    JavaScript Functions Exercise
+                  </h3>
+                  <p class="text-gray-600 text-sm">
+                    Complete Web Development Bootcamp
+                  </p>
+                </div>
+              </div>
+              <span
+                class="inline-flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-700 text-sm font-medium rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Submitted
+              </span>
+            </div>
+
+            <p class="text-gray-600 mb-4 text-sm">
+              Complete the JavaScript exercises focusing on functions, scope,
+              and closures.
+            </p>
+
+            <div class="flex items-center justify-between mb-4 text-sm">
+              <div>
+                <span class="text-gray-600">Due: </span>
+                <span class="text-gray-900 font-medium">2024-02-20</span>
+              </div>
+              <div>
+                <span class="text-gray-600">By: </span>
+                <span class="text-gray-900 font-medium">Dr. Angela Yu</span>
+              </div>
+            </div>
+
+            <div class="flex gap-3">
+              <button
+                class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Download PDF
+              </button>
+            </div>
+          </div>
+
+          <!-- Assignment Card 3 - Graded -->
+          <div class="bg-white rounded-xl p-6 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06)]">
+            <div class="flex items-start justify-between mb-4">
+              <div class="flex items-start gap-3">
+                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-['Plus_Jakarta_Sans'] font-semibold text-lg text-gray-900 mb-1">
+                    Wireframe Design Assignment
+                  </h3>
+                  <p class="text-gray-600 text-sm">
+                    UI/UX Design Masterclass
+                  </p>
+                </div>
+              </div>
+              <span
+                class="inline-flex items-center gap-1 px-3 py-1 bg-green-100 text-green-700 text-sm font-medium rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Graded: 92%
+              </span>
+            </div>
+
+            <p class="text-gray-600 mb-4 text-sm">
+              Design wireframes for a mobile app using Figma. Include at least
+              5 screens with user flow.
+            </p>
+
+            <div class="flex items-center justify-between mb-4 text-sm">
+              <div>
+                <span class="text-gray-600">Submitted: </span>
+                <span class="text-gray-900 font-medium">2024-02-10</span>
+              </div>
+              <div>
+                <span class="text-gray-600">By: </span>
+                <span class="text-gray-900 font-medium">Daniel Scott</span>
+              </div>
+            </div>
+
+            <div class="flex gap-3">
+              <button
+                class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+                View Feedback
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Submit Assignment Modal -->
+  <div id="submitModal" class="modal fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50">
+    <div class="bg-white rounded-2xl p-6 max-w-md w-full mx-4">
+      <div class="flex items-center justify-between mb-6">
+        <h3 class="font-['Plus_Jakarta_Sans'] font-semibold text-xl text-gray-900">
+          Submit: HTML & CSS Portfolio Project
+        </h3>
+        <button onclick="closeSubmitModal()" class="text-gray-400 hover:text-gray-600 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="mb-6">
+        <label class="block font-['Inter'] font-medium text-gray-700 mb-3">Your Answer (PDF)</label>
+        <div
+          class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-teal-500 transition-colors cursor-pointer">
+          <div class="flex flex-col items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-400 mb-3" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+            </svg>
+            <p class="text-gray-600 mb-1">Drag and drop or click to upload</p>
+            <p class="text-gray-400 text-sm">PDF files only</p>
+          </div>
+          <input type="file" accept=".pdf" class="hidden" id="fileInput" />
+        </div>
+        <button onclick="document.getElementById('fileInput').click()"
+          class="mt-3 w-full px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors">
+          Browse Files
+        </button>
+      </div>
+
+      <div class="flex gap-3">
+        <button onclick="closeSubmitModal()"
+          class="flex-1 px-4 py-2.5 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors">
+          Cancel
+        </button>
+        <button
+          class="flex-1 px-4 py-2.5 bg-teal-600 text-white font-medium rounded-lg hover:bg-teal-700 transition-colors">
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+  <footer style="background-color: var(--color-dark);">
+    <div class="container mx-auto px-4 py-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+        <!-- Brand -->
+        <div>
+          <div class="w-24 h-12 bg-white mb-6" aria-hidden="true"></div>
+          <p style="color: var(--color-gray); font-size: 0.95rem; line-height: 1.7;">
+            Empowering learners worldwide with quality education. Access thousands of courses and learn at
+            your own pace.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="font-plus font-bold text-white mb-4">Quick Links</h4>
+          <ul class="space-y-3">
+            <li><a href="#" class="hover:opacity-80" style="color: var(--color-gray);">All Courses</a></li>
+            <li><a href="#" class="hover:opacity-80" style="color: var(--color-gray);">Become a Student</a>
+            </li>
+            <li><a href="#" class="hover:opacity-80" style="color: var(--color-gray);">Teach on LearnHub</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Support -->
+        <div>
+          <h4 class="font-plus font-bold text-white mb-4">Support</h4>
+          <ul class="space-y-3">
+            <li><a href="#" class="hover:opacity-80" style="color: var(--color-gray);">Help Center</a></li>
+            <li><a href="#" class="hover:opacity-80" style="color: var(--color-gray);">Contact Us</a></li>
+            <li><a href="#" class="hover:opacity-80" style="color: var(--color-gray);">Privacy Policy</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="border-top:1px solid; border-color: var(--color-light-gray); padding-top:2rem; text-align:center;">
+        <p style="color: var(--color-gray); font-size:0.95rem;">© 2024 LearnHub. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Tab switching functionality
+    function showCourses() {
+      document.getElementById("coursesView").classList.remove("hidden");
+      document.getElementById("assignmentsView").classList.add("hidden");
+
+      // Update active tab styling
+      document
+        .getElementById("coursesTab")
+        .classList.remove("text-gray-700", "hover:bg-gray-100");
+      document
+        .getElementById("coursesTab")
+        .classList.add("bg-teal-600", "text-white");
+      document
+        .getElementById("assignmentsTab")
+        .classList.remove("bg-teal-600", "text-white");
+      document
+        .getElementById("assignmentsTab")
+        .classList.add("text-gray-700", "hover:bg-gray-100");
+    }
+
+    function showAssignments() {
+      document.getElementById("coursesView").classList.add("hidden");
+      document.getElementById("assignmentsView").classList.remove("hidden");
+
+      // Update active tab styling
+      document
+        .getElementById("assignmentsTab")
+        .classList.remove("text-gray-700", "hover:bg-gray-100");
+      document
+        .getElementById("assignmentsTab")
+        .classList.add("bg-teal-600", "text-white");
+      document
+        .getElementById("coursesTab")
+        .classList.remove("bg-teal-600", "text-white");
+      document
+        .getElementById("coursesTab")
+        .classList.add("text-gray-700", "hover:bg-gray-100");
+    }
+
+    // Modal functionality
+    function openSubmitModal() {
+      document.getElementById("submitModal").classList.add("active");
+    }
+
+    function closeSubmitModal() {
+      document.getElementById("submitModal").classList.remove("active");
+    }
+
+    // Initialize with assignments view (as shown in the images)
+    showAssignments();
+  </script>
+</body>
+
 </html>
