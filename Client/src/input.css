@@ -1,3 +1,26 @@
+<<<<<<< HEAD
+@import "tailwindcss" {
+  --color-dark: #1f242e;
+  /* body text */
+  --color-gray: #676f7e;
+  /* cards */
+  --color-white: #ffffff;
+  /* ========= Buttons ========= */
+  --color-cream: #fcfaf8;
+  --color-light-gray: #dcdfe5;
+  --color-teal: #259d91;
+
+  --color-dark-teal: #246b6b;
+  /* ========= Accents ========= */
+  --color-green: #21c45d;
+  --color-yellow: #eab308;
+  --color-orange: #f06e42;
+
+  --color-black: #000000;
+
+  --shadow-soft: "0 4px 20px -4px hsl(220 20% 15% / 0.08)";
+}
+=======
 @import "tailwindcss";
 @theme {
   --color-dark: #1f242e;
@@ -83,6 +106,7 @@
   --shadow-soft: "0 4px 20px -4px hsl(220 20% 15% / 0.08)";
 }
 
+>>>>>>> efbd83740cff5b89e82ece5a68825afe27f5ff95
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -99,6 +123,8 @@
     font-family: "Plus Jakarta Sans", sans-serif;
   }
 }
+<<<<<<< HEAD
+=======
 
 .text-\[var\(--color-gray\)\] {
   color: #b9b9b9;
@@ -134,3 +160,4 @@
 .delay-300 {
   animation-delay: 300ms;
 }
+>>>>>>> efbd83740cff5b89e82ece5a68825afe27f5ff95
