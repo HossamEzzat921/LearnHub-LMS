@@ -22,56 +22,71 @@
     <div class="flex">
       <!-- aside bar tablet & laptop -->
       <div class="hidden md:block w-64 min-h-screen bg-teal border-r">
-        <div class="pb-12 px-5">
-          <div class="overflow-hidden flex justify-center">
-            <a href="http://127.0.0.1:5501/pages/teacher-dashboard.html">
-              <img
-                class="w-40 h-44 object-cover aspect-video"
-                src="../assets/images/ChatGPT Image Feb 14, 2026, 05_10_16 PM.png"
-                alt="Logo"
-              />
-            </a>
+        <div class="pb-12 px-5 flex flex-col justify-between h-full">
+          <div>
+            <!-- logo -->
+            <div class="overflow-hidden flex justify-center">
+              <a href="http://127.0.0.1:5501/pages/teacher-dashboard.html">
+                <img
+                  class="w-40 h-44 object-cover aspect-video"
+                  src="../assets/images/ChatGPT Image Feb 14, 2026, 05_10_16 PM.png"
+                  alt="Logo"
+                />
+              </a>
+            </div>
+
+            <!-- links -->
+            <div class="mb-4 space-y-5">
+              <div>
+                <a
+                  href="http://127.0.0.1:5501/pages/teacher-courses.html"
+                  class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-e-xl"
+                >
+                  <i class="fa-solid fa-book-open text-lg"></i>
+                  <span> My Courses</span>
+                </a>
+              </div>
+              <div>
+                <a
+                  href="http://127.0.0.1:5501/pages/teacher-assignments.html"
+                  class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-e-xl"
+                >
+                  <i class="fa-regular fa-file text-lg"></i>
+                  <span>Assignments</span>
+                </a>
+              </div>
+              <div>
+                <a
+                  href="http://127.0.0.1:5501/pages/teacher-submissions.html"
+                  class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-e-xl"
+                >
+                  <i class="fa-solid fa-upload text-lg"></i>
+                  <span> Submissions</span>
+                </a>
+              </div>
+              <div>
+                <a
+                  href="http://127.0.0.1:5501/pages/teacher-enrollments.html"
+                  class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-e-xl"
+                >
+                <i class="fas fa-user-plus w-6"></i>
+                  <span> Enrollment</span>
+                </a>
+              </div>
+            </div>
           </div>
 
-          <!-- links -->
-          <div class="mb-4 space-y-5">
-            <div>
-              <a
-                href="http://127.0.0.1:5501/pages/teacher-courses.html"
-                class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-e-xl"
-              >
-                <i class="fa-solid fa-book-open text-lg"></i>
-                <span> My Courses</span>
-              </a>
-            </div>
-            <div>
-              <a
-                href="http://127.0.0.1:5501/pages/teacher-assignments.html"
-                class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-e-xl"
-              >
-                <i class="fa-regular fa-file text-lg"></i>
-                <span>Assignments</span>
-              </a>
-            </div>
-            <div>
-              <a
-                href="http://127.0.0.1:5501/pages/teacher-submissions.html"
-                class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-e-xl"
-              >
-                <i class="fa-solid fa-upload text-lg"></i>
-                <span> Submissions</span>
-              </a>
-            </div>
-            <div>
-              <a
-                href="http://127.0.0.1:5501/pages/teacher-enrollments.html"
-                class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-e-xl"
-              >
-                <i class="fa-solid fa-bell text-lg"></i>
-                <span> Enrollment</span>
-              </a>
-            </div>
-          </div>
+          <!-- logout -->
+           <div>
+                <a
+                  href="http://127.0.0.1:5501/pages/signIn.html"
+                  class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-s-xl"
+                >
+                <i class="fas fa-sign-out-alt transform rotate-180"></i>
+                  <span>Logout</span>
+                </a>
+              </div>
+          
         </div>
       </div>
       <!-- ========Main Content =============-->
@@ -289,30 +304,33 @@
             <div class="bg-white rounded-xl p-6 shadow-soft space-y-5">
               <div class="grid gap-4">
                 <div>
-                <a href="http://127.0.0.1:5501/pages/teacher-enrollments.html"
+                  <a
+                    href="http://127.0.0.1:5501/pages/teacher-enrollments.html"
                     class="w-full flex items-center gap-2 h-10 px-3 py-2 text-sm font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all text-dark leading-5 rounded-md"
                   >
                     <i class="fa-solid fa-bell text-lg animate-pulse"></i>
                     <span>Enrollments</span>
-                </a>
+                  </a>
                 </div>
                 <div>
-               <a href="http://127.0.0.1:5501/pages/create-course.html"
+                  <a
+                    href="http://127.0.0.1:5501/pages/create-course.html"
                     class="w-full flex items-center gap-2 h-10 px-3 py-2 text-sm font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all text-dark leading-5 rounded-md"
                   >
                     <i
                       class="fa-solid fa-book-open text-base font-semibold"
                     ></i>
                     <span>Create Course</span>
-               </a>
+                  </a>
                 </div>
                 <div>
-                  <a href="http://127.0.0.1:5501/pages/create-assignment.html"
+                  <a
+                    href="http://127.0.0.1:5501/pages/create-assignment.html"
                     class="w-full flex items-center gap-2 h-10 px-3 py-2 text-sm font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all text-dark leading-5 rounded-md"
                   >
                     <i class="fa-regular fa-file text-base font-semibold"></i>
                     <span>Create Assignment</span>
-                </a>
+                  </a>
                 </div>
               </div>
             </div>
