@@ -1,363 +1,338 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courses</title>
-     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-    <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
-<body>
-     <div class="flex">
-      <!-- aside bar tablet & laptop -->
-      <div class="hidden md:block w-64 min-h-screen bg-teal border-r">
-        <div class="pb-12 px-5 flex flex-col justify-between h-full">
-          <div>
-            <!-- logo -->
-            <div class="overflow-hidden flex justify-center">
-              <a href="http://127.0.0.1:5501/pages/teacher-dashboard.html">
-                <img
-                  class="w-40 h-44 object-cover aspect-video"
-                  src="../assets/images/ChatGPT Image Feb 14, 2026, 05_10_16 PM.png"
-                  alt="Logo"
-                />
-              </a>
-            </div>
 
-            <!-- links -->
-            <div class="mb-4 space-y-5">
-              <div>
-                <a
-                  href="http://127.0.0.1:5501/pages/teacher-courses.html"
-                  class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-e-xl"
-                >
-                  <i class="fa-solid fa-book-open text-lg"></i>
-                  <span> My Courses</span>
-                </a>
-              </div>
-              <div>
-                <a
-                  href="http://127.0.0.1:5501/pages/teacher-assignments.html"
-                  class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-e-xl"
-                >
-                  <i class="fa-regular fa-file text-lg"></i>
-                  <span>Assignments</span>
-                </a>
-              </div>
-              <div>
-                <a
-                  href="http://127.0.0.1:5501/pages/teacher-submissions.html"
-                  class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-e-xl"
-                >
-                  <i class="fa-solid fa-upload text-lg"></i>
-                  <span> Submissions</span>
-                </a>
-              </div>
-              <div>
-                <a
-                  href="http://127.0.0.1:5501/pages/teacher-enrollments.html"
-                  class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-e-xl"
-                >
-                <i class="fas fa-user-plus w-6"></i>
-                  <span> Enrollment</span>
-                </a>
-              </div>
-            </div>
+<body>
+  <div class="flex">
+    <!-- aside bar tablet & laptop -->
+    <div class="hidden md:block w-64 min-h-screen bg-teal border-r">
+      <div class="pb-12 px-5 flex flex-col justify-between h-full">
+        <div>
+          <!-- logo -->
+          <div class="overflow-hidden flex justify-center">
+            <a href="../pages/teacher-dashboard.html">
+              <img class="w-40 h-44 object-cover aspect-video"
+                src="../assets/images/ChatGPT Image Feb 14, 2026, 05_10_16 PM.png" alt="Logo" />
+            </a>
           </div>
 
-          <!-- logout -->
-           <div>
-                <a
-                  href="http://127.0.0.1:5501/pages/signIn.html"
-                  class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-s-xl"
-                >
-                <i class="fas fa-sign-out-alt transform rotate-180"></i>
-                  <span>Logout</span>
-                </a>
+          <!-- links -->
+          <div class="mb-4 space-y-5">
+            <div>
+              <a href="../pages/teacher-courses.html"
+                class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-e-xl">
+                <i class="fa-solid fa-book-open text-lg"></i>
+                <span> My Courses</span>
+              </a>
+            </div>
+            <div>
+              <a href="../pages/teacher-assignments.html"
+                class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-e-xl">
+                <i class="fa-regular fa-file text-lg"></i>
+                <span>Assignments</span>
+              </a>
+            </div>
+            <div>
+              <a href="../pages/teacher-submissions.html"
+                class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-e-xl">
+                <i class="fa-solid fa-upload text-lg"></i>
+                <span> Submissions</span>
+              </a>
+            </div>
+            <div>
+              <a href="../pages/teacher-enrollments.html"
+                class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-e-xl">
+                <i class="fas fa-user-plus w-6"></i>
+                <span> Enrollment</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- logout -->
+        <div>
+          <a href="../pages/signIn.html"
+            class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-s-xl">
+            <i class="fas fa-sign-out-alt transform rotate-180"></i>
+            <span>Logout</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+    <!-- ========Main Content =============-->
+    <section class="container mx-auto px-4 my-12">
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+
+
+
+        <div class="lg:col-span-4">
+
+          <div class="flex justify-between items-end mb-6">
+            <div>
+              <h2 class="text-xl font-bold text-dark">Enrollment Requests</h2>
+              <p class="text-gray-500 text-sm mt-1">3 requests waiting for approval</p>
+            </div>
+            <button
+              class="bg-teal text-white text-sm px-5 py-2.5 rounded-lg hover:bg-teal/90 transition flex items-center gap-2 font-medium cursor-pointer shadow-sm">
+              <i class="fas fa-user-check"></i> Approve All (3)
+            </button>
+          </div>
+
+          <div class="flex gap-3 mb-6">
+            <button
+              class="bg-teal text-white px-5 py-2 rounded-lg text-sm font-medium shadow-sm flex items-center gap-2">
+              <i class="fas fa-filter text-xs"></i> All
+            </button>
+            <button
+              class="bg-white border border-gray-200 text-gray-600 px-5 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 transition flex items-center gap-2">
+              <i class="far fa-clock"></i> Pending (3)
+            </button>
+            <button
+              class="bg-white border border-gray-200 text-gray-600 px-5 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 transition flex items-center gap-2">
+              <i class="far fa-check-circle"></i> Approved
+            </button>
+            <button
+              class="bg-white border border-gray-200 text-gray-600 px-5 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 transition flex items-center gap-2">
+              <i class="far fa-times-circle"></i> Rejected
+            </button>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden divide-y divide-gray-100">
+
+            <div class="p-6 hover:bg-gray-50 transition-colors">
+              <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center w-full md:w-auto gap-4">
+                  <div
+                    class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 font-bold text-sm">
+                    AH</div>
+                  <div>
+                    <h6 class="font-bold text-dark text-base">Ahmed Hassan</h6>
+                    <span class="text-sm text-gray-500">ahmed@example.com</span>
+                  </div>
+                </div>
+
+                <div class="text-center md:text-right w-full md:w-auto">
+                  <h6 class="font-bold text-dark text-sm">Advanced JavaScript</h6>
+                  <p class="text-sm text-gray-500 mt-0.5">Vodafone Cash • $89.99</p>
+                  <p class="text-xs text-gray-400 mt-1">Requested: 2024-02-01</p>
+                </div>
+
+                <div class="flex gap-3 w-full md:w-auto justify-end">
+                  <button
+                    class="bg-green-500 text-white px-6 py-2 rounded-lg font-medium text-sm hover:bg-green-600 transition flex items-center gap-2 cursor-pointer shadow-sm">
+                    <i class="far fa-check-circle"></i> Approve
+                  </button>
+                  <button
+                    class="bg-white text-red-500 border border-red-200 px-6 py-2 rounded-lg font-medium text-sm hover:bg-red-50 transition flex items-center gap-2 cursor-pointer">
+                    <i class="far fa-times-circle"></i> Reject
+                  </button>
+                </div>
               </div>
-          
+            </div>
+
+            <div class="p-6 hover:bg-gray-50 transition-colors">
+              <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center w-full md:w-auto gap-4">
+                  <div
+                    class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 font-bold text-sm">
+                    SM</div>
+                  <div>
+                    <h6 class="font-bold text-dark text-base">Sara Mohamed</h6>
+                    <span class="text-sm text-gray-500">sara@example.com</span>
+                  </div>
+                </div>
+
+                <div class="text-center md:text-right w-full md:w-auto">
+                  <h6 class="font-bold text-dark text-sm">Advanced JavaScript</h6>
+                  <p class="text-sm text-gray-500 mt-0.5">Vodafone Cash • $89.99</p>
+                  <p class="text-xs text-gray-400 mt-1">Requested: 2024-02-02</p>
+                </div>
+
+                <div class="flex gap-3 w-full md:w-auto justify-end">
+                  <button
+                    class="bg-green-500 text-white px-6 py-2 rounded-lg font-medium text-sm hover:bg-green-600 transition flex items-center gap-2 cursor-pointer shadow-sm">
+                    <i class="far fa-check-circle"></i> Approve
+                  </button>
+                  <button
+                    class="bg-white text-red-500 border border-red-200 px-6 py-2 rounded-lg font-medium text-sm hover:bg-red-50 transition flex items-center gap-2 cursor-pointer">
+                    <i class="far fa-times-circle"></i> Reject
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6 hover:bg-gray-50 transition-colors">
+              <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center w-full md:w-auto gap-4">
+                  <div
+                    class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 font-bold text-sm">
+                    OA</div>
+                  <div>
+                    <h6 class="font-bold text-dark text-base">Omar Ali</h6>
+                    <span class="text-sm text-gray-500">omar@example.com</span>
+                  </div>
+                </div>
+
+                <div class="text-center md:text-right w-full md:w-auto">
+                  <h6 class="font-bold text-dark text-sm">React Masterclass</h6>
+                  <p class="text-sm text-gray-500 mt-0.5">Bank Transfer • $94.99</p>
+                  <p class="text-xs text-gray-400 mt-1">Requested: 2024-01-30</p>
+                </div>
+
+                <div class="flex gap-3 w-full md:w-auto justify-end">
+                  <button
+                    class="bg-green-500 text-white px-6 py-2 rounded-lg font-medium text-sm hover:bg-green-600 transition flex items-center gap-2 cursor-pointer shadow-sm">
+                    <i class="far fa-check-circle"></i> Approve
+                  </button>
+                  <button
+                    class="bg-white text-red-500 border border-red-200 px-6 py-2 rounded-lg font-medium text-sm hover:bg-red-50 transition flex items-center gap-2 cursor-pointer">
+                    <i class="far fa-times-circle"></i> Reject
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6 hover:bg-gray-50 transition-colors">
+              <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center w-full md:w-auto gap-4">
+                  <div
+                    class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 font-bold text-sm">
+                    NI</div>
+                  <div>
+                    <h6 class="font-bold text-dark text-base">Nour Ibrahim</h6>
+                    <span class="text-sm text-gray-500">nour@example.com</span>
+                  </div>
+                </div>
+
+                <div class="text-center md:text-right w-full md:w-auto">
+                  <h6 class="font-bold text-dark text-sm">Advanced JavaScript</h6>
+                  <p class="text-sm text-gray-500 mt-0.5">Vodafone Cash • $89.99</p>
+                  <p class="text-xs text-gray-400 mt-1">Requested: 2024-01-28</p>
+                </div>
+
+                <div class="flex gap-3 w-full md:w-auto justify-end min-w-[200px]">
+                  <span
+                    class="border border-green-500 text-green-600 px-5 py-1.5 rounded-full text-sm font-medium flex items-center gap-2 bg-green-50">
+                    <i class="far fa-check-circle"></i> Approved
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6 hover:bg-gray-50 transition-colors">
+              <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center w-full md:w-auto gap-4">
+                  <div
+                    class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 font-bold text-sm">
+                    YK</div>
+                  <div>
+                    <h6 class="font-bold text-dark text-base">Youssef Khaled</h6>
+                    <span class="text-sm text-gray-500">youssef@example.com</span>
+                  </div>
+                </div>
+
+                <div class="text-center md:text-right w-full md:w-auto">
+                  <h6 class="font-bold text-dark text-sm">React Masterclass</h6>
+                  <p class="text-sm text-gray-500 mt-0.5">Bank Transfer • $94.99</p>
+                  <p class="text-xs text-gray-400 mt-1">Requested: 2024-01-25</p>
+                </div>
+
+                <div class="flex gap-3 w-full md:w-auto justify-end min-w-[200px]">
+                  <span
+                    class="border border-red-300 text-red-500 px-5 py-1.5 rounded-full text-sm font-medium flex items-center gap-2 bg-red-50">
+                    <i class="far fa-times-circle"></i> Rejected
+                  </span>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
-       <!-- ========Main Content =============-->
-        <section class="container mx-auto px-4 my-12">
-
-            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            
-            
-
-            <div class="lg:col-span-4">
-                
-                <div class="flex justify-between items-end mb-6">
-                    <div>
-                        <h2 class="text-xl font-bold text-dark">Enrollment Requests</h2>
-                        <p class="text-gray-500 text-sm mt-1">3 requests waiting for approval</p>
-                    </div>
-                    <button class="bg-teal text-white text-sm px-5 py-2.5 rounded-lg hover:bg-teal/90 transition flex items-center gap-2 font-medium cursor-pointer shadow-sm">
-                        <i class="fas fa-user-check"></i> Approve All (3)
-                    </button>
-                </div>
-
-                <div class="flex gap-3 mb-6">
-                    <button class="bg-teal text-white px-5 py-2 rounded-lg text-sm font-medium shadow-sm flex items-center gap-2">
-                        <i class="fas fa-filter text-xs"></i> All
-                    </button>
-                    <button class="bg-white border border-gray-200 text-gray-600 px-5 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 transition flex items-center gap-2">
-                        <i class="far fa-clock"></i> Pending (3)
-                    </button>
-                    <button class="bg-white border border-gray-200 text-gray-600 px-5 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 transition flex items-center gap-2">
-                        <i class="far fa-check-circle"></i> Approved
-                    </button>
-                    <button class="bg-white border border-gray-200 text-gray-600 px-5 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 transition flex items-center gap-2">
-                        <i class="far fa-times-circle"></i> Rejected
-                    </button>
-                </div>
-
-                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden divide-y divide-gray-100">
-                    
-                    <div class="p-6 hover:bg-gray-50 transition-colors">
-                        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                            <div class="flex items-center w-full md:w-auto gap-4">
-                                <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 font-bold text-sm">AH</div>
-                                <div>
-                                    <h6 class="font-bold text-dark text-base">Ahmed Hassan</h6>
-                                    <span class="text-sm text-gray-500">ahmed@example.com</span>
-                                </div>
-                            </div>
-                            
-                            <div class="text-center md:text-right w-full md:w-auto">
-                                <h6 class="font-bold text-dark text-sm">Advanced JavaScript</h6>
-                                <p class="text-sm text-gray-500 mt-0.5">Vodafone Cash • $89.99</p>
-                                <p class="text-xs text-gray-400 mt-1">Requested: 2024-02-01</p>
-                            </div>
-
-                            <div class="flex gap-3 w-full md:w-auto justify-end">
-                                <button class="bg-green-500 text-white px-6 py-2 rounded-lg font-medium text-sm hover:bg-green-600 transition flex items-center gap-2 cursor-pointer shadow-sm">
-                                    <i class="far fa-check-circle"></i> Approve
-                                </button>
-                                <button class="bg-white text-red-500 border border-red-200 px-6 py-2 rounded-lg font-medium text-sm hover:bg-red-50 transition flex items-center gap-2 cursor-pointer">
-                                    <i class="far fa-times-circle"></i> Reject
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="p-6 hover:bg-gray-50 transition-colors">
-                        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                            <div class="flex items-center w-full md:w-auto gap-4">
-                                <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 font-bold text-sm">SM</div>
-                                <div>
-                                    <h6 class="font-bold text-dark text-base">Sara Mohamed</h6>
-                                    <span class="text-sm text-gray-500">sara@example.com</span>
-                                </div>
-                            </div>
-                            
-                            <div class="text-center md:text-right w-full md:w-auto">
-                                <h6 class="font-bold text-dark text-sm">Advanced JavaScript</h6>
-                                <p class="text-sm text-gray-500 mt-0.5">Vodafone Cash • $89.99</p>
-                                <p class="text-xs text-gray-400 mt-1">Requested: 2024-02-02</p>
-                            </div>
-
-                            <div class="flex gap-3 w-full md:w-auto justify-end">
-                                <button class="bg-green-500 text-white px-6 py-2 rounded-lg font-medium text-sm hover:bg-green-600 transition flex items-center gap-2 cursor-pointer shadow-sm">
-                                    <i class="far fa-check-circle"></i> Approve
-                                </button>
-                                <button class="bg-white text-red-500 border border-red-200 px-6 py-2 rounded-lg font-medium text-sm hover:bg-red-50 transition flex items-center gap-2 cursor-pointer">
-                                    <i class="far fa-times-circle"></i> Reject
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="p-6 hover:bg-gray-50 transition-colors">
-                        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                            <div class="flex items-center w-full md:w-auto gap-4">
-                                <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 font-bold text-sm">OA</div>
-                                <div>
-                                    <h6 class="font-bold text-dark text-base">Omar Ali</h6>
-                                    <span class="text-sm text-gray-500">omar@example.com</span>
-                                </div>
-                            </div>
-                            
-                            <div class="text-center md:text-right w-full md:w-auto">
-                                <h6 class="font-bold text-dark text-sm">React Masterclass</h6>
-                                <p class="text-sm text-gray-500 mt-0.5">Bank Transfer • $94.99</p>
-                                <p class="text-xs text-gray-400 mt-1">Requested: 2024-01-30</p>
-                            </div>
-
-                            <div class="flex gap-3 w-full md:w-auto justify-end">
-                                <button class="bg-green-500 text-white px-6 py-2 rounded-lg font-medium text-sm hover:bg-green-600 transition flex items-center gap-2 cursor-pointer shadow-sm">
-                                    <i class="far fa-check-circle"></i> Approve
-                                </button>
-                                <button class="bg-white text-red-500 border border-red-200 px-6 py-2 rounded-lg font-medium text-sm hover:bg-red-50 transition flex items-center gap-2 cursor-pointer">
-                                    <i class="far fa-times-circle"></i> Reject
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="p-6 hover:bg-gray-50 transition-colors">
-                        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                            <div class="flex items-center w-full md:w-auto gap-4">
-                                <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 font-bold text-sm">NI</div>
-                                <div>
-                                    <h6 class="font-bold text-dark text-base">Nour Ibrahim</h6>
-                                    <span class="text-sm text-gray-500">nour@example.com</span>
-                                </div>
-                            </div>
-                            
-                            <div class="text-center md:text-right w-full md:w-auto">
-                                <h6 class="font-bold text-dark text-sm">Advanced JavaScript</h6>
-                                <p class="text-sm text-gray-500 mt-0.5">Vodafone Cash • $89.99</p>
-                                <p class="text-xs text-gray-400 mt-1">Requested: 2024-01-28</p>
-                            </div>
-
-                            <div class="flex gap-3 w-full md:w-auto justify-end min-w-[200px]">
-                                <span class="border border-green-500 text-green-600 px-5 py-1.5 rounded-full text-sm font-medium flex items-center gap-2 bg-green-50">
-                                    <i class="far fa-check-circle"></i> Approved
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="p-6 hover:bg-gray-50 transition-colors">
-                        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                            <div class="flex items-center w-full md:w-auto gap-4">
-                                <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 font-bold text-sm">YK</div>
-                                <div>
-                                    <h6 class="font-bold text-dark text-base">Youssef Khaled</h6>
-                                    <span class="text-sm text-gray-500">youssef@example.com</span>
-                                </div>
-                            </div>
-                            
-                            <div class="text-center md:text-right w-full md:w-auto">
-                                <h6 class="font-bold text-dark text-sm">React Masterclass</h6>
-                                <p class="text-sm text-gray-500 mt-0.5">Bank Transfer • $94.99</p>
-                                <p class="text-xs text-gray-400 mt-1">Requested: 2024-01-25</p>
-                            </div>
-
-                            <div class="flex gap-3 w-full md:w-auto justify-end min-w-[200px]">
-                                <span class="border border-red-300 text-red-500 px-5 py-1.5 rounded-full text-sm font-medium flex items-center gap-2 bg-red-50">
-                                    <i class="far fa-times-circle"></i> Rejected
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        </section>
+    </section>
 
 
 
 
-   
-    </div>
-      <!-- =======footer =========-->
-    <footer style="background-color: var(--color-dark)">
-      <div class="container mx-auto px-4 py-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-          <!-- Brand -->
-          <div>
-            <div class="w-24 h-12 bg-white mb-6" aria-hidden="true"></div>
-            <p
-              style="
+
+  </div>
+  <!-- =======footer =========-->
+  <footer style="background-color: var(--color-dark)">
+    <div class="container mx-auto px-4 py-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+        <!-- Brand -->
+        <div>
+          <div class="w-24 h-12 bg-white mb-6" aria-hidden="true"></div>
+          <p style="
                 color: var(--color-gray);
                 font-size: 0.95rem;
                 line-height: 1.7;
-              "
-            >
-              Empowering learners worldwide with quality education. Access
-              thousands of courses and learn at your own pace.
-            </p>
-          </div>
-
-          <!-- Quick Links -->
-          <div>
-            <h4 class="font-plus font-bold text-white mb-4">Quick Links</h4>
-            <ul class="space-y-3">
-              <li>
-                <a
-                  href="#"
-                  class="hover:opacity-80"
-                  style="color: var(--color-gray)"
-                  >All Courses</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="hover:opacity-80"
-                  style="color: var(--color-gray)"
-                  >Become a Student</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="hover:opacity-80"
-                  style="color: var(--color-gray)"
-                  >Teach on LearnHub</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <!-- Support -->
-          <div>
-            <h4 class="font-plus font-bold text-white mb-4">Support</h4>
-            <ul class="space-y-3">
-              <li>
-                <a
-                  href="#"
-                  class="hover:opacity-80"
-                  style="color: var(--color-gray)"
-                  >Help Center</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="hover:opacity-80"
-                  style="color: var(--color-gray)"
-                  >Contact Us</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="hover:opacity-80"
-                  style="color: var(--color-gray)"
-                  >Privacy Policy</a
-                >
-              </li>
-            </ul>
-          </div>
+              ">
+            Empowering learners worldwide with quality education. Access
+            thousands of courses and learn at your own pace.
+          </p>
         </div>
 
-        <div
-          style="
+        <!-- Quick Links -->
+        <div>
+          <h4 class="font-plus font-bold text-white mb-4">Quick Links</h4>
+          <ul class="space-y-3">
+            <li>
+              <a href="../pages/courses.html" class="hover:opacity-80" style="color: var(--color-gray)">All Courses</a>
+            </li>
+            <li>
+              <a href="#" class="hover:opacity-80" style="color: var(--color-gray)">Become a Student</a>
+            </li>
+            <li>
+              <a href="#" class="hover:opacity-80" style="color: var(--color-gray)">Teach on LearnHub</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Support -->
+        <div>
+          <h4 class="font-plus font-bold text-white mb-4">Support</h4>
+          <ul class="space-y-3">
+            <li>
+              <a href="#" class="hover:opacity-80" style="color: var(--color-gray)">Help Center</a>
+            </li>
+            <li>
+              <a href="#" class="hover:opacity-80" style="color: var(--color-gray)">Contact Us</a>
+            </li>
+            <li>
+              <a href="#" class="hover:opacity-80" style="color: var(--color-gray)">Privacy Policy</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="
             border-top: 1px solid;
             border-color: var(--color-light-gray);
             padding-top: 2rem;
             text-align: center;
-          "
-        >
-          <p style="color: var(--color-gray); font-size: 0.95rem">
-            © 2024 LearnHub. All rights reserved.
-          </p>
-        </div>
+          ">
+        <p style="color: var(--color-gray); font-size: 0.95rem">
+          © 2024 LearnHub. All rights reserved.
+        </p>
       </div>
-    </footer>
+    </div>
+  </footer>
 </body>
+
 </html>

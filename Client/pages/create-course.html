@@ -1,109 +1,91 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create Course</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
 
-    <link rel="stylesheet" href="../css/style.css" />
-  </head>
-  <body>
-   <div class="flex">
-      <!-- aside bar tablet & laptop -->
-      <div class="hidden md:block w-64 min-h-screen bg-teal border-r">
-        <div class="pb-12 px-5 flex flex-col justify-between h-full">
-          <div>
-            <!-- logo -->
-            <div class="overflow-hidden flex justify-center">
-              <a href="http://127.0.0.1:5501/pages/teacher-dashboard.html">
-                <img
-                  class="w-40 h-44 object-cover aspect-video"
-                  src="../assets/images/ChatGPT Image Feb 14, 2026, 05_10_16 PM.png"
-                  alt="Logo"
-                />
-              </a>
-            </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Course</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-            <!-- links -->
-            <div class="mb-4 space-y-5">
-              <div>
-                <a
-                  href="http://127.0.0.1:5501/pages/teacher-courses.html"
-                  class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-e-xl"
-                >
-                  <i class="fa-solid fa-book-open text-lg"></i>
-                  <span> My Courses</span>
-                </a>
-              </div>
-              <div>
-                <a
-                  href="http://127.0.0.1:5501/pages/teacher-assignments.html"
-                  class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-e-xl"
-                >
-                  <i class="fa-regular fa-file text-lg"></i>
-                  <span>Assignments</span>
-                </a>
-              </div>
-              <div>
-                <a
-                  href="http://127.0.0.1:5501/pages/teacher-submissions.html"
-                  class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-e-xl"
-                >
-                  <i class="fa-solid fa-upload text-lg"></i>
-                  <span> Submissions</span>
-                </a>
-              </div>
-              <div>
-                <a
-                  href="http://127.0.0.1:5501/pages/teacher-enrollments.html"
-                  class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-e-xl"
-                >
-                <i class="fas fa-user-plus w-6"></i>
-                  <span> Enrollment</span>
-                </a>
-              </div>
-            </div>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+  <div class="flex">
+    <!-- aside bar tablet & laptop -->
+    <div class="hidden md:block w-64 min-h-screen bg-teal border-r">
+      <div class="pb-12 px-5 flex flex-col justify-between h-full">
+        <div>
+          <!-- logo -->
+          <div class="overflow-hidden flex justify-center">
+            <a href="../pages/teacher-dashboard.html">
+              <img class="w-40 h-44 object-cover aspect-video"
+                src="../assets/images/ChatGPT Image Feb 14, 2026, 05_10_16 PM.png" alt="Logo" />
+            </a>
           </div>
 
-          <!-- logout -->
-           <div>
-                <a
-                  href="http://127.0.0.1:5501/pages/signIn.html"
-                  class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-s-xl"
-                >
-                <i class="fas fa-sign-out-alt transform rotate-180"></i>
-                  <span>Logout</span>
-                </a>
-              </div>
-          
+          <!-- links -->
+          <div class="mb-4 space-y-5">
+            <div>
+              <a href="../pages/teacher-courses.html"
+                class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-e-xl">
+                <i class="fa-solid fa-book-open text-lg"></i>
+                <span> My Courses</span>
+              </a>
+            </div>
+            <div>
+              <a href="../pages/teacher-assignments.html"
+                class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-e-xl">
+                <i class="fa-regular fa-file text-lg"></i>
+                <span>Assignments</span>
+              </a>
+            </div>
+            <div>
+              <a href="../pages/teacher-submissions.html"
+                class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-e-xl">
+                <i class="fa-solid fa-upload text-lg"></i>
+                <span> Submissions</span>
+              </a>
+            </div>
+            <div>
+              <a href="../pages/teacher-enrollments.html"
+                class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-e-xl">
+                <i class="fas fa-user-plus w-6"></i>
+                <span> Enrollment</span>
+              </a>
+            </div>
+          </div>
         </div>
+
+        <!-- logout -->
+        <div>
+          <a href="../pages/signIn.html"
+            class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-s-xl">
+            <i class="fas fa-sign-out-alt transform rotate-180"></i>
+            <span>Logout</span>
+          </a>
+        </div>
+
       </div>
-       <!-- ========Main Content =============-->
+    </div>
+    <!-- ========Main Content =============-->
 
     <section class="container mx-auto max-w-4xl">
-     
+
       <!-- title -->
-      <div
-        class="flex flex-col gap-4 md:flex-row justify-between items-center my-12"
-      >
+      <div class="flex flex-col gap-4 md:flex-row justify-between items-center my-12">
         <div class="flex gap-2 items-center">
           <div
-            class="w-9 h-9 hover:bg-orange cursor-pointer hover:text-white transition-all rounded-lg flex items-center justify-center"
-          >
-          <a href="http://127.0.0.1:5501/pages/teacher-courses.html">
-           <i class="fa-solid fa-arrow-down text-base rotate-90"></i>
-        </a>
-           
+            class="w-9 h-9 hover:bg-orange cursor-pointer hover:text-white transition-all rounded-lg flex items-center justify-center">
+            <a href="../pages/teacher-courses.html">
+              <i class="fa-solid fa-arrow-down text-base rotate-90"></i>
+            </a>
+
           </div>
           <div>
             <h3 class="font-plus font-bold text-2xl leading-8 text-dark">
@@ -118,8 +100,7 @@
         <div class="flex gap-4">
           <div>
             <button
-              class="flex items-center gap-2 h-10 px-4 py-2 bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all text-dark text-sm leading-5 font-medium rounded-lg"
-            >
+              class="flex items-center gap-2 h-10 px-4 py-2 bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all text-dark text-sm leading-5 font-medium rounded-lg">
               <i class="fa-regular fa-floppy-disk text-xl font-semibold"></i>
 
               <span>Save Draft </span>
@@ -127,18 +108,15 @@
           </div>
           <div>
             <button
-              class="flex items-center gap-2 h-10 px-4 py-2 bg-linear-to-r from-teal to-dark-teal text-white text-sm leading-5 font-medium rounded-lg"
-            >
+              class="flex items-center gap-2 h-10 px-4 py-2 bg-linear-to-r from-teal to-dark-teal text-white text-sm leading-5 font-medium rounded-lg">
               <span>Publish Course</span>
             </button>
           </div>
         </div>
       </div>
-   
+
       <!-- basic info  -->
-      <div
-        class="bg-white rounded-xl p-6 shadow-soft space-y-4 border border-light-gray mb-8"
-      >
+      <div class="bg-white rounded-xl p-6 shadow-soft space-y-4 border border-light-gray mb-8">
         <div class="flex items-center gap-2 mb-10">
           <i class="fa-solid fa-book-open text-teal text-lg"></i>
 
@@ -148,46 +126,26 @@
         </div>
         <form class="space-y-6">
           <div>
-            <label
-              htmlFor="title"
-              class="block text-dark text-sm font-medium leading-3.5 mb-2"
-            >
+            <label htmlFor="title" class="block text-dark text-sm font-medium leading-3.5 mb-2">
               Course Title *
             </label>
-            <input
-              id="title"
-              required
-              placeholder="eg.,Complete javascript MasterClass"
-              class="w-full placeholder:text-sm px-4 py-3 bg-cream rounded-xl border border-light-gray focus:border-teal focus:ring-1 focus:ring-teal outline-none transition-all"
-            />
+            <input id="title" required placeholder="eg.,Complete javascript MasterClass"
+              class="w-full placeholder:text-sm px-4 py-3 bg-cream rounded-xl border border-light-gray focus:border-teal focus:ring-1 focus:ring-teal outline-none transition-all" />
           </div>
           <div>
-            <label
-              htmlFor="description"
-              class="block text-dark  text-sm font-medium leading-3.5 mb-2"
-            >
+            <label htmlFor="description" class="block text-dark  text-sm font-medium leading-3.5 mb-2">
               Description *
             </label>
-            <textarea
-              id="description"
-              required
-              placeholder="Describe what students will learn ..."
-              rows="4"
-              class="w-full placeholder:text-sm px-4 py-3 bg-cream rounded-xl border border-light-gray focus:border-teal focus:ring-1 focus:ring-teal outline-none transition-all resize-none"
-            ></textarea>
+            <textarea id="description" required placeholder="Describe what students will learn ..." rows="4"
+              class="w-full placeholder:text-sm px-4 py-3 bg-cream rounded-xl border border-light-gray focus:border-teal focus:ring-1 focus:ring-teal outline-none transition-all resize-none"></textarea>
           </div>
           <div class="grid md:grid-cols-2 gap-6 md:gap-3">
             <div>
-              <label
-                htmlFor="category"
-                class="block text-dark  text-sm font-medium leading-3.5 mb-2"
-              >
+              <label htmlFor="category" class="block text-dark  text-sm font-medium leading-3.5 mb-2">
                 Category *
               </label>
-              <select
-                id="category"
-                class="appearance-none placeholder:text-sm w-full px-5 py-3 bg-cream rounded-xl border border-light-gray focus:border-teal focus:ring-1 focus:ring-teal outline-none transition-all"
-              >
+              <select id="category"
+                class="appearance-none placeholder:text-sm w-full px-5 py-3 bg-cream rounded-xl border border-light-gray focus:border-teal focus:ring-1 focus:ring-teal outline-none transition-all">
                 <option value="">Select Category</option>
                 <option class="bg-white" value="dev">Grade 1</option>
                 <option value="ux">ux ui</option>
@@ -195,16 +153,11 @@
               </select>
             </div>
             <div>
-              <label
-                htmlFor="level"
-                class="block  text-dark text-sm font-medium leading-3.5 mb-2"
-              >
+              <label htmlFor="level" class="block  text-dark text-sm font-medium leading-3.5 mb-2">
                 Level *
               </label>
-              <select
-                id="level"
-                class="appearance-none placeholder:text-sm w-full px-5 py-3 bg-cream rounded-xl border border-light-gray focus:border-teal focus:ring-1 focus:ring-teal outline-none transition-all"
-              >
+              <select id="level"
+                class="appearance-none placeholder:text-sm w-full px-5 py-3 bg-cream rounded-xl border border-light-gray focus:border-teal focus:ring-1 focus:ring-teal outline-none transition-all">
                 <option value="">Select Level</option>
                 <option class="bg-white" value="dev">Grade 1</option>
                 <option value="ux">ux ui</option>
@@ -218,8 +171,7 @@
               Course Thumbnail
             </label>
             <div
-              class="w-full px-4 py-10 bg-white rounded-xl border border-light-gray border-dashed flex justify-center items-center"
-            >
+              class="w-full px-4 py-10 bg-white rounded-xl border border-light-gray border-dashed flex justify-center items-center">
               <div class="grid gap-4 items-center">
                 <div class="flex justify-center">
                   <i class="fa-solid fa-upload text-xl"></i>
@@ -230,8 +182,7 @@
                 </p>
                 <div class="flex justify-center">
                   <button
-                    class="flex items-center gap-2 h-10 px-4 py-2 bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all text-dark text-sm leading-5 font-medium rounded-lg"
-                  >
+                    class="flex items-center gap-2 h-10 px-4 py-2 bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all text-dark text-sm leading-5 font-medium rounded-lg">
                     <span>Upload Image </span>
                   </button>
                 </div>
@@ -242,9 +193,7 @@
       </div>
 
       <!-- Course Curriculum -->
-      <div
-        class="bg-white rounded-xl p-6 shadow-soft space-y-4 border border-light-gray mb-8"
-      >
+      <div class="bg-white rounded-xl p-6 shadow-soft space-y-4 border border-light-gray mb-8">
         <div class="flex justify-between items-center">
           <div class="flex items-center gap-2">
             <i class="fa-solid fa-video text-teal text-lg mt-1.5"></i>
@@ -254,8 +203,7 @@
           </div>
           <div class="flex justify-center">
             <button
-              class="flex items-center gap-2 h-10 px-4 py-2 bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all text-dark text-sm leading-5 font-medium rounded-lg"
-            >
+              class="flex items-center gap-2 h-10 px-4 py-2 bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all text-dark text-sm leading-5 font-medium rounded-lg">
               <i class="fa-solid fa-plus text-sm font-medium"></i>
 
               <span class="font-medium text-sm leading-5">Add Section </span>
@@ -273,8 +221,7 @@
             </div>
             <div>
               <button
-                class="flex items-center gap-2 h-10 px-4 py-2 bg-cream hover:bg-orange hover:text-white transition-all text-dark text-sm leading-5 font-medium rounded-lg"
-              >
+                class="flex items-center gap-2 h-10 px-4 py-2 bg-cream hover:bg-orange hover:text-white transition-all text-dark text-sm leading-5 font-medium rounded-lg">
                 <i class="fa-solid fa-plus text-sm font-medium"></i>
 
                 <span class="font-medium text-sm leading-5">Lesson</span>
@@ -295,179 +242,134 @@
       </div>
 
       <!-- pricing -->
-      <div
-        class="bg-white rounded-xl p-6 shadow-soft space-y-4 border border-light-gray mb-8"
-      >
+      <div class="bg-white rounded-xl p-6 shadow-soft space-y-4 border border-light-gray mb-8">
         <div class="flex items-center gap-2 mb-8">
-         <span class="text-teal font-semibold text-xl">$</span>
+          <span class="text-teal font-semibold text-xl">$</span>
 
           <h2 class="font-plus font-semibold text-2xl leading-6 text-dark">
-         Pricing
+            Pricing
           </h2>
         </div>
         <div>
           <label htmlFor="price" class="block text-dark text-sm font-medium mb-2">
-           Course Price (EGP)
+            Course Price (EGP)
           </label>
-          <input
-            id="pric"
-            type="number"
-            required
-            placeholder="$ 0.00"
-            class="w-full px-4 py-3 bg-cream rounded-xl border border-light-gray focus:border-teal focus:ring-1 focus:ring-teal outline-none transition-all"
-          />
+          <input id="pric" type="number" required placeholder="$ 0.00"
+            class="w-full px-4 py-3 bg-cream rounded-xl border border-light-gray focus:border-teal focus:ring-1 focus:ring-teal outline-none transition-all" />
           <p class="mt-2 text-sm leading-s">Set to 0 for a free course</p>
         </div>
 
-        <div
-          class="rounded-xl p-6 shadow-soft bg-cream space-y-4 mt-7 border border-light-gray/30"
-        >
+        <div class="rounded-xl p-6 shadow-soft bg-cream space-y-4 mt-7 border border-light-gray/30">
           <p class="font-plus text-dark font-medium text-base leading-6">Pricing Tips</p>
-         <div class="space-y-2">
-          <div class="flex gap-1.5 items-center">
-            <span class=" block bg-gray/70 w-1.5 h-1.5 rounded-full" ></span>
-            <p class="font-normal text-sm leading-5">Consider your course length and depth</p>
+          <div class="space-y-2">
+            <div class="flex gap-1.5 items-center">
+              <span class=" block bg-gray/70 w-1.5 h-1.5 rounded-full"></span>
+              <p class="font-normal text-sm leading-5">Consider your course length and depth</p>
+            </div>
+            <div class="flex gap-1.5 items-center">
+              <span class=" block bg-gray/70 w-1.5 h-1.5 rounded-full"></span>
+              <p class="font-normal text-sm leading-5">Research similar courses in your category</p>
+            </div>
+            <div class="flex gap-1.5 items-center">
+              <span class=" block bg-gray/70 w-1.5 h-1.5 rounded-full"></span>
+              <p class="font-normal text-sm leading-5">Start with a lower price to build reviews</p>
+            </div>
+            <div class="flex gap-1.5 items-center">
+              <span class=" block bg-gray/70 w-1.5 h-1.5 rounded-full"></span>
+              <p class="font-normal text-sm leading-5">You can update pricing anytime</p>
+            </div>
           </div>
-          <div class="flex gap-1.5 items-center">
-            <span class=" block bg-gray/70 w-1.5 h-1.5 rounded-full" ></span>
-            <p class="font-normal text-sm leading-5">Research similar courses in your category</p>
-          </div>
-          <div class="flex gap-1.5 items-center">
-            <span class=" block bg-gray/70 w-1.5 h-1.5 rounded-full" ></span>
-            <p class="font-normal text-sm leading-5">Start with a lower price to build reviews</p>
-          </div>
-          <div class="flex gap-1.5 items-center">
-            <span class=" block bg-gray/70 w-1.5 h-1.5 rounded-full" ></span>
-            <p class="font-normal text-sm leading-5">You can update pricing anytime</p>
-          </div>
-         </div>
         </div>
       </div>
-     <hr class="text-light-gray"/>
+      <hr class="text-light-gray" />
       <div class="flex justify-end gap-4 my-6">
         <div>
-            <button
-              class="flex items-center gap-2 h-10 px-4 py-2 bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all text-dark text-sm leading-5 font-medium rounded-lg"
-            >
-            
+          <button
+            class="flex items-center gap-2 h-10 px-4 py-2 bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all text-dark text-sm leading-5 font-medium rounded-lg">
 
-              <span>Cancel</span>
-            </button>
-          </div>
-<div>
-            <button
-              class="flex items-center gap-2 h-10 px-4 py-2 bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all text-dark text-sm leading-5 font-medium rounded-lg"
-            >
-              <i class="fa-regular fa-floppy-disk text-xl font-semibold"></i>
 
-              <span>Save Draft </span>
-            </button>
-          </div>
-           <div>
-            <button
-              class="flex items-center gap-2 h-10 px-4 py-2 bg-linear-to-r from-teal to-dark-teal text-white text-sm leading-5 font-medium rounded-lg"
-            >
-              <span>Publish Course</span>
-            </button>
-          </div>
+            <span>Cancel</span>
+          </button>
+        </div>
+        <div>
+          <button
+            class="flex items-center gap-2 h-10 px-4 py-2 bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all text-dark text-sm leading-5 font-medium rounded-lg">
+            <i class="fa-regular fa-floppy-disk text-xl font-semibold"></i>
+
+            <span>Save Draft </span>
+          </button>
+        </div>
+        <div>
+          <button
+            class="flex items-center gap-2 h-10 px-4 py-2 bg-linear-to-r from-teal to-dark-teal text-white text-sm leading-5 font-medium rounded-lg">
+            <span>Publish Course</span>
+          </button>
+        </div>
       </div>
     </section>
-    </div>
-    <!-- =======footer =========-->
-    <footer style="background-color: var(--color-dark)">
-      <div class="container mx-auto px-4 py-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-          <!-- Brand -->
-          <div>
-            <div class="w-24 h-12 bg-white mb-6" aria-hidden="true"></div>
-            <p
-              style="
+  </div>
+  <!-- =======footer =========-->
+  <footer style="background-color: var(--color-dark)">
+    <div class="container mx-auto px-4 py-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+        <!-- Brand -->
+        <div>
+          <div class="w-24 h-12 bg-white mb-6" aria-hidden="true"></div>
+          <p style="
                 color: var(--color-gray);
                 font-size: 0.95rem;
                 line-height: 1.7;
-              "
-            >
-              Empowering learners worldwide with quality education. Access
-              thousands of courses and learn at your own pace.
-            </p>
-          </div>
-
-          <!-- Quick Links -->
-          <div>
-            <h4 class="font-plus font-bold text-white mb-4">Quick Links</h4>
-            <ul class="space-y-3">
-              <li>
-                <a
-                  href="#"
-                  class="hover:opacity-80"
-                  style="color: var(--color-gray)"
-                  >All Courses</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="hover:opacity-80"
-                  style="color: var(--color-gray)"
-                  >Become a Student</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="hover:opacity-80"
-                  style="color: var(--color-gray)"
-                  >Teach on LearnHub</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <!-- Support -->
-          <div>
-            <h4 class="font-plus font-bold text-white mb-4">Support</h4>
-            <ul class="space-y-3">
-              <li>
-                <a
-                  href="#"
-                  class="hover:opacity-80"
-                  style="color: var(--color-gray)"
-                  >Help Center</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="hover:opacity-80"
-                  style="color: var(--color-gray)"
-                  >Contact Us</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="hover:opacity-80"
-                  style="color: var(--color-gray)"
-                  >Privacy Policy</a
-                >
-              </li>
-            </ul>
-          </div>
+              ">
+            Empowering learners worldwide with quality education. Access
+            thousands of courses and learn at your own pace.
+          </p>
         </div>
 
-        <div
-          style="
+        <!-- Quick Links -->
+        <div>
+          <h4 class="font-plus font-bold text-white mb-4">Quick Links</h4>
+          <ul class="space-y-3">
+            <li>
+              <a href="#" class="hover:opacity-80" style="color: var(--color-gray)">All Courses</a>
+            </li>
+            <li>
+              <a href="#" class="hover:opacity-80" style="color: var(--color-gray)">Become a Student</a>
+            </li>
+            <li>
+              <a href="#" class="hover:opacity-80" style="color: var(--color-gray)">Teach on LearnHub</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Support -->
+        <div>
+          <h4 class="font-plus font-bold text-white mb-4">Support</h4>
+          <ul class="space-y-3">
+            <li>
+              <a href="#" class="hover:opacity-80" style="color: var(--color-gray)">Help Center</a>
+            </li>
+            <li>
+              <a href="#" class="hover:opacity-80" style="color: var(--color-gray)">Contact Us</a>
+            </li>
+            <li>
+              <a href="#" class="hover:opacity-80" style="color: var(--color-gray)">Privacy Policy</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="
             border-top: 1px solid;
             border-color: var(--color-light-gray);
             padding-top: 2rem;
             text-align: center;
-          "
-        >
-          <p style="color: var(--color-gray); font-size: 0.95rem">
-            © 2024 LearnHub. All rights reserved.
-          </p>
-        </div>
+          ">
+        <p style="color: var(--color-gray); font-size: 0.95rem">
+          © 2024 LearnHub. All rights reserved.
+        </p>
       </div>
-    </footer>
-  </body>
+    </div>
+  </footer>
+</body>
+
 </html>

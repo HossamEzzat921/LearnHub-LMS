@@ -24,21 +24,19 @@
 
 <body class="bg-gray-50 min-h-screen">
   <nav class="bg-[var(--color-white)] shadow-md">
-    <div class="px-4 h-16 w-90% bg-contain mx-auto flex justify-between content-center items-center">
+    <div class="container px-4 h-16 w-90% bg-contain mx-auto flex justify-between content-center items-center">
       <div class=" overflow-hidden">
         <img class="w-40 h-44 object-cover aspect-video relative"
-          src="./assets/images/learnhub-logo-clean-removebg-preview.png" alt="Logo">
+          src="../assets/images/learnhub-logo-clean-removebg-preview.png" alt="Logo">
       </div>
       <div class="hidden md:flex gap-6 text-md font-semibold text-center">
-        <a href="#" class="transition-colors text-foreground">Courses</a>
+        <a href="../pages/courses.html" class="transition-colors text-foreground">Courses</a>
       </div>
       <div class="flex gap-4">
         <button class="text-black rounded-md p-2 text-sm hover:bg-orange hover:text-white transition-colors font-light">
-          <a href="pages/signIn.html">Log
-            In</a></button>
+          <a href="../pages/signIn.html">Logout</a></button>
         <button class="text-white px-4 py-2 rounded-xl text-sm font-medium hover:opacity-90 transition-colors"
-          style="background-color: var(--color-teal)"> <a href="pages/signup.html"> Sign
-            Up</a></button>
+          style="background-color: var(--color-teal)"> <a href="../pages/profile.html"> Profile</a></button>
       </div>
     </div>
   </nav>
@@ -214,7 +212,7 @@
                         class="font-['Plus_Jakarta_Sans'] font-bold text-xl text-gray-900 w-12 text-right">35%</span>
                       <button
                         class="flex-shrink-0 w-10 h-10 bg-teal-600 rounded-full flex items-center justify-center hover:bg-teal-700 transition-colors"
-                        onclick="window.location.href = 'coursecontent.html'">
+                        onclick="window.location.href = './course-description.html'">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white ml-0.5" fill="currentColor"
                           viewBox="0 0 24 24">
                           <path d="M8 5v14l11-7z" />

@@ -12,31 +12,28 @@
 
   <!-- Navbar -->
   <nav class="bg-white border-b">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between h-16">
+
       <!-- Left: Logo -->
-      <a class="flex items-center gap-3" href="#">
-        <div class="bg-teal-500 p-2 rounded-lg">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="white" stroke-width="2">
-            <path d="M12 7v14"></path>
-            <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path>
-          </svg>
-        </div>
-        <span class="text-xl font-bold">Learn<span class="text-teal-600">Hub</span></span>
-      </a>
+      <div class=" overflow-hidden">
+        <a href="/Client/index.html" class=" overflow-hidden">
+          <img class="w-40 h-44 object-cover aspect-video relative"
+            src="../assets/images/learnhub-logo-clean-removebg-preview.png" alt="Logo">
+        </a>
+      </div>
 
       <!-- Center: Links -->
       <div class="flex-1 flex justify-center gap-8 text-gray-600 font-medium">
-        <a href="#" class="hover:text-teal-600 transition">Courses</a>
+        <a href="../pages/courses.html" class="hover:text-teal-600 transition">Courses</a>
         <a href="#" class="hover:text-teal-600 transition">Dashboard</a>
       </div>
 
       <!-- Right: User -->
       <div class="flex items-center gap-3">
-        <span class="text-sm text-gray-700" id="usernameDisplay">hossam</span>
-        <button class="border px-3 py-1 rounded-md text-sm hover:bg-gray-100">
+        <span class="text-sm text-gray-700" id="usernameDisplay"></span>
+        <a href="../pages/signIn.html" class="border px-3 py-1 rounded-md text-sm hover:bg-gray-100">
           Logout
-        </button>
+        </a>
       </div>
 
     </div>
@@ -54,14 +51,15 @@
       <div class="bg-teal-700 p-8 flex flex-col items-center text-white">
 
         <div class="relative">
-          <img id="profileImage" src="" alt="Profile" class="w-24 h-24 rounded-full object-cover border-4 border-white" />
+          <img id="profileImage" src="" alt="Profile"
+            class="w-24 h-24 rounded-full object-cover border-4 border-white" />
           <input type="file" id="imageInput" accept="image/*" class="hidden" />
           <button id="changeImageBtn" class="absolute bottom-0 right-0 bg-white p-2 rounded-full shadow cursor-pointer">
             📷
           </button>
         </div>
 
-        <h3 class="text-xl font-semibold mt-4" id="nameDisplay">hossam</h3>
+        <h3 class="text-xl font-semibold mt-4" id="nameDisplay"> </h3>
         <span class="bg-teal-500 text-xs px-3 py-1 rounded-full mt-2">Student</span>
       </div>
 
@@ -71,18 +69,21 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label class="text-sm font-medium">First Name</label>
-            <input type="text" id="firstName" class="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" />
+            <input type="text" id="firstName"
+              class="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" />
           </div>
 
           <div>
             <label class="text-sm font-medium">Last Name</label>
-            <input type="text" id="lastName" class="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" />
+            <input type="text" id="lastName"
+              class="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" />
           </div>
         </div>
 
         <div>
           <label class="text-sm font-medium">Email Address</label>
-          <input type="email" id="email" class="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" />
+          <input type="email" id="email"
+            class="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" />
         </div>
 
         <!-- Account Type -->
@@ -130,7 +131,7 @@
     const usernameDisplay = document.getElementById("usernameDisplay");
 
     function loadProfile() {
-      const first = localStorage.getItem("firstName") || "hossam";
+      const first = localStorage.getItem("firstName") || "";
       const last = localStorage.getItem("lastName") || "";
       const email = localStorage.getItem("email") || "hossamamer90002@gmail.com";
       const image = localStorage.getItem("profileImage") || "";
@@ -186,4 +187,5 @@
   </script>
 
 </body>
+
 </html>

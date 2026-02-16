@@ -1,14 +1,239 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coueses</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Complete Web Development Bootcamp — LearnHub</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
+    <nav class="bg-white shadow-md">
+        <div class="container px-4 h-16 w-90% bg-contain mx-auto flex justify-between content-center items-center">
+            <a href="../index.html" class=" overflow-hidden">
+                <img class="w-40 h-44 object-cover aspect-video relative"
+                    src="../assets/images/learnhub-logo-clean-removebg-preview.png" alt="Logo">
+            </a>
+            <div class="hidden md:flex gap-6 text-md font-semibold text-center">
+                <a href="#" class="transition-colors text-foreground">Courses</a>
+            </div>
+            <div class="flex gap-4">
+                <button
+                    class="text-black rounded-md p-2 text-sm hover:bg-orange hover:text-white transition-colors font-light">Log
+                    In</button>
+                <button class="text-white px-4 py-2 rounded-xl text-sm font-medium hover:opacity-90 transition-colors"
+                    style="background-color: var(--color-teal)">Sign
+                    Up</button>
+            </div>
+        </div>
+    </nav>
+    <section class="gradient-primary py-10 mb-5">
+        <div class="container mx-auto flex flex-col items-center text-center py-20 gap-6">
+            <h1 class="text-white font-extrabold text-4xl">Explore Our Courses</h1>
+            <p class="text-white">Find the perfect course to advance your skills and career</p>
+            <div class="flex w-full max-w-xl">
+                <input type="text" placeholder="Search for courses or instructors"
+                    class="flex-1 px-4 py-2 text-gray-900 font-extralight rounded-lg bg-white border border-light-gray focus:outline-none focus:ring-2 focus:ring-teal-600">
+            </div>
+    </section>
+    <section class="p-10">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between mb-10">
+                <div>
+                    <h2 class="font-plus font-bold text-3xl md:text-4xl mb-2" style="color: var(--color-dark)">
+                        Featured Courses
+                    </h2>
+                    <p style="color: var(--color-gray)">
+                        Learn from the best instructors in the industry
+                    </p>
+                </div>
+            </div>
 
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 cursor-pointer">
+                <!-- Course Card 1 (clickable) -->
+                <a href="./pages/course-1.html" class="block">
+                    <div class="bg-white rounded-xl border overflow-hidden hover:shadow-lg duration-300 hover:transition-all group"
+                        style="background-color: var(--color-white); border-color: var(--color-light-gray)">
+                        <div class="relative h-48 bg-slate-200 duration-500 transition-transform hover:transform-3d">
+                            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800"
+                                alt="Web Development"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-3 right-3 backdrop-blur px-3 py-1 rounded-full text-xs font-bold"
+                                style="background-color: var(--color-orange); color: white;">
+                                Intermediate</div>
+                        </div>
+                        <div class="p-5">
+                            <h3
+                                class="font-plus font-bold text-lg mb-2 group-hover:text-teal text-dark transition-colors duration-300">
+                                Complete Web Development Bootcamp</h3>
+                            <p class="text-sm mb-3" style="color: var(--color-gray)">John Doe</p>
+                            <div class="flex items-center gap-4 mb-4 text-sm">
+                                <div class="flex items-center gap-1" style="color: var(--color-orange)">
+                                    <span>⭐</span>
+                                    <span class="font-bold">4.8</span>
+                                    <span style="color: var(--color-gray)">(180k)</span>
+                                </div>
+                                <div style="color: var(--color-gray)">
+                                    ⏱️ 42 hours
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <div style="color: var(--color-dark); font-weight: bold; font-size: 1.25rem;">
+                                        $89.99
+                                    </div>
+                                    <div
+                                        style="color: var(--color-gray); text-decoration: line-through; font-size: 0.875rem;">
+                                        $109.99</div>
+                                </div>
+                                <div style="color: var(--color-gray); text-align: right;">
+                                    <div style="font-size: 0.75rem;">📚 280 lessons</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Course Card 2 -->
+                <div class="bg-white rounded-xl border overflow-hidden hover:shadow-lg transition-shadow duration-300 group"
+                    style="background-color: var(--color-white); border-color: var(--color-light-gray)">
+                    <div class="relative h-48 bg-slate-200">
+                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800" alt="UI Design"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 backdrop-blur px-3 py-1 rounded-full text-xs font-bold"
+                            style="background-color: var(--color-orange); color: white;">
+                            Intermediate</div>
+                    </div>
+                    <div class="p-5">
+                        <h3
+                            class="font-plus font-bold text-lg mb-2 group-hover:text-teal text-dark transition-colors duration-300">
+                            UI/UX Design Masterclass</h3>
+                        <p class="text-sm mb-3" style="color: var(--color-gray)">Sarah Smith</p>
+                        <div class="flex items-center gap-4 mb-4 text-sm">
+                            <div class="flex items-center gap-1" style="color: var(--color-orange)">
+                                <span>⭐</span>
+                                <span class="font-bold">4.9</span>
+                                <span style="color: var(--color-gray)">(150k)</span>
+                            </div>
+                            <div style="color: var(--color-gray)">
+                                ⏱️ 38 hours
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div style="color: var(--color-dark); font-weight: bold; font-size: 1.25rem;">
+                                    $74.99
+                                </div>
+                                <div
+                                    style="color: var(--color-gray); text-decoration: line-through; font-size: 0.875rem;">
+                                    $99.99</div>
+                            </div>
+                            <div style="color: var(--color-gray); text-align: right;">
+                                <div style="font-size: 0.75rem;">📚 250 lessons</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 3 -->
+                <div class="bg-white rounded-xl border overflow-hidden hover:shadow-lg transition-shadow duration-300 group"
+                    style="background-color: var(--color-white); border-color: var(--color-light-gray)">
+                    <div class="relative h-48 bg-slate-200">
+                        <img src="https://images.unsplash.com/photo-1552581234-26160f608093?w=800" alt="Marketing"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 backdrop-blur px-3 py-1 rounded-full text-xs font-bold"
+                            style="background-color: var(--color-orange); color: white;">
+                            Intermediate</div>
+                    </div>
+                    <div class="p-5">
+                        <h3
+                            class="font-plus font-bold text-lg mb-2 group-hover:text-teal text-dark transition-colors duration-300">
+                            Digital Marketing Complete Guide</h3>
+                        <p class="text-sm mb-3" style="color: var(--color-gray)">Mike Johnson</p>
+                        <div class="flex items-center gap-4 mb-4 text-sm">
+                            <div class="flex items-center gap-1" style="color: var(--color-orange)">
+                                <span>⭐</span>
+                                <span class="font-bold">4.7</span>
+                                <span style="color: var(--color-gray)">(120k)</span>
+                            </div>
+                            <div style="color: var(--color-gray)">
+                                ⏱️ 45 hours
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div style="color: var(--color-dark); font-weight: bold; font-size: 1.25rem;">
+                                    $59.99
+                                </div>
+                                <div
+                                    style="color: var(--color-gray); text-decoration: line-through; font-size: 0.875rem;">
+                                    $89.99</div>
+                            </div>
+                            <div style="color: var(--color-gray); text-align: right;">
+                                <div style="font-size: 0.75rem;">📚 320 lessons</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile View All Button -->
+            <a href="#"
+                class="flex md:hidden items-center justify-center rounded-md border bg-white w-full mt-6 px-4 py-2 text-sm font-medium hover:bg-slate-100 transition-colors gap-2"
+                style="border-color: var(--color-light-gray); color: var(--color-dark)">
+                View All Courses
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <footer style="background-color: var(--color-dark);">
+        <div class="container mx-auto px-4 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+                <!-- Brand -->
+                <div>
+                    <div class="w-24 h-12 bg-white mb-6" aria-hidden="true"></div>
+                    <p style="color: var(--color-gray); font-size: 0.95rem; line-height: 1.7;">
+                        Empowering learners worldwide with quality education. Access thousands of courses and learn at
+                        your own pace.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-plus font-bold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:opacity-80" style="color: var(--color-gray);">All Courses</a></li>
+                        <li><a href="#" class="hover:opacity-80" style="color: var(--color-gray);">Become a Student</a>
+                        </li>
+                        <li><a href="#" class="hover:opacity-80" style="color: var(--color-gray);">Teach on LearnHub</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h4 class="font-plus font-bold text-white mb-4">Support</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:opacity-80" style="color: var(--color-gray);">Help Center</a></li>
+                        <li><a href="#" class="hover:opacity-80" style="color: var(--color-gray);">Contact Us</a></li>
+                        <li><a href="#" class="hover:opacity-80" style="color: var(--color-gray);">Privacy Policy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                style="border-top:1px solid; border-color: var(--color-light-gray); padding-top:2rem; text-align:center;">
+                <p style="color: var(--color-gray); font-size:0.95rem;">© 2024 LearnHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
