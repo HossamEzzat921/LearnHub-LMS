@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Courses</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="flex">
+     <!-- aside bar tablet & laptop -->
+      <div class="hidden md:block w-64 min-h-screen bg-teal border-r">
+        <div class="pb-12 px-5 flex flex-col justify-between h-full">
+          <div>
+            <!-- logo -->
+            <div class="overflow-hidden flex justify-center">
+              <a href="http://127.0.0.1:5501/pages/teacher-dashboard.html">
+                <img
+                  class="w-40 h-44 object-cover aspect-video"
+                  src="../assets/images/ChatGPT Image Feb 14, 2026, 05_10_16 PM.png"
+                  alt="Logo"
+                />
+              </a>
+            </div>
+
+            <!-- links -->
+            <div class="mb-4 space-y-5">
+              <div>
+                <a
+                  href="http://127.0.0.1:5501/pages/teacher-courses.html"
+                  class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-e-xl"
+                >
+                  <i class="fa-solid fa-book-open text-lg"></i>
+                  <span> My Courses</span>
+                </a>
+              </div>
+              <div>
+                <a
+                  href="http://127.0.0.1:5501/pages/teacher-assignments.html"
+                  class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-e-xl"
+                >
+                  <i class="fa-regular fa-file text-lg"></i>
+                  <span>Assignments</span>
+                </a>
+              </div>
+              <div>
+                <a
+                  href="http://127.0.0.1:5501/pages/teacher-submissions.html"
+                  class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-e-xl"
+                >
+                  <i class="fa-solid fa-upload text-lg"></i>
+                  <span> Submissions</span>
+                </a>
+              </div>
+              <div>
+                <a
+                  href="http://127.0.0.1:5501/pages/teacher-enrollments.html"
+                  class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-e-xl"
+                >
+                <i class="fas fa-user-plus w-6"></i>
+                  <span> Enrollment</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- logout -->
+           <div>
+                <a
+                  href="http://127.0.0.1:5501/pages/signIn.html"
+                  class="w-full flex items-center gap-2 h-10 px-4 py-2 text-base font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all leading-5 rounded-s-xl"
+                >
+                <i class="fas fa-sign-out-alt transform rotate-180"></i>
+                  <span>Logout</span>
+                </a>
+              </div>
+          
+        </div>
+      </div>
+      <!-- ========Main Content =============-->
+      <section class="container mx-auto px-4 my-12">
+        <div class="">
+          <div
+            class="flex flex-col gap-4 md:flex-row md:justify-between md:items-center mb-12"
+          >
+          <div class="flex gap-2 items-center">
+          <div
+            class="w-9 h-9 hover:bg-orange cursor-pointer hover:text-white transition-all rounded-lg flex items-center justify-center"
+          >
+          <a href="http://127.0.0.1:5501/pages/teacher-dashboard.html">
+           <i class="fa-solid fa-arrow-down text-base rotate-90"></i>
+        </a>
+           
+          </div>
+         <div class="space-y-2.5">
+              <div class="flex gap-4 items-center">
+                <div class="menu-btn md:hidden">
+                  <i class="fa-solid fa-bars text-xl"></i>
+                </div>
+                <h1 class="font-plus font-bold text-3xl text-dark leading-9">
+                  Welcome back, Dr. Ahmed! 👨‍🏫
+                </h1>
+              </div>
+
+              <p class="font-normal text-base leading-6">
+                Manage your courses and connect with your students.
+              </p>
+            </div>
+        </div>
+           
+            <div>
+              <a
+                class="flex cursor-pointer items-center gap-2 h-10 px-4 py-2 bg-linear-to-r from-teal to-dark-teal text-white text-sm leading-5 font-medium rounded-md"
+                href="http://127.0.0.1:5501/pages/create-course.html"
+              >
+                <i class="fa-solid fa-plus text-base font-semibold"></i>
+                <span>Create New Course</span>
+              </a>
+            </div>
+          </div>
+          <h2 class="font-plus font-semibold text-xl text-dark leading-7 mb-4">
+            Your Courses
+          </h2>
+          <div class="grid grid-cols-2 gap-6 my-12">
+            <!-- course card 1 -->
+            <div class="bg-white rounded-xl p-6 shadow-soft space-y-5">
+              <h3 class="font-plus font-semibold text-lg text-dark leading-7">
+                Advanced JavaScript
+              </h3>
+              <!-- course details -->
+              <div class="grid grid-cols-3 gap-4">
+                <!-- detail 1 -->
+                <div class="flex flex-col gap-2 items-center">
+                  <div class="flex gap-1 items-center">
+                    <i class="fa-solid fa-user-group text-gray-400 text-lg"></i>
+                    <span class="font-bold text-base leading-6 text-dark"
+                      >1,250</span
+                    >
+                  </div>
+                  <p class="font-normal text-xs leading-4">Studens</p>
+                </div>
+                <!-- detail 2 -->
+                <div class="flex flex-col gap-2 items-center">
+                  <div class="flex gap-1 items-center">
+                    <i class="fa-regular fa-star text-orange text-lg"></i>
+                    <span class="font-bold text-base leading-6 text-dark"
+                      >1,250</span
+                    >
+                  </div>
+                  <p class="font-normal text-xs leading-4">Rating</p>
+                </div>
+                <!-- detail 3 -->
+                <div class="flex flex-col gap-2 items-center">
+                  <div class="flex gap-1 items-center">
+                    <span class="text-green font-semibold text-xl">$</span>
+                    <span class="font-bold text-base leading-6 text-dark"
+                      >$12.5k</span
+                    >
+                  </div>
+                  <p class="font-normal text-xs leading-4">Revenue</p>
+                </div>
+              </div>
+              <!-- buttons -->
+              <div class="flex gap-4">
+                <button
+                  class="w-full flex items-center justify-center gap-2 h-9 px-3 py-2 text-sm font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all text-dark leading-5 rounded-xl"
+                >
+                  <span>Delete Course</span>
+                </button>
+                <a href="http://127.0.0.1:5501/pages/edit-course.html"
+                  class="w-full flex items-center justify-center gap-2 h-9 px-3 py-2 text-sm font-medium text-white bg-linear-to-r from-teal to-dark-teal leading-5 rounded-xl"
+                >
+                  <span>Edit Course</span>
+              </a>
+              </div>
+            </div>
+            <!-- course card 2 -->
+            <div class="bg-white rounded-xl p-6 shadow-soft space-y-5">
+              <h3 class="font-plus font-semibold text-lg text-dark leading-7">
+                React Masterclass
+              </h3>
+              <!-- course details -->
+              <div class="grid grid-cols-3 gap-4">
+                <!-- detail 1 -->
+                <div class="flex flex-col gap-2 items-center">
+                  <div class="flex gap-1 items-center">
+                    <i class="fa-solid fa-user-group text-gray-400 text-lg"></i>
+                    <span class="font-bold text-base leading-6 text-dark"
+                      >1,250</span
+                    >
+                  </div>
+                  <p class="font-normal text-xs leading-4">Studens</p>
+                </div>
+                <!-- detail 2 -->
+                <div class="flex flex-col gap-2 items-center">
+                  <div class="flex gap-1 items-center">
+                    <i class="fa-regular fa-star text-orange text-lg"></i>
+                    <span class="font-bold text-base leading-6 text-dark"
+                      >1,250</span
+                    >
+                  </div>
+                  <p class="font-normal text-xs leading-4">Rating</p>
+                </div>
+                <!-- detail 3 -->
+                <div class="flex flex-col gap-2 items-center">
+                  <div class="flex gap-1 items-center">
+                    <span class="text-green font-semibold text-xl">$</span>
+                    <span class="font-bold text-base leading-6 text-dark"
+                      >$12.5k</span
+                    >
+                  </div>
+                  <p class="font-normal text-xs leading-4">Revenue</p>
+                </div>
+              </div>
+              <!-- buttons -->
+              <div class="flex gap-4">
+                <button
+                  class="w-full flex items-center justify-center gap-2 h-9 px-3 py-2 text-sm font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all text-dark leading-5 rounded-xl"
+                >
+                  <span>Delete Course</span>
+                </button>
+                <a href="http://127.0.0.1:5501/pages/edit-course.html"
+                  class="w-full flex items-center justify-center gap-2 h-9 px-3 py-2 text-sm font-medium text-white bg-linear-to-r from-teal to-dark-teal leading-5 rounded-xl"
+                >
+                  <span>Edit Course</span>
+              </a>
+              </div>
+            </div>
+             <!-- course card 3 -->
+            <div class="bg-white rounded-xl p-6 shadow-soft space-y-5">
+              <h3 class="font-plus font-semibold text-lg text-dark leading-7">
+                Node js
+              </h3>
+              <!-- course details -->
+              <div class="grid grid-cols-3 gap-4">
+                <!-- detail 1 -->
+                <div class="flex flex-col gap-2 items-center">
+                  <div class="flex gap-1 items-center">
+                    <i class="fa-solid fa-user-group text-gray-400 text-lg"></i>
+                    <span class="font-bold text-base leading-6 text-dark"
+                      >1,250</span
+                    >
+                  </div>
+                  <p class="font-normal text-xs leading-4">Studens</p>
+                </div>
+                <!-- detail 2 -->
+                <div class="flex flex-col gap-2 items-center">
+                  <div class="flex gap-1 items-center">
+                    <i class="fa-regular fa-star text-orange text-lg"></i>
+                    <span class="font-bold text-base leading-6 text-dark"
+                      >1,250</span
+                    >
+                  </div>
+                  <p class="font-normal text-xs leading-4">Rating</p>
+                </div>
+                <!-- detail 3 -->
+                <div class="flex flex-col gap-2 items-center">
+                  <div class="flex gap-1 items-center">
+                    <span class="text-green font-semibold text-xl">$</span>
+                    <span class="font-bold text-base leading-6 text-dark"
+                      >$12.5k</span
+                    >
+                  </div>
+                  <p class="font-normal text-xs leading-4">Revenue</p>
+                </div>
+              </div>
+              <!-- buttons -->
+              <div class="flex gap-4">
+                <button
+                  class="w-full flex items-center justify-center gap-2 h-9 px-3 py-2 text-sm font-medium bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all text-dark leading-5 rounded-xl"
+                >
+                  <span>Delete Course</span>
+                </button>
+                <a href="http://127.0.0.1:5501/pages/edit-course.html"
+                  class="w-full flex items-center justify-center gap-2 h-9 px-3 py-2 text-sm font-medium text-white bg-linear-to-r from-teal to-dark-teal leading-5 rounded-xl"
+                >
+                  <span>Edit Course</span>
+              </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- =======footer =========-->
+    <footer style="background-color: var(--color-dark)">
+      <div class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+          <!-- Brand -->
+          <div>
+            <div class="w-24 h-12 bg-white mb-6" aria-hidden="true"></div>
+            <p
+              style="
+                color: var(--color-gray);
+                font-size: 0.95rem;
+                line-height: 1.7;
+              "
+            >
+              Empowering learners worldwide with quality education. Access
+              thousands of courses and learn at your own pace.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h4 class="font-plus font-bold text-white mb-4">Quick Links</h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  class="hover:opacity-80"
+                  style="color: var(--color-gray)"
+                  >All Courses</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:opacity-80"
+                  style="color: var(--color-gray)"
+                  >Become a Student</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:opacity-80"
+                  style="color: var(--color-gray)"
+                  >Teach on LearnHub</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Support -->
+          <div>
+            <h4 class="font-plus font-bold text-white mb-4">Support</h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  class="hover:opacity-80"
+                  style="color: var(--color-gray)"
+                  >Help Center</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:opacity-80"
+                  style="color: var(--color-gray)"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:opacity-80"
+                  style="color: var(--color-gray)"
+                  >Privacy Policy</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          style="
+            border-top: 1px solid;
+            border-color: var(--color-light-gray);
+            padding-top: 2rem;
+            text-align: center;
+          "
+        >
+          <p style="color: var(--color-gray); font-size: 0.95rem">
+            © 2024 LearnHub. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
