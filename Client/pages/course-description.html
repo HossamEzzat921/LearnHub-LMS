@@ -130,12 +130,114 @@
         </div>
     </main>
     <!-- course content -->
-    <div class="py-10 container mx-auto px-1">
+    <!-- course content -->
+    <section class="py-10 container px-4 max-w-4xl">
         <div class="flex flex-col gap-4">
-            <h1 class="text-black text-xl"> Course Content</h1>
-            <h2>3 Sections, 9 lessons, 65 hours total length</h2>
+            <h2 class="text-2xl font-plus font-extrabold text-gray-900">Course Content</h2>
+            <p class="text-sm text-gray-500">3 sections • 9 lessons • 65 hours total length</p>
+
+            <div class="mt-6 space-y-4">
+                <!-- Section 1 (expanded) -->
+                <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+                    <div class="flex items-center justify-between p-4 bg-gray-50">
+                        <div class="flex items-center gap-3">
+                            <svg class="w-4 h-4 text-gray-600" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M6 9l6-6 6 6"></path>
+                            </svg>
+                            <h3 class="font-semibold text-sm text-gray-900">Getting Started with HTML</h3>
+                        </div>
+                        <div class="text-sm text-gray-500">3 lessons</div>
+                    </div>
+
+                    <div class="divide-y divide-gray-100 bg-white">
+                        <div class="flex items-center gap-3 p-4 pl-6 border-l-4 border-teal-600">
+                            <div class="w-8 h-8 rounded-md flex items-center justify-center bg-teal-600 text-white">
+                                <svg width="16" height="16" fill="white" viewBox="0 0 16 16">
+                                    <path d="M5 3.5v9l7-4.5-7-4.5z" />
+                                </svg>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="font-medium text-sm text-teal-600 truncate">Introduction to Web Development
+                                </div>
+                                <div class="flex items-center gap-2 text-xs text-gray-500 mt-1">
+                                    <svg class="w-3 h-3" viewBox="0 0 12 12" fill="none" stroke="currentColor"
+                                        stroke-width="1.5">
+                                        <circle cx="6" cy="6" r="5" />
+                                        <path d="M6 3v3l2 1" stroke-linecap="round" />
+                                    </svg>
+                                    <span>15:00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3 p-4 pl-6 hover:bg-gray-50 transition-colors">
+                            <div class="w-8 h-8 rounded-md flex items-center justify-center bg-green-500 text-white">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="white"
+                                    stroke-width="2">
+                                    <path d="M3 8l3 3 7-7" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="font-medium text-sm text-gray-900 truncate">HTML Basics</div>
+                                <div class="flex items-center gap-2 text-xs text-gray-500 mt-1">
+                                    <svg class="w-3 h-3" viewBox="0 0 12 12" fill="none" stroke="currentColor"
+                                        stroke-width="1.5">
+                                        <circle cx="6" cy="6" r="5" />
+                                        <path d="M6 3v3l2 1" stroke-linecap="round" />
+                                    </svg>
+                                    <span>25:00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3 p-4 pl-6 cursor-not-allowed opacity-60">
+                            <div class="w-8 h-8 rounded-md flex items-center justify-center bg-gray-300 text-white">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M5 3.5v9l7-4.5-7-4.5z" />
+                                </svg>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="font-medium text-sm text-gray-900 truncate">HTML Forms and Inputs</div>
+                                <div class="flex items-center gap-2 text-xs text-gray-500 mt-1">
+                                    <svg class="w-3 h-3" viewBox="0 0 12 12" fill="none" stroke="currentColor"
+                                        stroke-width="1.5">
+                                        <circle cx="6" cy="6" r="5" />
+                                        <path d="M6 3v3l2 1" stroke-linecap="round" />
+                                    </svg>
+                                    <span>30:00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2 (collapsed) -->
+                <div
+                    class="bg-white border border-gray-200 rounded-2xl p-4 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-4 h-4 text-gray-600" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M6 15l6-6 6 6"></path>
+                        </svg>
+                        <h3 class="font-semibold text-sm text-gray-900">CSS Fundamentals</h3>
+                    </div>
+                    <div class="text-sm text-gray-500">3 lessons</div>
+                </div>
+
+                <!-- Section 3 (collapsed) -->
+                <div
+                    class="bg-white border border-gray-200 rounded-2xl p-4 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-4 h-4 text-gray-600" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M6 15l6-6 6 6"></path>
+                        </svg>
+                        <h3 class="font-semibold text-sm text-gray-900">JavaScript Essentials</h3>
+                    </div>
+                    <div class="text-sm text-gray-500">3 lessons</div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
     <footer style="background-color: var(--color-dark);">
         <div class="container mx-auto px-4 py-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
