@@ -17,9 +17,15 @@ import CourseLearn from "./pages/courses/CourseLearn";
 import StudentDashboard from "./pages/dashboards/StudentDashboard";
 import ParentDashboard from "./pages/dashboards/ParentDashboard";
 import TeacherDashboard from "./pages/dashboards/TeacherDashboard";
-import CreateCourse from "./pages/dashboards/CreateCourse";
+
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
+import PersistLogin from "./features/auth/PersistLogin";
+import RequireAuth from "./features/auth/RequireAuth";
+import TeacherLayout from "./layouts/teacherLayout";
+import CreateCourse from "./pages/dashboards/CreateCourse";
+import TeacherCourses from "./pages/dashboards/TeacherCourses";
+
 
 const queryClient = new QueryClient();
 
@@ -32,75 +38,78 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <Routes>
-              {/* Public Routes */}
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/courses" element={<Courses />} />
-              <Route path="/courses/:id" element={<CourseDetails />} />
-              
-              {/* Protected Course Learning */}
-              <Route 
-                path="/course/:id/learn" 
-                element={
-                  <ProtectedRoute allowedRoles={['student']}>
-                    <CourseLearn />
-                  </ProtectedRoute>
-                } 
+              <Route element={<PersistLogin />}>
+                {/* Public Routes */}
+                <Route path="/" element={<Home />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/courses" element={<Courses />} />
+                <Route path="/courses/:id" element={<CourseDetails />} />
+
+                {/* Protected Course Learning */}
+                <Route
+                  path="/course/:id/learn"
+                  element={
+                    <ProtectedRoute allowedRoles={["Student"]}>
+                      <CourseLearn />
+                    </ProtectedRoute>
+                  }
+                />
+
+                {/* Student Dashboard */}
+                <Route
+                  path="/student/dashboard/*"
+                  element={
+                    <ProtectedRoute allowedRoles={["Student"]}>
+                      <StudentDashboard />
+                    </ProtectedRoute>
+                  }
+                />
+
+                {/* Parent Dashboard */}
+                <Route
+                  path="/parent/dashboard/*"
+                  element={
+                    <ProtectedRoute allowedRoles={["Parent"]}>
+                      <ParentDashboard />
+                    </ProtectedRoute>
+                  }
+                />
+
+                {/* Protected Routes ONLY for Teachers */}
+                <Route element={<RequireAuth allowedRoles={["Teacher"]} />}>
+                  <Route path="/teacher/:id" element={<TeacherLayout />}>
+                    <Route path="dashboard" element={<TeacherDashboard />} />
+                    <Route path="create-course" element={<CreateCourse/>} />
+                    <Route path="courses" element={<TeacherCourses />}/>
+                    {/*  
+                    <Route path="enrollments" element={<Enrollments />} />
+                    <Route path="assignments" element={<Assignment />} />
+                    
+                    <Route path="courses/:courseId" element={<Course />} />
+                    <Route
+                      path="courses/edit/:courseId"
+                      element={<UpdateCourse />}
+                    /> */}
+                  </Route>
+                </Route>
+                {/* Profile */}
+                <Route
+                  path="/profile"
+                  element={
+                    <ProtectedRoute>
+                      <Profile />
+                    </ProtectedRoute>
+                  }
+                />
+
+                {/* Catch-all */}
+                <Route path="*" element={<NotFound />} />
+              </Route>
+              <Route
+                path="/unauthorized"
+                element={<div>You do not have access to this page.</div>}
               />
-              
-              {/* Student Dashboard */}
-              <Route 
-                path="/student/dashboard/*" 
-                element={
-                  <ProtectedRoute allowedRoles={['student']}>
-                    <StudentDashboard />
-                  </ProtectedRoute>
-                } 
-              />
-              
-              {/* Parent Dashboard */}
-              <Route 
-                path="/parent/dashboard/*" 
-                element={
-                  <ProtectedRoute allowedRoles={['parent']}>
-                    <ParentDashboard />
-                  </ProtectedRoute>
-                } 
-              />
-              
-              {/* Teacher Dashboard */}
-              <Route 
-                path="/teacher/dashboard/*" 
-                element={
-                  <ProtectedRoute allowedRoles={['teacher']}>
-                    <TeacherDashboard />
-                  </ProtectedRoute>
-                } 
-              />
-              
-              {/* Create Course */}
-              <Route 
-                path="/teacher/create-course" 
-                element={
-                  <ProtectedRoute allowedRoles={['teacher']}>
-                    <CreateCourse />
-                  </ProtectedRoute>
-                } 
-              />
-              
-              {/* Profile */}
-              <Route 
-                path="/profile" 
-                element={
-                  <ProtectedRoute>
-                    <Profile />
-                  </ProtectedRoute>
-                } 
-              />
-              
-              {/* Catch-all */}
-              <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
         </TooltipProvider>

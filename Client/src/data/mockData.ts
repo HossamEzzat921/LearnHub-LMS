@@ -1,6 +1,6 @@
 // Mock data for the educational platform
 
-export type UserRole = 'student' | 'parent' | 'teacher';
+export type UserRole = 'Student' | 'Parent' | 'Teacher';
 
 export interface User {
   id: string;
@@ -17,7 +17,7 @@ export interface Course {
   instructor: string;
   price: number;
   originalPrice?: number;
-  image: string;
+  thumbnail: string;
   rating: number;
   studentsCount: number;
   duration: string;
@@ -63,7 +63,7 @@ export const mockCourses: Course[] = [
     instructor: 'Dr. Angela Yu',
     price: 89.99,
     originalPrice: 199.99,
-    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800',
+    thumbnail: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800',
     rating: 4.8,
     studentsCount: 245000,
     duration: '65 hours',

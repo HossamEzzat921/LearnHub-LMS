@@ -9,6 +9,7 @@ interface CourseCardProps {
 }
 
 const CourseCard = ({ course, index = 0 }: CourseCardProps) => {
+   const BASE_URL = "http://localhost:3500/";
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -20,7 +21,7 @@ const CourseCard = ({ course, index = 0 }: CourseCardProps) => {
           {/* Image */}
           <div className="relative aspect-video overflow-hidden">
             <img 
-              src={course.image} 
+              src={`${BASE_URL}uploads/${course.thumbnail}`}
               alt={course.title}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />

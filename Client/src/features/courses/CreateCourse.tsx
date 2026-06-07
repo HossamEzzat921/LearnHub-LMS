@@ -1,18 +1,20 @@
 import { useNavigate } from "react-router-dom";
 import { createCourse } from "../../api";
+import type { courseType } from "../../validations/coureseSchema";
+import CreateCourseForm from "./CreateCourseForm";
 import { useSelector } from "react-redux";
-import { selectCurrentUser } from "@/features/auth/authSlice";
-import { CreateCourseForm } from "@/features/teacher";
-import { toast } from "sonner";
+import { selectCurrentUser } from "../auth/authSlice";
+
+
 
 const CreateCourse = () => {
-  const user = useSelector(selectCurrentUser);
+   const user = useSelector(selectCurrentUser);
   const navigate = useNavigate();
 
-  const handleCreateCourse = async (data) => {
+  const handleCreateCourse = async (data: courseType) => {
     try {
       const result = await createCourse(data);
-      toast.success("Course Created successfully!");
+
       if (result) {
         navigate(`/teacher/${user.id}/courses`);
       }
@@ -40,7 +42,7 @@ const CreateCourse = () => {
           </div>
         </div>
       </div>
-
+      
       <CreateCourseForm onSubmit={handleCreateCourse} />
     </section>
   );

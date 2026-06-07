@@ -5,9 +5,20 @@ import CourseCard from '@/components/courses/CourseCard';
 import { mockCourses } from '@/data/mockData';
 import { ArrowRight, Play, Users, Award, BookOpen, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { getAllCourses } from '@/api/course/getAllCourses';
 
 const Home = () => {
-  const featuredCourses = mockCourses.slice(0, 6);
+  const [coursesData,setCoursesData] = useState([])
+  useEffect(()=>{
+    const fetchCourses = async () => {
+      const data = await getAllCourses();
+     setCoursesData(data)
+      }
+    
+    fetchCourses();
+  },[])
+  const featuredCourses = coursesData && coursesData.slice(0, 6);
 
   const stats = [
     { icon: Users, label: 'Students', value: '500K+' },
