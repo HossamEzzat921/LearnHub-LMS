@@ -11,9 +11,9 @@ const asyncHandler = require('express-async-handler')
 // @route POST /auth
 // @access Public
 const register = asyncHandler(async (req, res) => {
-    const { username, password, role } = req.body
+    const { username, password, role ,email} = req.body
 
-    if (!username || !password || !role) {
+    if (!username || !password || !role || !email) {
         return res.status(400).json({ message: 'All fields are required' })
     }
 
@@ -22,12 +22,16 @@ const register = asyncHandler(async (req, res) => {
     if (duplicate) {
         return res.status(409).json({ message: "this user name is reserved" });
     }
+    const duplicateEmail = await User.findOne({ email }).lean().exec();
+    if (duplicateEmail) {
+        return res.status(409).json({ message: "this user email is reserved" });
+    }
     const hashedPwd = await bcrypt.hash(password, 10);
 
-    const userObject = { username, password: hashedPwd, role };
+    const userObject = { username, password: hashedPwd, role,email };
     const user = await User.create(userObject);
     if (user) {
-        return res.status(201).json({ _id: user._id, username: user.username, role: user.role, message: "user created successfully" });
+        return res.status(201).json({ _id: user._id,email:user.email, username: user.username, role: user.role, message: "user created successfully" });
     } else {
         return res.status(400).json({ message: "Invalid user data" });
     }
@@ -44,13 +48,13 @@ const register = asyncHandler(async (req, res) => {
 // @route POST /auth
 // @access Public
 const login = asyncHandler(async (req, res) => {
-    const { username, password } = req.body
+    const { email, password } = req.body
 
-    if (!username || !password) {
+    if (!email || !password) {
         return res.status(400).json({ message: 'All fields are required' })
     }
 
-    const foundUser = await User.findOne({ username }).exec()
+    const foundUser = await User.findOne({ email }).exec()
 
     if (!foundUser || !foundUser.active) {
         return res.status(401).json({ message: 'Unauthorized' })
@@ -65,7 +69,8 @@ const login = asyncHandler(async (req, res) => {
             "UserInfo": {
                 "username": foundUser.username,
                 "role": foundUser.role,
-                "id": foundUser._id
+                "id": foundUser._id,
+                "email":foundUser.email
 
             }
         },
@@ -74,7 +79,7 @@ const login = asyncHandler(async (req, res) => {
     )
 
     const refreshToken = jwt.sign(
-        { "username": foundUser.username },
+        { "email": foundUser.email },
         process.env.REFRESH_TOKEN_SECRET,
         { expiresIn: '7d' }
     )
@@ -92,7 +97,8 @@ const login = asyncHandler(async (req, res) => {
         accessToken, user: {
             "username": foundUser.username,
             "role": foundUser.role,
-            "id": foundUser._id
+            "id": foundUser._id,
+              "email":foundUser.email
         }
 
     })
@@ -117,7 +123,7 @@ const refresh = (req, res) => {
                 return res.status(403).json({ message: 'Forbidden' });
             }
 
-            const foundUser = await User.findOne({ username: decoded.username }).exec()
+            const foundUser = await User.findOne({ email: decoded.email }).exec()
 
             if (!foundUser) return res.status(401).json({ message: 'Unauthorized' })
 
@@ -126,7 +132,8 @@ const refresh = (req, res) => {
                     "UserInfo": {
                         "username": foundUser.username,
                         "role": foundUser.role,
-                        "id": foundUser._id
+                        "id": foundUser._id,
+                          "email":foundUser.email
 
                     }
                 },
@@ -138,7 +145,8 @@ const refresh = (req, res) => {
                 accessToken, user: {
                     "username": foundUser.username,
                     "role": foundUser.role,
-                    "id": foundUser._id
+                    "id": foundUser._id,
+                      "email":foundUser.email
                 }
 
             })
