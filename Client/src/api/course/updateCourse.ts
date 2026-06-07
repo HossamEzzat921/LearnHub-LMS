@@ -35,7 +35,7 @@ export const updateCourse = async (
     const res = await axios.patch(`/courses/${courseId}`, formData);
 
     // Axios stores the backend response body directly inside `.data`
-    alert("Course updated successfully!");
+  
     return res.data;
 
   } catch (err: any) {

@@ -6,13 +6,22 @@ const courseSchema = new mongoose.Schema({
     description: { type: String, required: true },
     category: {
         type: String,
-        enum: ["science", "math"],
+        enum: [
+            "mathematics",
+            "science",
+            "languages",
+            "programming",
+            "business",
+            "arts",
+            "history",
+            "music",
+        ],
         required: true
 
     },
     level: {
         type: String,
-        enum: ["beginner", "advanced"],
+        enum: ['beginner', 'intermediate', 'advanced', 'all-levels'],
         required: true
 
     },

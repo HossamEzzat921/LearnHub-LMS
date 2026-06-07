@@ -4,10 +4,12 @@ import SectionHeader from "./SectionHeader";
 import type { Section } from "../../types/Section";
 import { useCourseContext } from "./useCourseContext";
 import Lessons from "./Lessons";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Plus, Video } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Curriculm = () => {
-  const { courseId, sections, setSections, setCourseData } =
-    useCourseContext();
+  const { courseId, sections, setSections, setCourseData } = useCourseContext();
 
   const handleAddSection = async () => {
     try {
@@ -31,33 +33,31 @@ const Curriculm = () => {
       console.error("Error creating section:", error);
     }
   };
- 
+
   if (!courseId) return <div>Loading Sections details...</div>;
 
   return (
-    <div className="bg-white rounded-xl p-6 shadow-soft space-y-4 border border-light-gray mb-8">
-      <div className="flex justify-between items-center mb-6">
-        <div className="flex items-center gap-2">
-          <i className="fa-solid fa-video text-teal text-lg mt-1.5"></i>
-          <h2 className="font-plus font-semibold text-2xl leading-6 text-dark">
-            Course Curriculum
-          </h2>
-        </div>
-        <button
-          type="button"
+    <Card>
+      <CardHeader className="flex flex-row items-center justify-between">
+        <CardTitle className="flex items-center gap-2">
+          <Video className="h-5 w-5 text-primary" />
+          Course Curriculum
+        </CardTitle>
+        <Button
           onClick={handleAddSection}
-          className="flex items-center gap-2 h-10 px-4 py-2 bg-cream border border-light-gray hover:bg-orange hover:text-white transition-all text-dark text-sm leading-5 font-medium rounded-lg"
+          variant="outline"
+          size="sm"
+          className="gap-2"
         >
-          <i className="fa-solid fa-plus text-sm"></i>
-          <span>Add Section</span>
-        </button>
-      </div>
-
-      <div className="space-y-4">
+          <Plus className="h-4 w-4" />
+          Add Section
+        </Button>
+      </CardHeader>
+      <CardContent className="space-y-4">
         {sections.map((sec: Section) => (
           <div
             key={sec._id}
-            className="border border-light-gray rounded-lg overflow-hidden"
+            className="border border-border rounded-lg overflow-hidden"
           >
             {/* Section Header */}
             <SectionHeader section={sec} />
@@ -69,8 +69,8 @@ const Curriculm = () => {
             </div>
           </div>
         ))}
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   );
 };
 

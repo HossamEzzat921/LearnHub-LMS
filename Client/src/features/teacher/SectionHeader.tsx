@@ -2,12 +2,13 @@ import { useState } from "react";
 import { addLesson, deleteSection, updateSection } from "../../api";
 import { useCourseContext } from "./useCourseContext";
 import type { Section } from "../../types/Section";
+import { Button } from "@/components/ui/button";
+import { Plus, Trash2, Pencil } from "lucide-react";
 
 const SectionHeader = ({ section }: { section: Section }) => {
   const {
     courseId,
     setSections,
-   
     editingSectionId,
     setEditingSectionId,
     setCourseData,
@@ -93,13 +94,12 @@ const SectionHeader = ({ section }: { section: Section }) => {
           courseCurriculum: updateWithLesson(prev.courseCurriculum || []),
         };
       });
-      
     } catch (err) {
       console.error(err);
     }
   };
   return (
-    <div className="bg-cream p-4 flex items-center justify-between">
+    <div className="bg-muted/50 p-4 flex items-center gap-3">
       <div className="flex items-center gap-3 flex-1">
         {editingSectionId === section._id ? (
           <div className="flex flex-col gap-2 w-full max-w-md">
@@ -147,35 +147,39 @@ const SectionHeader = ({ section }: { section: Section }) => {
               <h2 className="font-medium text-sm">{section.title}</h2>
             </div>
 
-            <div className="flex items-center px-1.5 group-hover:opacity-100 transition  ">
-              <button
+            <div className="flex items-center  group-hover:opacity-100 transition  ">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => handleAddLesson(section._id)}
+              >
+                <Plus className="h-4 w-4 mr-1" />
+                Lesson
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
                 onClick={() => {
                   setEditingSectionId(section._id);
                   setEditTitle(section.title);
                   setEditOrder(section.order);
                 }}
-                className=" text-teal text-xs h-8 px-4 bg-gray-50 hover:bg-gray-100 flex items-center rounded-lg hover:border  font-medium hover:border-teal"
+                className="text-foreground hover:hero-gradient hover:text-primary-foreground"
               >
-                <span>Edit</span>
-              </button>
-
-              <button
+                <Pencil className="h-4 w-4" />
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
                 onClick={() => handleDeleteSection(section._id)}
-                className="text-red-500 text-xs h-8 px-4 bg-gray-50 hover:bg-gray-100 flex items-center rounded-lg hover:border  font-medium  hover:border-red-500"
+                className="text-destructive hover:text-destructive"
               >
-                <span>Delete</span>
-              </button>
+                <Trash2 className="h-4 w-4" />
+              </Button>
             </div>
           </div>
         )}
       </div>
-
-      <button
-        onClick={() => handleAddLesson(section._id)}
-        className="flex items-center gap-2 h-8 px-3 bg-white border rounded-lg text-xs font-medium hover:bg-gray-50"
-      >
-        + Lesson
-      </button>
     </div>
   );
 };

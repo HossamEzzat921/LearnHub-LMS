@@ -25,6 +25,7 @@ import RequireAuth from "./features/auth/RequireAuth";
 import TeacherLayout from "./layouts/teacherLayout";
 import CreateCourse from "./pages/dashboards/CreateCourse";
 import TeacherCourses from "./pages/dashboards/TeacherCourses";
+import EditCourse from "./pages/dashboards/EditCourse";
 
 
 const queryClient = new QueryClient();
@@ -82,15 +83,16 @@ const App = () => (
                     <Route path="dashboard" element={<TeacherDashboard />} />
                     <Route path="create-course" element={<CreateCourse/>} />
                     <Route path="courses" element={<TeacherCourses />}/>
+                     <Route
+                      path="courses/edit/:courseId"
+                      element={<EditCourse />}
+                    /> 
                     {/*  
                     <Route path="enrollments" element={<Enrollments />} />
                     <Route path="assignments" element={<Assignment />} />
                     
                     <Route path="courses/:courseId" element={<Course />} />
-                    <Route
-                      path="courses/edit/:courseId"
-                      element={<UpdateCourse />}
-                    /> */}
+                   */}
                   </Route>
                 </Route>
                 {/* Profile */}

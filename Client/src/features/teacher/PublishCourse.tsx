@@ -20,65 +20,65 @@ const PublishCourse = () => {
   // AUTO-REVERT LOGIC:
   // If the course was published but no longer meets requirements, force it to draft.
   useEffect(() => {
-   const forceDraft = async () => {
-  if (!canPublish && isPublished && course?._id) {
+    const forceDraft = async () => {
+      if (!canPublish && isPublished && course?._id) {
+        setIsLoading(true);
+
+        try {
+          await axios.patch(`/courses/${course._id}`, {
+            status: "draft",
+            isPublished: false,
+          });
+
+          setIsPublished(false);
+
+          setCourseData((prev: any) =>
+            prev
+              ? {
+                  ...prev,
+                  status: "draft",
+                  isPublished: false,
+                }
+              : prev,
+          );
+        } catch (error) {
+          console.error("Auto-revert failed:", error);
+        } finally {
+          setIsLoading(false);
+        }
+      }
+    };
+    forceDraft();
+  }, [canPublish, isPublished, course?._id, setCourseData]);
+  const handleToggle = async () => {
+    if (!course?._id) return;
+
+    const newStatus = !isPublished;
     setIsLoading(true);
 
     try {
       await axios.patch(`/courses/${course._id}`, {
-        status: "draft",
-        isPublished: false,
+        status: newStatus ? "published" : "draft",
+        isPublished: newStatus,
       });
 
-      setIsPublished(false);
+      setIsPublished(newStatus);
 
-      setCourseData((prev: any) =>
+      setCourseData((prev) =>
         prev
           ? {
               ...prev,
-              status: "draft",
-              isPublished: false,
+              status: newStatus ? "published" : "draft",
+              isPublished: newStatus,
             }
           : prev,
       );
     } catch (error) {
-      console.error("Auto-revert failed:", error);
+      console.error("Error updating course:", error);
     } finally {
       setIsLoading(false);
     }
-  }
-};
-    forceDraft();
-  }, [canPublish, isPublished, course?._id, setCourseData]);
- const handleToggle = async () => {
-  if (!course?._id) return;
-
-  const newStatus = !isPublished;
-  setIsLoading(true);
-
-  try {
-    await axios.patch(`/courses/${course._id}`, {
-      status: newStatus ? "published" : "draft",
-      isPublished: newStatus,
-    });
-
-    setIsPublished(newStatus);
-
-    setCourseData((prev) =>
-      prev
-        ? {
-            ...prev,
-            status: newStatus ? "published" : "draft",
-            isPublished: newStatus,
-          }
-        : prev,
-    );
-  } catch (error) {
-    console.error("Error updating course:", error);
-  } finally {
-    setIsLoading(false);
-  }
-};
+  };
 
   return (
     <div>

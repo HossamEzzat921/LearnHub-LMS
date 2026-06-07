@@ -1,20 +1,18 @@
-import { useEffect, useState } from "react";
-import { getCourse, updateCourse } from "../../api";
-import Curriculm from "./Curriculm";
+import { getCourse } from "@/api/course/getCourse";
+import { updateCourse } from "@/api/course/updateCourse";
+import Tabs from "@/components/tabs/Tabs";
+import { Curriculm, PublishCourse, UpdateCourseForm } from "@/features/teacher";
+import { CourseContext } from "@/features/teacher/useCourseContext";
+import { Course } from "@/types/Course";
+import { Section } from "@/types/Section";
+import { courseType } from "@/validations/coureseSchema";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import type { courseType } from "../../validations/coureseSchema";
-import type { Section } from "../../types/Section";
-import type { Course } from "../../types/Course";
-import { CourseContext } from "./useCourseContext";
-import PublishCourse from "./PublishCourse";
-import { Tabs } from "../../components/tabs";
-import UpdateCourseForm from "./UpdateCourseForm";
+import { toast } from "sonner";
 
-
-const UpdateCourse = () => {
-  
+const EditCourse = () => {
   const { courseId } = useParams();
-  console.log(courseId)
+
   const [courseData, setCourseData] = useState<Course | null>(null);
   const [sections, setSections] = useState<Section[]>([]);
   const [editingSectionId, setEditingSectionId] = useState<string | null>(null);
@@ -25,6 +23,7 @@ const UpdateCourse = () => {
 
       if (result) {
         setCourseData(result);
+         toast.success("Course Updated successfully!");
       }
     } catch (err) {
       console.error(err);
@@ -32,7 +31,7 @@ const UpdateCourse = () => {
   };
   useEffect(() => {
     const fetchCourse = async () => {
-      const data = await getCourse( courseId );
+      const data = await getCourse(courseId);
       setCourseData(data);
       if (data) {
         setSections(data.courseCurriculum);
@@ -51,7 +50,7 @@ const UpdateCourse = () => {
       content: (
         <div>
           {" "}
-          <UpdateCourseForm  onSubmit={handleUpdateCourse} />
+          <UpdateCourseForm onSubmit={handleUpdateCourse} />
         </div>
       ),
     },
@@ -71,7 +70,7 @@ const UpdateCourse = () => {
       icon: "⚙️",
       content: (
         <div>
-          <PublishCourse  />
+          <PublishCourse />
         </div>
       ),
     },
@@ -86,7 +85,7 @@ const UpdateCourse = () => {
         editingSectionId,
         setEditingSectionId,
         courseData,
-        setCourseData
+        setCourseData,
       }}
     >
       <section className="container mx-auto max-w-4xl">
@@ -96,5 +95,5 @@ const UpdateCourse = () => {
   );
 };
 
-export default UpdateCourse;
+export default EditCourse;
 export { CourseContext };

@@ -30,6 +30,7 @@ import EnrollmentRequestsTab from "@/components/enrollments/EnrollmentRequestsTa
 import { toast } from "sonner";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "@/features/auth/authSlice";
+import { MyCourses } from "@/features/teacher";
 
 const sidebarItems: SidebarItem[] = [
   { id: "courses", label: "My Courses", icon: BookOpen },
@@ -39,7 +40,6 @@ const sidebarItems: SidebarItem[] = [
 ];
 
 const TeacherDashboard = () => {
-  
   const navigate = useNavigate();
   const [uploadModalOpen, setUploadModalOpen] = useState(false);
   const location = useLocation();
@@ -80,7 +80,7 @@ const TeacherDashboard = () => {
   const handleDownloadSubmission = (studentName: string) => {
     toast.success(`Downloading submission from ${studentName}...`);
   };
- const user = useSelector(selectCurrentUser);
+  const user = useSelector(selectCurrentUser);
   return (
     <div>
       <div className="py-8">
@@ -93,20 +93,19 @@ const TeacherDashboard = () => {
           >
             <div>
               <h1 className="font-display font-bold text-3xl mb-2">
-                Welcome, {user?.name}! 👨‍🏫
+                Welcome, Mr {user?.username}! 👨‍🏫
               </h1>
               <p className="text-muted-foreground">
                 Manage your courses and connect with your students.
               </p>
             </div>
-           
 
-<Button
-  onClick={() => navigate(`/teacher/${user?.id}/create-course`)}
->
-  <Plus className="h-4 w-4" />
-  Create New Course
-</Button>
+            <Button
+              onClick={() => navigate(`/teacher/${user?.id}/create-course`)}
+            >
+              <Plus className="h-4 w-4" />
+              Create New Course
+            </Button>
           </motion.div>
 
           {/* Stats */}
@@ -141,75 +140,8 @@ const TeacherDashboard = () => {
                 <h2 className="font-display font-semibold text-xl mb-4">
                   Your Courses
                 </h2>
-                <div className="space-y-4">
-                  {mockTeacherCourses.map((course, index) => (
-                    <motion.div
-                      key={course.id}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                      className="bg-card rounded-xl p-5 card-shadow"
-                    >
-                      <div className="flex items-start justify-between mb-4">
-                        <h3 className="font-display font-semibold text-lg">
-                          {course.title}
-                        </h3>
-                        <Button variant="ghost" size="sm">
-                          <MoreVertical className="h-4 w-4" />
-                        </Button>
-                      </div>
-                      <div className="grid grid-cols-3 gap-4 mb-4">
-                        <div className="text-center">
-                          <div className="flex items-center justify-center gap-1 mb-1">
-                            <Users className="h-4 w-4 text-muted-foreground" />
-                            <span className="font-bold">
-                              {course.students.toLocaleString()}
-                            </span>
-                          </div>
-                          <span className="text-xs text-muted-foreground">
-                            Students
-                          </span>
-                        </div>
-                        <div className="text-center">
-                          <div className="flex items-center justify-center gap-1 mb-1">
-                            <Star className="h-4 w-4 text-yellow-500" />
-                            <span className="font-bold">{course.rating}</span>
-                          </div>
-                          <span className="text-xs text-muted-foreground">
-                            Rating
-                          </span>
-                        </div>
-                        <div className="text-center">
-                          <div className="flex items-center justify-center gap-1 mb-1">
-                            <DollarSign className="h-4 w-4 text-teacher" />
-                            <span className="font-bold">
-                              ${(course.revenue / 1000).toFixed(1)}K
-                            </span>
-                          </div>
-                          <span className="text-xs text-muted-foreground">
-                            Revenue
-                          </span>
-                        </div>
-                      </div>
-                      <div className="flex gap-2">
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className="flex-1 gap-1"
-                        >
-                          <TrendingUp className="h-4 w-4" />
-                          Analytics
-                        </Button>
-                        <Button
-                          size="sm"
-                          className="flex-1 gap-1 hero-gradient text-primary-foreground"
-                        >
-                          Edit Course
-                        </Button>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
+
+                <MyCourses classname="space-y-4" />
               </div>
 
               <div>

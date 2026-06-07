@@ -4,7 +4,8 @@ import { useCourseContext } from "./useCourseContext";
 import type { Lesson } from "../../types/Lesson";
 import type { Section } from "../../types/Section";
 import { Modal } from "../../components/modal";
-
+import { Button } from "@/components/ui/button";
+import { Pencil, Trash2 } from "lucide-react";
 
 const getEmbedUrl = (url: string) => {
   try {
@@ -33,7 +34,6 @@ const getEmbedUrl = (url: string) => {
     return null;
   }
 };
-
 
 const LessonItem = ({
   lesson,
@@ -106,7 +106,7 @@ const LessonItem = ({
   };
 
   return (
-    <div className="border border-light-gray/50 rounded-lg p-3 bg-cream">
+    <div className="bg-muted/50 p-4 flex items-center  justify-between gap-3 border border-border rounded-lg overflow-hidden">
       {openModal ? (
         <Modal open={openModal} onClose={() => setOpenModal(false)}>
           <div className="space-y-3 mt-8">
@@ -128,19 +128,18 @@ const LessonItem = ({
               placeholder="Video URL (YouTube/Vimeo)"
             />
 
-           
             {embedUrl && (
-  <div className="aspect-video bg-black rounded-2xl overflow-hidden shadow-lg border border-slate-200">
-    <iframe
-      className="w-full h-full"
-      src={embedUrl}
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-      title="Lesson Video"
-    />
-  </div>
-)}
-          
+              <div className="aspect-video bg-black rounded-2xl overflow-hidden shadow-lg border border-slate-200">
+                <iframe
+                  className="w-full h-full"
+                  src={embedUrl}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  title="Lesson Video"
+                />
+              </div>
+            )}
+
             <textarea
               className="w-full border p-2 rounded text-sm"
               value={formData.content}
@@ -150,25 +149,25 @@ const LessonItem = ({
               placeholder="Lesson Content/Text"
             />
             <div className="flex gap-2">
-              <button
+             
+
+              <Button
+                type="submit"
+                className="hero-gradient text-primary-foreground"
                 onClick={() =>
                   handleUpdateLesson(lesson._id, sectionId, formData)
                 }
-                className="bg-teal text-white px-3 py-1 rounded text-xs"
               >
                 Save
-              </button>
-              <button
-                onClick={() => setOpenModal(false)}
-                className="text-gray-500 text-xs"
-              >
+              </Button>
+               <Button variant="outline" onClick={() => setOpenModal(false)}>
                 Cancel
-              </button>
+              </Button>
             </div>
           </div>
         </Modal>
       ) : (
-        <div className="flex justify-between items-center group">
+        <div className="w-full flex justify-between items-center group">
           <div className="flex items-center gap-3">
             <i className="fa-regular fa-circle-play text-gray-400"></i>
             <span className="text-sm font-medium text-dark">
@@ -176,19 +175,22 @@ const LessonItem = ({
             </span>
           </div>
           <div className="flex items-center px-1.5 group-hover:opacity-100 transition  ">
-            <button
+            <Button
+              variant="ghost"
+              size="icon"
               onClick={() => setOpenModal(true)}
-              className=" text-teal text-xs h-8 px-4 bg-gray-50 hover:bg-gray-100 flex items-center rounded-lg hover:border  font-medium hover:border-teal"
+              className="text-foreground hover:hero-gradient hover:text-primary-foreground"
             >
-              <span>Edit</span>
-            </button>
-
-            <button
+              <Pencil className="h-4 w-4" />
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
               onClick={() => handleDeleteLesson(lesson._id, sectionId)}
-              className="text-red-500 text-xs h-8 px-4 bg-gray-50 hover:bg-gray-100 flex items-center rounded-lg hover:border  font-medium  hover:border-red-500"
+              className="text-destructive hover:text-destructive"
             >
-              <span>Delete</span>
-            </button>
+              <Trash2 className="h-4 w-4" />
+            </Button>
           </div>
         </div>
       )}

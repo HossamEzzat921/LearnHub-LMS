@@ -60,7 +60,27 @@ const CreateCourseForm = ({ onSubmit }: CourseFormProps) => {
       checkCourseTitleAvailability(value);
     }
   };
- 
+const categories = [
+  "Mathematics",
+  "Science",
+  "Languages",
+  "Programming",
+  "Business",
+  "Arts",
+  "History",
+  "Music",
+];
+
+const categoryOptions = categories.map((category) => ({
+  value: category.toLowerCase(),
+  label: category,
+}));
+
+  const levels = ['Beginner', 'Intermediate', 'Advanced', 'All Levels'];
+  const levelOptions = levels.map((level) => ({
+   value: level.toLowerCase().replace(/\s+/g, "-"),
+  label: level,
+}));
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -103,23 +123,18 @@ const CreateCourseForm = ({ onSubmit }: CourseFormProps) => {
                 label="Category *"
                 name="category"
                 register={register}
-                options={[
-                  { value: "science", label: "UX/UI" },
-                  { value: "math", label: "Docker" },
-                ]}
+                options={categoryOptions}
                 error={errors.category?.message}
               />
               <Select
                 label=" Level *"
                 name="level"
                 register={register}
-                options={[
-                  { value: "beginner", label: "Beginner" },
-                  { value: "advanced", label: "Advanced" },
-                ]}
+                options={levelOptions}
                 error={errors.category?.message}
               />
             </div>
+            
             <ImageUploader
               register={register}
               name="thumbnail"
