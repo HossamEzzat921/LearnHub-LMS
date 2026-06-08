@@ -16,7 +16,7 @@ const CourseCard = ({ course, index = 0 }: CourseCardProps) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
     >
-      <Link to={`/courses/${course.id}`}>
+      <Link to={`/courses/${course._id}`}>
         <div className="bg-card rounded-xl overflow-hidden card-shadow hover:card-shadow-hover transition-all duration-300 group">
           {/* Image */}
           <div className="relative aspect-video overflow-hidden">

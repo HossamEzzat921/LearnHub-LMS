@@ -17,7 +17,6 @@ import CourseLearn from "./pages/courses/CourseLearn";
 import StudentDashboard from "./pages/dashboards/StudentDashboard";
 import ParentDashboard from "./pages/dashboards/ParentDashboard";
 import TeacherDashboard from "./pages/dashboards/TeacherDashboard";
-
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 import PersistLogin from "./features/auth/PersistLogin";
@@ -26,7 +25,6 @@ import TeacherLayout from "./layouts/teacherLayout";
 import CreateCourse from "./pages/dashboards/CreateCourse";
 import TeacherCourses from "./pages/dashboards/TeacherCourses";
 import EditCourse from "./pages/dashboards/EditCourse";
-
 
 const queryClient = new QueryClient();
 
@@ -45,65 +43,65 @@ const App = () => (
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/courses" element={<Courses />} />
-                <Route path="/courses/:id" element={<CourseDetails />} />
+                <Route path="/courses/:courseId" element={<CourseDetails />} />
 
                 {/* Protected Course Learning */}
-                <Route
-                  path="/course/:id/learn"
-                  element={
-                    <ProtectedRoute allowedRoles={["Student"]}>
-                      <CourseLearn />
-                    </ProtectedRoute>
-                  }
-                />
+                {/* <Route
+path="/course/:id/learn"
+element={
+<ProtectedRoute allowedRoles={["Student"]}>
+<CourseLearn />
+</ProtectedRoute>
+}
+/> */}
 
                 {/* Student Dashboard */}
-                <Route
-                  path="/student/dashboard/*"
-                  element={
-                    <ProtectedRoute allowedRoles={["Student"]}>
-                      <StudentDashboard />
-                    </ProtectedRoute>
-                  }
-                />
-
+                <Route element={<RequireAuth allowedRoles={["Student"]} />}>
+                  <Route
+                    path="/student/:id/dashboard"
+                    element={<StudentDashboard />}
+                  />
+                  <Route
+                    path="/student/:id/learn"
+                    element={<CourseLearn />}
+                  />
+                </Route>
                 {/* Parent Dashboard */}
-                <Route
-                  path="/parent/dashboard/*"
-                  element={
-                    <ProtectedRoute allowedRoles={["Parent"]}>
-                      <ParentDashboard />
-                    </ProtectedRoute>
-                  }
-                />
+                {/* Student Dashboard */}
+                <Route element={<RequireAuth allowedRoles={["Parent"]} />}>
+                  <Route
+                    path="/parent/:id/dashboard"
+                    element={<ParentDashboard />}
+                  />
+                     {/* <Route path="courses" element={<StudentCourses />} /> */}
+                </Route>
 
                 {/* Protected Routes ONLY for Teachers */}
                 <Route element={<RequireAuth allowedRoles={["Teacher"]} />}>
                   <Route path="/teacher/:id" element={<TeacherLayout />}>
                     <Route path="dashboard" element={<TeacherDashboard />} />
-                    <Route path="create-course" element={<CreateCourse/>} />
-                    <Route path="courses" element={<TeacherCourses />}/>
-                     <Route
+                    <Route path="create-course" element={<CreateCourse />} />
+                    <Route path="courses" element={<TeacherCourses />} />
+                    <Route
                       path="courses/edit/:courseId"
                       element={<EditCourse />}
-                    /> 
-                    {/*  
-                    <Route path="enrollments" element={<Enrollments />} />
-                    <Route path="assignments" element={<Assignment />} />
-                    
-                    <Route path="courses/:courseId" element={<Course />} />
-                   */}
+                    />
+                    {/* 
+<Route path="enrollments" element={<Enrollments />} />
+<Route path="assignments" element={<Assignment />} />
+<Route path="courses/:courseId" element={<Course />} />
+*/}
                   </Route>
                 </Route>
                 {/* Profile */}
-                <Route
-                  path="/profile"
-                  element={
-                    <ProtectedRoute>
-                      <Profile />
-                    </ProtectedRoute>
-                  }
-                />
+                {/* <Route
+path="/profile"
+element={
+<ProtectedRoute>
+<Profile />
+</ProtectedRoute>
+}
+/> */}
 
                 {/* Catch-all */}
                 <Route path="*" element={<NotFound />} />

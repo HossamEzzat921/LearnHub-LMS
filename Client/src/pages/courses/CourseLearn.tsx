@@ -18,7 +18,7 @@ const CourseLearn = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
-  const course = mockCourses.find(c => c.id === id);
+  const course = mockCourses.find(c => c._id === id);
 
   // Check if course exists
   if (!course) {
