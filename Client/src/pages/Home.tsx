@@ -32,7 +32,7 @@ const Home = () => {
     'Learn at your own pace',
     'Mobile and desktop access',
   ];
-
+console.log(coursesData)
   return (
     <Layout>
       {/* Hero Section */}

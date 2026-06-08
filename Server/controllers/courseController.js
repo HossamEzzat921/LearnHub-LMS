@@ -28,6 +28,10 @@ const getCourseWithCurriculum = asyncHandler(async (req, res) => {
   const { courseId } = req.params;
 
   const course = await Course.findById(courseId)
+  .populate({
+      path: "teacher",
+      select: "username email" // choose fields you want
+    })
     .populate({
       path: "courseCurriculum",
       options: { sort: { order: 1 } },

@@ -154,7 +154,7 @@ const CourseDetails = () => {
                 <div className="flex flex-wrap items-center gap-6 text-sm">
                   <div className="flex items-center gap-1">
                     <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
-                    <span className="font-bold">{courseData.rating}</span>
+                    <span className="font-bold">4.8</span>
                     <span className="opacity-80">rating</span>
                   </div>
                   <div className="flex items-center gap-1">
@@ -163,17 +163,17 @@ const CourseDetails = () => {
                   </div>
                   <div className="flex items-center gap-1">
                     <Clock className="h-5 w-5" />
-                    <span>{courseData.duration}</span>
+                    <span>3h</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <BookOpen className="h-5 w-5" />
-                    <span>{courseData.lessonsCount} lessons</span>
+                    <span>7 lessons</span>
                   </div>
                 </div>
 
                 <p className="mt-6 opacity-90">
                   Created by{" "}
-                  <span className="font-semibold">{courseData.teacher}</span>
+                  <span className="font-semibold"><p>{courseData.teacher.username}</p></span>
                 </p>
               </motion.div>
             </div>

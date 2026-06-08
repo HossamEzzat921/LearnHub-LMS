@@ -10,7 +10,9 @@ export type Course = {
   thumbnail: string;
   price: number;
 
-  teacher: string; // Usually an ID or a User object
+  teacher:{
+    _id:string,username:string,email:string
+  }; // Usually an ID or a User object
   isPublished: boolean;
   status: "draft"| "published";
   

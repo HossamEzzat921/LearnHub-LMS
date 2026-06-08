@@ -57,11 +57,7 @@ const StudentDashboard = () => {
   const [selectedAssignment, setSelectedAssignment] =
     useState<Assignment | null>(null);
   const location = useLocation();
-  const activeTab =
-    location.pathname
-      .replace(`/student/${user.id}/dashboard`, "")
-      .replace(/^\//, "") || "courses";
-
+ const activeTab = location.pathname.split("/").pop();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [activeTab]);
@@ -155,13 +151,12 @@ const StudentDashboard = () => {
 
           {/* Sidebar + Content */}
           <div className="flex gap-6">
-            <DashboardSidebar
+             <DashboardSidebar
               items={sidebarItems}
-              basePath="/student/dashboard"
+              basePath={`/student/${user.id}`}
             />
-
             <div className="flex-1 min-w-0">
-              {activeTab === "courses" && (
+              {["courses", "dashboard"].includes(activeTab) && (
                 <div className="grid lg:grid-cols-3 gap-8">
                   <div className="lg:col-span-2">
                     <div className="flex items-center justify-between mb-4">

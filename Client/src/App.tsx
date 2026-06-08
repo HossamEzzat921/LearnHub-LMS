@@ -57,10 +57,7 @@ element={
 
                 {/* Student Dashboard */}
                 <Route element={<RequireAuth allowedRoles={["Student"]} />}>
-                  <Route
-                    path="/student/:id/dashboard/*"
-                    element={<StudentDashboard />}
-                  />
+                  <Route path="/student/:id/*" element={<StudentDashboard />} />
 
                   <Route path="/student/:id/learn" element={<CourseLearn />} />
                 </Route>
@@ -68,7 +65,7 @@ element={
                 {/* Student Dashboard */}
                 <Route element={<RequireAuth allowedRoles={["Parent"]} />}>
                   <Route
-                     path="/parent/dashboard/*" 
+                    path="/parent/dashboard/*"
                     element={<ParentDashboard />}
                   />
                   {/* <Route path="courses" element={<StudentCourses />} /> */}
