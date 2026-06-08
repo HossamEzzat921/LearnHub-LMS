@@ -5,23 +5,27 @@ import { LogOut, Menu, X, User } from 'lucide-react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import learnhubLogo from '@/assets/learnhub-logo-clean.png';
+import { useSelector } from 'react-redux';
+import { selectCurrentUser } from '@/features/auth/authSlice';
+import { logout } from '@/api/auth/logout';
 
 const Header = () => {
-  const { user, isAuthenticated, logout } = useAuth();
+  const user = useSelector(selectCurrentUser);
+  
   const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleLogout = () => {
     logout();
-    navigate('/');
+    navigate('/login');
   };
 
   const getDashboardLink = () => {
     if (!user) return '/';
     switch (user.role) {
-      case 'student': return '/student/dashboard';
-      case 'parent': return '/parent/dashboard';
-      case 'teacher': return '/teacher/dashboard';
+      case 'Student': return `/student/${user.id}/dashboard`;
+      case 'Parent': return `/parent/dashboard`;
+      case 'Teacher': return `/teacher//${user.id}/dashboard`;
       default: return '/';
     }
   };
@@ -47,7 +51,7 @@ const Header = () => {
             >
               Courses
             </Link>
-            {isAuthenticated && (
+            {user && (
               <Link 
                 to={getDashboardLink()}
                 className="text-muted-foreground hover:text-foreground transition-colors font-medium"
@@ -59,12 +63,12 @@ const Header = () => {
 
           {/* Auth Buttons */}
           <div className="hidden md:flex items-center gap-3">
-            {isAuthenticated ? (
+            {user ? (
               <>
                 <Link to="/profile">
                   <Button variant="ghost" size="sm" className="gap-2">
                     <User className="h-4 w-4" />
-                    {user?.name}
+                    {user?.username}
                   </Button>
                 </Link>
                 <Button variant="outline" size="sm" onClick={handleLogout} className="gap-2">
@@ -113,7 +117,7 @@ const Header = () => {
               >
                 Courses
               </Link>
-              {isAuthenticated ? (
+              {user ? (
                 <>
                   <Link 
                     to={getDashboardLink()}

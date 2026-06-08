@@ -38,7 +38,7 @@ const LoginForm = () => {
            navigate(`/teacher/${result.user.id}/dashboard`);
         }
         if(result.user.role === "Parent"){
-           navigate(`/parent/${result.user.id}/dashboard`);
+           navigate(`/parent/dashboard`);
         }
         
       }

@@ -21,7 +21,7 @@ const CourseCard = ({ course, index = 0 }: CourseCardProps) => {
           {/* Image */}
           <div className="relative aspect-video overflow-hidden">
             <img 
-              src={`${BASE_URL}uploads/${course.thumbnail}`}
+              src={`${BASE_URL}uploads/${course.thumbnail}` || course.thumbnail}
               alt={course.title}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
@@ -51,15 +51,15 @@ const CourseCard = ({ course, index = 0 }: CourseCardProps) => {
             <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
               <div className="flex items-center gap-1">
                 <Star className="h-4 w-4 text-yellow-500 fill-yellow-500" />
-                <span className="font-medium text-foreground">{course.rating}</span>
+                <span className="font-medium text-foreground">4.8</span>
               </div>
               <div className="flex items-center gap-1">
                 <Users className="h-4 w-4" />
-                <span>{(course.studentsCount / 1000).toFixed(0)}k</span>
+                <span>25</span>
               </div>
               <div className="flex items-center gap-1">
                 <Clock className="h-4 w-4" />
-                <span>{course.duration}</span>
+                <span>3 hours</span>
               </div>
             </div>
 
@@ -75,7 +75,7 @@ const CourseCard = ({ course, index = 0 }: CourseCardProps) => {
               </div>
               <div className="flex items-center gap-1 text-muted-foreground text-sm">
                 <BookOpen className="h-4 w-4" />
-                <span>{course.lessonsCount} lessons</span>
+                <span>5 lessons</span>
               </div>
             </div>
           </div>

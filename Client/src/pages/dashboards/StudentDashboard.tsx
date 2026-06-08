@@ -37,7 +37,7 @@ const sidebarItems: SidebarItem[] = [
 
 const StudentDashboard = () => {
   const user = useSelector(selectCurrentUser);
-  console.log(user?.id);
+
   const [courses, setCourses] = useState([]);
   const getCourses = async () => {
     try {
@@ -108,8 +108,8 @@ const StudentDashboard = () => {
     setUploadModalOpen(false);
     setSelectedAssignment(null);
   };
-  console.log(courses)
- const BASE_URL = "http://localhost:3500/";
+  console.log(courses);
+  const BASE_URL = "http://localhost:3500/";
   return (
     <Layout>
       <div className="py-8">
@@ -168,7 +168,7 @@ const StudentDashboard = () => {
                       <h2 className="font-display font-semibold text-xl">
                         Current Courses
                       </h2>
-                      <Link to="/courses">
+                      <Link to={`/student/${user.id}/courses`}>
                         <Button variant="ghost" size="sm" className="gap-1">
                           View All <ArrowRight className="h-4 w-4" />
                         </Button>
@@ -190,7 +190,7 @@ const StudentDashboard = () => {
                             <Link to={`/student/${user?.id}/learn`}>
                               <div className="bg-card rounded-xl p-4 card-shadow hover:card-shadow-hover transition-all flex gap-4 group">
                                 <img
-                                 src={`${BASE_URL}uploads/${course.course.thumbnail}`}
+                                  src={`${BASE_URL}uploads/${course.course.thumbnail}`}
                                   alt={course.title}
                                   className="w-32 h-20 object-cover rounded-lg flex-shrink-0"
                                 />

@@ -1,22 +1,33 @@
-import { useState } from 'react';
-import Layout from '@/components/layout/Layout';
-import CourseCard from '@/components/courses/CourseCard';
-import { mockCourses } from '@/data/mockData';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { Search, Filter } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { useEffect, useState } from "react";
+import Layout from "@/components/layout/Layout";
+import CourseCard from "@/components/courses/CourseCard";
+
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Search, Filter } from "lucide-react";
+import { motion } from "framer-motion";
+import { getAllCourses } from "@/api/course/getAllCourses";
 
 const Courses = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+const [coursesData,setCoursesData] = useState([])
+  useEffect(()=>{
+    const fetchCourses = async () => {
+      const data = await getAllCourses();
+     setCoursesData(data)
+      }
+    
+    fetchCourses();
+  },[])
+  const categories = [...new Set(coursesData.map((course) => course.category))];
 
-  const categories = [...new Set(mockCourses.map(course => course.category))];
-
-  const filteredCourses = mockCourses.filter(course => {
-    const matchesSearch = course.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          course.instructor.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesCategory = !selectedCategory || course.category === selectedCategory;
+  const filteredCourses = coursesData.filter((course) => {
+    const matchesSearch =
+      course.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      course.instructor.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesCategory =
+      !selectedCategory || course.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
 
@@ -25,14 +36,14 @@ const Courses = () => {
       {/* Header */}
       <section className="hero-gradient py-16">
         <div className="container mx-auto px-4 text-center">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="font-display font-bold text-3xl md:text-4xl text-primary-foreground mb-4"
           >
             Explore Our Courses
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
@@ -40,9 +51,9 @@ const Courses = () => {
           >
             Find the perfect course to advance your skills and career
           </motion.p>
-          
+
           {/* Search */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -69,16 +80,24 @@ const Courses = () => {
             <Button
               variant={selectedCategory === null ? "default" : "outline"}
               onClick={() => setSelectedCategory(null)}
-              className={selectedCategory === null ? "hero-gradient text-primary-foreground" : ""}
+              className={
+                selectedCategory === null
+                  ? "hero-gradient text-primary-foreground"
+                  : ""
+              }
             >
               All Courses
             </Button>
-            {categories.map(category => (
+            {categories.map((category) => (
               <Button
                 key={category}
                 variant={selectedCategory === category ? "default" : "outline"}
                 onClick={() => setSelectedCategory(category)}
-                className={selectedCategory === category ? "hero-gradient text-primary-foreground" : ""}
+                className={
+                  selectedCategory === category
+                    ? "hero-gradient text-primary-foreground"
+                    : ""
+                }
               >
                 {category}
               </Button>
@@ -87,7 +106,8 @@ const Courses = () => {
 
           {/* Results count */}
           <p className="text-muted-foreground mb-6">
-            Showing {filteredCourses.length} course{filteredCourses.length !== 1 ? 's' : ''}
+            Showing {filteredCourses.length} course
+            {filteredCourses.length !== 1 ? "s" : ""}
           </p>
 
           {/* Course Grid */}
@@ -99,11 +119,16 @@ const Courses = () => {
             </div>
           ) : (
             <div className="text-center py-20">
-              <p className="text-xl text-muted-foreground">No courses found matching your criteria.</p>
-              <Button 
-                variant="outline" 
+              <p className="text-xl text-muted-foreground">
+                No courses found matching your criteria.
+              </p>
+              <Button
+                variant="outline"
                 className="mt-4"
-                onClick={() => { setSearchQuery(''); setSelectedCategory(null); }}
+                onClick={() => {
+                  setSearchQuery("");
+                  setSelectedCategory(null);
+                }}
               >
                 Clear filters
               </Button>

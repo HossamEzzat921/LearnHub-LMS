@@ -81,26 +81,20 @@ const CourseDetails = () => {
     setShowPaymentModal(true);
   };
   const handleEnroll = async () => {
-    // 1. Not logged in
-    if (!user) {
-      navigate("/login");
-      return;
-    }
-
-    // 2. Not student
-    if (user.role !== "Student") {
-      navigate("/unauthorized");
-      return;
-    }
+    
 
     // 3. Enroll API
     try {
-      await axios.post(`/enrollments/courses/${courseId}/enroll`, {
+       const enrolled = await axios.post(`/enrollments/courses/${courseId}/enroll`, {
         studentId: user?.id,
       });
+      if(enrolled){
+        toast.success('Enrolled successfully')
+        navigate(`/student/${user.id}/dashboard`);
 
-      toast.success("Enrolled successfully");
-      navigate(`/student/${user?.id}/dashboard`);
+      }
+
+     
     } catch (err) {
       console.error(err);
     }
