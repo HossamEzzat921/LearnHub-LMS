@@ -46,20 +46,11 @@ const App = () => (
                 <Route path="/courses/:courseId" element={<CourseDetails />} />
 
                 {/* Protected Course Learning */}
-                {/* <Route
-path="/course/:id/learn"
-element={
-<ProtectedRoute allowedRoles={["Student"]}>
-<CourseLearn />
-</ProtectedRoute>
-}
-/> */}
 
                 {/* Student Dashboard */}
                 <Route element={<RequireAuth allowedRoles={["Student"]} />}>
                   <Route path="/student/:id/*" element={<StudentDashboard />} />
-
-                  <Route path="/student/:id/learn" element={<CourseLearn />} />
+                  <Route path="/course/:id/learn" element={<CourseLearn />} />
                 </Route>
                 {/* Parent Dashboard */}
                 {/* Student Dashboard */}
@@ -89,14 +80,7 @@ element={
                   </Route>
                 </Route>
                 {/* Profile */}
-                {/* <Route
-path="/profile"
-element={
-<ProtectedRoute>
-<Profile />
-</ProtectedRoute>
-}
-/> */}
+                <Route path="/profile" element={<Profile />} />
 
                 {/* Catch-all */}
                 <Route path="*" element={<NotFound />} />

@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
-import { Course } from '@/data/mockData';
-import { Star, Users, Clock, BookOpen } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Link } from "react-router-dom";
+import { Course } from "@/data/mockData";
+import { Star, Users, Clock, BookOpen } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface CourseCardProps {
   course: Course;
@@ -9,7 +9,7 @@ interface CourseCardProps {
 }
 
 const CourseCard = ({ course, index = 0 }: CourseCardProps) => {
-   const BASE_URL = "http://localhost:3500/";
+  const BASE_URL = "http://localhost:3500/";
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -20,8 +20,12 @@ const CourseCard = ({ course, index = 0 }: CourseCardProps) => {
         <div className="bg-card rounded-xl overflow-hidden card-shadow hover:card-shadow-hover transition-all duration-300 group">
           {/* Image */}
           <div className="relative aspect-video overflow-hidden">
-            <img 
-              src={`${BASE_URL}uploads/${course.thumbnail}` || course.thumbnail}
+            <img
+              src={
+                course.thumbnail
+                  ? `${BASE_URL}uploads/${course.thumbnail}`
+                  : "/course.avif"
+              }
               alt={course.title}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
@@ -42,7 +46,7 @@ const CourseCard = ({ course, index = 0 }: CourseCardProps) => {
             <h3 className="font-display font-semibold text-lg mb-2 line-clamp-2 group-hover:text-primary transition-colors">
               {course.title}
             </h3>
-            
+
             <p className="text-muted-foreground text-sm mb-3">
               {course.instructor}
             </p>
@@ -66,7 +70,9 @@ const CourseCard = ({ course, index = 0 }: CourseCardProps) => {
             {/* Price */}
             <div className="flex items-center justify-between pt-4 border-t border-border">
               <div className="flex items-center gap-2">
-                <span className="font-display font-bold text-xl">${course.price}</span>
+                <span className="font-display font-bold text-xl">
+                  ${course.price}
+                </span>
                 {course.originalPrice && (
                   <span className="text-muted-foreground line-through text-sm">
                     ${course.originalPrice}

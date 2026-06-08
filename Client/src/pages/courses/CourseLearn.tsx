@@ -1,27 +1,55 @@
-import { useState } from 'react';
-import { useParams, Link, Navigate } from 'react-router-dom';
-import { mockCourses } from '@/data/mockData';
-import { usePurchase } from '@/context/PurchaseContext';
-import { Button } from '@/components/ui/button';
-import { Progress } from '@/components/ui/progress';
-import { 
-  ChevronLeft, ChevronDown, ChevronUp, Play, CheckCircle, 
-  Lock, Bookmark, Share2, Menu, X
-} from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect, useState } from "react";
+import { useParams, Link } from "react-router-dom";
+
+import { Button } from "@/components/ui/button";
+
+import {
+  ChevronLeft,
+  ChevronDown,
+  ChevronUp,
+  Play,
+  CheckCircle,
+  Bookmark,
+  Share2,
+  Menu,
+  X,
+} from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+
+import { getCourse } from "@/api/course/getCourse";
+import { Course } from "@/types/Course";
 
 const CourseLearn = () => {
   const { id } = useParams();
-  const { isPurchased } = usePurchase();
+  const [courseData, setCourseData] = useState<Course | null>(null);
+  useEffect(() => {
+    const fetchCourse = async () => {
+      const data = await getCourse(id);
+      setCourseData(data);
+
+      if (
+        data.courseCurriculum?.length > 0 &&
+        data.courseCurriculum[0].lessons?.length > 0
+      ) {
+        setCurrentLesson(data.courseCurriculum[0].lessons[0]._id);
+        setExpandedSections([data.courseCurriculum[0]._id]);
+      }
+    };
+
+    fetchCourse();
+  }, [id]);
+
+  const getYoutubeEmbedUrl = (url: string) => {
+    const videoId = url.split("v=")[1]?.split("&")[0];
+    return `https://www.youtube.com/embed/${videoId}`;
+  };
   const [currentLesson, setCurrentLesson] = useState<string | null>(null);
   const [expandedSections, setExpandedSections] = useState<string[]>([]);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
-  const course = mockCourses.find(c => c._id === id);
-
   // Check if course exists
-  if (!course) {
+  if (!courseData) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
@@ -34,45 +62,38 @@ const CourseLearn = () => {
     );
   }
 
-  // Check if course is purchased - if not, redirect to course details
-  if (!isPurchased(id || '')) {
-    return <Navigate to={`/courses/${id}`} replace />;
-  }
-
-  // Set first lesson as default
-  if (!currentLesson && course.sections.length > 0 && course.sections[0].lessons.length > 0) {
-    setCurrentLesson(course.sections[0].lessons[0].id);
-    setExpandedSections([course.sections[0].id]);
-  }
-
-  const currentLessonData = course.sections
-    .flatMap(s => s.lessons)
-    .find(l => l.id === currentLesson);
+  const currentLessonData = courseData?.courseCurriculum
+    ?.flatMap((section) => section.lessons)
+    ?.find((lesson) => lesson._id === currentLesson);
 
   const toggleSection = (sectionId: string) => {
-    setExpandedSections(prev => 
-      prev.includes(sectionId) 
-        ? prev.filter(id => id !== sectionId)
-        : [...prev, sectionId]
+    setExpandedSections((prev) =>
+      prev.includes(sectionId)
+        ? prev.filter((id) => id !== sectionId)
+        : [...prev, sectionId],
     );
   };
+  const totalLessons =
+    courseData?.courseCurriculum?.flatMap((s) => s.lessons).length || 0;
 
-  const completedLessons = course.sections
-    .flatMap(s => s.lessons)
-    .filter(l => l.isCompleted).length;
-  const totalLessons = course.sections
-    .flatMap(s => s.lessons).length;
-  const progressPercent = Math.round((completedLessons / totalLessons) * 100);
+  const completedLessons = 0;
+  const progressPercent =
+    totalLessons > 0 ? Math.round((completedLessons / totalLessons) * 100) : 0;
 
   const Sidebar = () => (
     <div className="w-80 bg-card border-r border-border flex flex-col h-full">
       {/* Header */}
       <div className="p-4 border-b border-border">
-        <Link to={`/courses/${course.id}`} className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+        <Link
+          to={`/courses/${courseData._id}`}
+          className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+        >
           <ChevronLeft className="h-4 w-4" />
           <span className="text-sm">Back to course</span>
         </Link>
-        <h2 className="font-display font-semibold mt-3 line-clamp-2">{course.title}</h2>
+        <h2 className="font-display font-semibold mt-3 line-clamp-2">
+          {courseData.title}
+        </h2>
       </div>
 
       {/* Progress */}
@@ -81,19 +102,18 @@ const CourseLearn = () => {
           <span>Your progress</span>
           <span className="font-medium">{progressPercent}%</span>
         </div>
-        <Progress value={progressPercent} className="h-2" />
       </div>
 
       {/* Sections */}
       <div className="flex-1 overflow-y-auto">
-        {course.sections.map((section) => (
-          <div key={section.id} className="border-b border-border">
+        {courseData.courseCurriculum.map((section) => (
+          <div key={section._id} className="border-b border-border">
             <button
-              onClick={() => toggleSection(section.id)}
+              onClick={() => toggleSection(section._id)}
               className="w-full p-4 flex items-center justify-between hover:bg-muted/50 transition-colors"
             >
               <div className="flex items-center gap-2 text-left">
-                {expandedSections.includes(section.id) ? (
+                {expandedSections.includes(section._id) ? (
                   <ChevronUp className="h-4 w-4 flex-shrink-0" />
                 ) : (
                   <ChevronDown className="h-4 w-4 flex-shrink-0" />
@@ -103,33 +123,29 @@ const CourseLearn = () => {
             </button>
 
             <AnimatePresence>
-              {expandedSections.includes(section.id) && (
+              {expandedSections.includes(section._id) && (
                 <motion.div
                   initial={{ height: 0 }}
-                  animate={{ height: 'auto' }}
+                  animate={{ height: "auto" }}
                   exit={{ height: 0 }}
                   className="overflow-hidden"
                 >
                   {section.lessons.map((lesson) => (
                     <button
-                      key={lesson.id}
-                      onClick={() => !lesson.isLocked && setCurrentLesson(lesson.id)}
-                      disabled={lesson.isLocked}
+                      key={lesson._id}
+                      onClick={() => setCurrentLesson(lesson._id)}
                       className={`w-full p-3 pl-10 flex items-center gap-3 text-left text-sm transition-colors ${
-                        currentLesson === lesson.id 
-                          ? 'bg-primary/10 text-primary border-l-2 border-primary' 
-                          : 'hover:bg-muted/50'
-                      } ${lesson.isLocked ? 'opacity-50 cursor-not-allowed' : ''}`}
+                        currentLesson === lesson._id
+                          ? "bg-primary/10 text-primary border-l-2 border-primary"
+                          : "hover:bg-muted/50"
+                      } `}
                     >
-                      {lesson.isCompleted ? (
-                        <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
-                      ) : lesson.isLocked ? (
-                        <Lock className="h-4 w-4 flex-shrink-0" />
-                      ) : (
-                        <Play className="h-4 w-4 flex-shrink-0" />
-                      )}
+                      <Play className="h-4 w-4 flex-shrink-0" />
+
                       <span className="line-clamp-2">{lesson.title}</span>
-                      <span className="ml-auto text-muted-foreground text-xs">{lesson.duration}</span>
+                      <span className="ml-auto text-muted-foreground text-xs">
+                        {lesson.duration}
+                      </span>
                     </button>
                   ))}
                 </motion.div>
@@ -144,7 +160,9 @@ const CourseLearn = () => {
   return (
     <div className="min-h-screen flex bg-background">
       {/* Desktop Sidebar */}
-      <div className={`hidden lg:block transition-all duration-300 ${sidebarOpen ? 'w-80' : 'w-0'}`}>
+      <div
+        className={`hidden lg:block transition-all duration-300 ${sidebarOpen ? "w-80" : "w-0"}`}
+      >
         {sidebarOpen && <Sidebar />}
       </div>
 
@@ -160,9 +178,9 @@ const CourseLearn = () => {
               onClick={() => setMobileSidebarOpen(false)}
             />
             <motion.div
-              initial={{ x: '-100%' }}
+              initial={{ x: "-100%" }}
               animate={{ x: 0 }}
-              exit={{ x: '-100%' }}
+              exit={{ x: "-100%" }}
               className="lg:hidden fixed left-0 top-0 bottom-0 z-50 w-80"
             >
               <Sidebar />
@@ -176,20 +194,24 @@ const CourseLearn = () => {
         {/* Top Bar */}
         <div className="h-14 border-b border-border flex items-center justify-between px-4 bg-card">
           <div className="flex items-center gap-3">
-            <button 
+            <button
               onClick={() => setMobileSidebarOpen(true)}
               className="lg:hidden p-2 hover:bg-muted rounded-lg"
             >
               <Menu className="h-5 w-5" />
             </button>
-            <button 
+            <button
               onClick={() => setSidebarOpen(!sidebarOpen)}
               className="hidden lg:flex p-2 hover:bg-muted rounded-lg"
             >
-              {sidebarOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {sidebarOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
             </button>
             <span className="font-medium text-sm truncate">
-              {currentLessonData?.title || 'Select a lesson'}
+              {currentLessonData?.title || "Select a lesson"}
             </span>
           </div>
           <div className="flex items-center gap-2">
@@ -206,24 +228,19 @@ const CourseLearn = () => {
         <div className="flex-1 bg-black flex items-center justify-center">
           <div className="w-full max-w-5xl aspect-video bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center relative">
             {/* Placeholder for video */}
-            <div className="text-center text-white/80">
-              <div className="w-20 h-20 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-4 cursor-pointer hover:bg-white/20 transition-colors">
-                <Play className="h-10 w-10" />
-              </div>
-              <p className="text-lg font-medium">{currentLessonData?.title}</p>
-              <p className="text-sm text-white/60 mt-2">Click to play video</p>
-            </div>
+            {currentLessonData?.videoUrl ? (
+              <iframe
+                className="w-full h-full"
+                src={getYoutubeEmbedUrl(currentLessonData.videoUrl)}
+                title={currentLessonData.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
+              <div className="text-white">No video available</div>
+            )}
 
             {/* Video controls placeholder */}
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-              <div className="h-1 bg-white/20 rounded-full mb-3">
-                <div className="h-full w-1/3 bg-primary rounded-full" />
-              </div>
-              <div className="flex items-center justify-between text-white text-sm">
-                <span>5:23 / 15:00</span>
-                <span>{currentLessonData?.duration}</span>
-              </div>
-            </div>
           </div>
         </div>
 

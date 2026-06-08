@@ -106,6 +106,7 @@ const StudentDashboard = () => {
   };
   console.log(courses);
   const BASE_URL = "http://localhost:3500/";
+  
   return (
     <Layout>
       <div className="py-8">
@@ -177,12 +178,14 @@ const StudentDashboard = () => {
                           )?.progress || 0;
                         return (
                           <motion.div
-                            key={course.id}
+                            key={course.course._id}
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: index * 0.1 }}
                           >
-                            <Link to={`/student/${user?.id}/learn`}>
+                          <Link  onClick={() =>
+    console.log("Navigate to:", `/course/${course.course._id}/learn`)
+  } to={`/course/${course.course._id}/learn`}>
                               <div className="bg-card rounded-xl p-4 card-shadow hover:card-shadow-hover transition-all flex gap-4 group">
                                 <img
                                   src={`${BASE_URL}uploads/${course.course.thumbnail}`}

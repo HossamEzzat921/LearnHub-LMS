@@ -5,17 +5,19 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { User, Mail, Camera, GraduationCap, BookOpen, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useSelector } from 'react-redux';
+import { selectCurrentUser } from '@/features/auth/authSlice';
 
 const Profile = () => {
-  const { user } = useAuth();
-
+  
+ const user = useSelector(selectCurrentUser);
   const roleConfig = {
-    student: { label: 'Student', icon: User, color: 'bg-student' },
-    parent: { label: 'Parent', icon: Users, color: 'bg-parent' },
-    teacher: { label: 'Teacher', icon: BookOpen, color: 'bg-teacher' },
+    Student: { label: 'Student', icon: User, color: 'bg-student' },
+    Parent: { label: 'Parent', icon: Users, color: 'bg-parent' },
+    Teacher: { label: 'Teacher', icon: BookOpen, color: 'bg-teacher' },
   };
 
-  const currentRole = user?.role ? roleConfig[user.role] : roleConfig.student;
+  const currentRole = user?.role ? roleConfig[user.role] : roleConfig.Student;
 
   return (
     <Layout>
@@ -34,7 +36,7 @@ const Profile = () => {
                 <div className="relative inline-block">
                   <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-lg">
                     <span className="text-4xl font-display font-bold text-primary">
-                      {user?.name?.charAt(0) || 'U'}
+                      {user?.username?.charAt(0) || 'U'}
                     </span>
                   </div>
                   <button className="absolute bottom-0 right-0 p-2 bg-white rounded-full shadow-md hover:bg-muted transition-colors">
@@ -42,7 +44,7 @@ const Profile = () => {
                   </button>
                 </div>
                 <h2 className="font-display font-bold text-2xl text-primary-foreground mt-4">
-                  {user?.name || 'User'}
+                  {user?.username || 'User'}
                 </h2>
                 <div className="flex items-center justify-center gap-2 mt-2">
                   <span className={`px-3 py-1 ${currentRole.color} text-white rounded-full text-sm font-medium flex items-center gap-1`}>
@@ -62,7 +64,7 @@ const Profile = () => {
                         <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                         <Input
                           id="firstName"
-                          defaultValue={user?.name?.split(' ')[0] || ''}
+                          defaultValue={user?.username?.split(' ')[0] || ''}
                           className="pl-10"
                         />
                       </div>
@@ -102,9 +104,9 @@ const Profile = () => {
                       <div>
                         <p className="font-medium">{currentRole.label} Account</p>
                         <p className="text-sm text-muted-foreground">
-                          {user?.role === 'student' && 'Access courses and track your learning progress'}
-                          {user?.role === 'parent' && 'Monitor your children\'s learning journey'}
-                          {user?.role === 'teacher' && 'Create and manage courses, view analytics'}
+                          {user?.role === 'Student' && 'Access courses and track your learning progress'}
+                          {user?.role === 'Parent' && 'Monitor your children\'s learning journey'}
+                          {user?.role === 'Teacher' && 'Create and manage courses, view analytics'}
                         </p>
                       </div>
                     </div>

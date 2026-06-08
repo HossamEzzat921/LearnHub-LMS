@@ -25,7 +25,7 @@ const Header = () => {
     switch (user.role) {
       case 'Student': return `/student/${user.id}/dashboard`;
       case 'Parent': return `/parent/dashboard`;
-      case 'Teacher': return `/teacher//${user.id}/dashboard`;
+      case 'Teacher': return `/teacher/${user.id}/dashboard`;
       default: return '/';
     }
   };
