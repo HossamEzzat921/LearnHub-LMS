@@ -29,7 +29,6 @@ The system is built with scalability and real-world LMS workflows in mind.
 - Protected routes
 
 ### 💳 Payments
-- Stripe integration for secure payments
 - Course purchase workflow
 
 ### 📊 Dashboard
@@ -66,6 +65,7 @@ LearnHub-LMS
 │ ├── components/
 │ └── pages/
 │
+
 ├── server/ # Backend (Node + Express)
 │ ├── controllers/
 │ ├── models/
