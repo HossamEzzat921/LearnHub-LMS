@@ -35,7 +35,7 @@ const MyCourses = ({ classname ,myCourses}) => {
           <div className="flex items-center justify-center gap-1 mb-1">
             <Users className="h-4 w-4 text-muted-foreground" />
             <span className="font-bold">
-              {/* {course.students.toLocaleString()} */}
+            6
             </span>
           </div>
           <span className="text-xs text-muted-foreground">Students</span>
@@ -43,7 +43,7 @@ const MyCourses = ({ classname ,myCourses}) => {
         <div className="text-center">
           <div className="flex items-center justify-center gap-1 mb-1">
             <Star className="h-4 w-4 text-yellow-500" />
-            {/* <span className="font-bold">{course.rating}</span> */}
+            <span className="font-bold">4.s</span>
           </div>
           <span className="text-xs text-muted-foreground">Rating</span>
         </div>
@@ -51,7 +51,7 @@ const MyCourses = ({ classname ,myCourses}) => {
           <div className="flex items-center justify-center gap-1 mb-1">
             <DollarSign className="h-4 w-4 text-teacher" />
             <span className="font-bold">
-              {/* ${(course.revenue / 1000).toFixed(1)}K */}
+           5k
             </span>
           </div>
           <span className="text-xs text-muted-foreground">Revenue</span>

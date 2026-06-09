@@ -58,7 +58,7 @@ const StudentDashboard = () => {
 
     getCourses();
   }, []);
-  console.log(enrollments)
+  
   const { purchasedCourses } = usePurchase();
   const [uploadModalOpen, setUploadModalOpen] = useState(false);
   const [selectedAssignment, setSelectedAssignment] =

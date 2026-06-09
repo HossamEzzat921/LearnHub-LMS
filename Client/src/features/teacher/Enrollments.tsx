@@ -50,7 +50,30 @@ const Enrollments = () => {
       </div>
     );
   }
+  if (enrollments?.length === 0) {
+    return (
+      <div className="container mx-auto px-4 py-20 text-center">
+        {/* Welcome */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mx-auto px-4 pt-20 pb-5 text-center "
+        >
+          <div>
+            <h1 className="font-display font-bold text-3xl mb-2">
+              Welcome, Mr <span className="capitalize"> {user?.username}</span>!
+              👨‍🏫
+            </h1>
 
+            <h3 className="text-lg font-semibold">No Enrollment Requests</h3>
+            <p className="text-muted-foreground mt-2">
+              New enrollment requests from students will appear here.
+            </p>
+          </div>
+        </motion.div>
+      </div>
+    );
+  }
   return (
     <div className="space-y-4">
       {/* Header */}
