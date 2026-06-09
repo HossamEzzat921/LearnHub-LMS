@@ -7,7 +7,8 @@ const {
   getEnrollment,
   updateProgress,
   deleteEnrollment,
-  getTeacherEnrollments
+  getTeacherEnrollments,
+  
 } = require("../controllers/enrollmentController");
 
 // Enroll in course

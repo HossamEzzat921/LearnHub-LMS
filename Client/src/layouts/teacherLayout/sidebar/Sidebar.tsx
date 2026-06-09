@@ -16,7 +16,7 @@ import {
   UserCheck,
 } from "lucide-react";
 
-const SidebarContext = React.createContext();
+const SidebarContext = React.createContext({});
 const Sidebar = () => {
   const user = useSelector(selectCurrentUser);
   const navItems = [
@@ -64,7 +64,7 @@ const Sidebar = () => {
           {/* arrow left for large screen */}
           <ArrowLeft
             size={18}
-            className={`hidden  lg:block hero-gradient w-7 h-7 text-primary-foreground text-3xl rounded-full absolute -right-3.5  top-16 border  cursor-pointer ${!expanded && "rotate-180"}  `}
+            className={`hidden  lg:block hero-gradient w-7 h-7 text-primary-foreground text-3xl rounded-full absolute -right-3.5  top-20 border  cursor-pointer ${!expanded && "rotate-180 "}  `}
             onClick={toggleExpand}
           />
           <button

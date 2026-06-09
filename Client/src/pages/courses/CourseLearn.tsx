@@ -13,6 +13,8 @@ import {
   Share2,
   Menu,
   X,
+  Layout,
+  Loader2,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -21,18 +23,29 @@ import { Course } from "@/types/Course";
 
 const CourseLearn = () => {
   const { id } = useParams();
+
   const [courseData, setCourseData] = useState<Course | null>(null);
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     const fetchCourse = async () => {
-      const data = await getCourse(id);
-      setCourseData(data);
+      try {
+        setLoading(true);
 
-      if (
-        data.courseCurriculum?.length > 0 &&
-        data.courseCurriculum[0].lessons?.length > 0
-      ) {
-        setCurrentLesson(data.courseCurriculum[0].lessons[0]._id);
-        setExpandedSections([data.courseCurriculum[0]._id]);
+        const data = await getCourse(id);
+        setCourseData(data);
+        if (
+          data.courseCurriculum?.length > 0 &&
+          data.courseCurriculum[0].lessons?.length > 0
+        ) {
+          setCurrentLesson(data.courseCurriculum[0].lessons[0]._id);
+          setExpandedSections([data.courseCurriculum[0]._id]);
+        }
+      } catch (error) {
+        console.error(error);
+        setCourseData(null);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -47,7 +60,15 @@ const CourseLearn = () => {
   const [expandedSections, setExpandedSections] = useState<string[]>([]);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
-
+  if (loading) {
+    return (
+      <Layout>
+        <div className="flex items-center justify-center min-h-[60vh]">
+          <Loader2 className="h-10 w-10 animate-spin text-teal-700" />
+        </div>
+      </Layout>
+    );
+  }
   // Check if course exists
   if (!courseData) {
     return (

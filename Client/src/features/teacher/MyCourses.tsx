@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { selectCurrentUser } from "../auth/authSlice";
-import { getTeacherCourses } from "@/api/course/getTeacherCourses";
+import React from "react";
+
 import {
   DollarSign,
   MoreVertical,
@@ -12,21 +10,12 @@ import {
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../auth/authSlice";
 
-const MyCourses = ({ classname }) => {
+const MyCourses = ({ classname ,myCourses}) => {
   const navigate = useNavigate();
   const user = useSelector(selectCurrentUser);
-  const [myCourses, setMyCourses] = useState([]);
-
-  useEffect(() => {
-    const fetchCourses = async () => {
-      const data = await getTeacherCourses(user.id);
-      setMyCourses(data);
-    };
-
-    fetchCourses();
-  }, []);
-
   const content = myCourses?.map((course, index) => (
     <motion.div
       key={course._id}

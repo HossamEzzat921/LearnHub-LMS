@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 import CourseCard from "@/components/courses/CourseCard";
-import { mockCourses } from "@/data/mockData";
+
 import {
   ArrowRight,
   Play,
@@ -10,6 +10,7 @@ import {
   Award,
   BookOpen,
   CheckCircle,
+  Loader2,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -17,14 +18,23 @@ import { getAllCourses } from "@/api/course/getAllCourses";
 
 const Home = () => {
   const [coursesData, setCoursesData] = useState([]);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     const fetchCourses = async () => {
-      const data = await getAllCourses();
-      setCoursesData(data);
+      try {
+        setLoading(true);
+        const data = await getAllCourses();
+        setCoursesData(data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
     };
 
     fetchCourses();
   }, []);
+
   const featuredCourses = coursesData && coursesData.slice(0, 6);
 
   const stats = [
@@ -39,7 +49,15 @@ const Home = () => {
     "Learn at your own pace",
     "Mobile and desktop access",
   ];
- 
+  if (loading) {
+    return (
+      <Layout>
+        <div className="flex items-center justify-center min-h-[60vh]">
+          <Loader2 className="h-10 w-10 animate-spin text-teal-700" />
+        </div>
+      </Layout>
+    );
+  }
   return (
     <Layout>
       {/* Hero Section */}

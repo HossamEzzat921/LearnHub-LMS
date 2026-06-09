@@ -4,9 +4,8 @@ import Layout from "@/components/layout/Layout";
 import { useAuth } from "@/context/AuthContext";
 import { usePurchase } from "@/context/PurchaseContext";
 import {
-  mockCourses,
-  mockStudentProgress,
-  mockSavedVideos,
+  
+  mockStudentProgress
 } from "@/data/mockData";
 import { mockAssignments, Assignment } from "@/data/assignmentsData";
 import { Progress } from "@/components/ui/progress";
@@ -21,6 +20,7 @@ import {
   Bookmark,
   ArrowRight,
   FileText,
+  Loader2,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import AssignmentCard from "@/components/assignments/AssignmentCard";
@@ -38,33 +38,37 @@ const sidebarItems: SidebarItem[] = [
 const StudentDashboard = () => {
   const user = useSelector(selectCurrentUser);
 
-  const [courses, setCourses] = useState([]);
-  const getCourses = async () => {
-    try {
-      const { data } = await axios.get(`/enrollments/students/${user.id}`);
+  const [enrollments, setEnrollments] = useState([]);
 
-      setCourses(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
+    const getCourses = async () => {
+      try {
+        setLoading(true);
+        const { data } = await axios.get(`/enrollments/students/${user.id}`);
+
+        setEnrollments(data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     getCourses();
   }, []);
-
+  console.log(enrollments)
   const { purchasedCourses } = usePurchase();
   const [uploadModalOpen, setUploadModalOpen] = useState(false);
   const [selectedAssignment, setSelectedAssignment] =
     useState<Assignment | null>(null);
   const location = useLocation();
- const activeTab = location.pathname.split("/").pop();
+  const activeTab = location.pathname.split("/").pop();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [activeTab]);
 
-  const enrolledCourses = mockCourses.filter((c) =>
-    purchasedCourses.includes(c.id),
-  );
   const studentAssignments = mockAssignments.filter((a) =>
     purchasedCourses.includes(a.courseId),
   );
@@ -72,7 +76,7 @@ const StudentDashboard = () => {
   const stats = [
     {
       label: "Enrolled Courses",
-      value: enrolledCourses.length,
+      value: enrollments?.length,
       icon: BookOpen,
       color: "bg-student",
     },
@@ -104,9 +108,17 @@ const StudentDashboard = () => {
     setUploadModalOpen(false);
     setSelectedAssignment(null);
   };
-  console.log(courses);
+
   const BASE_URL = "http://localhost:3500/";
-  
+  if (loading) {
+    return (
+      <Layout>
+        <div className="flex items-center justify-center min-h-[60vh]">
+          <Loader2 className="h-10 w-10 animate-spin text-teal-700" />
+        </div>
+      </Layout>
+    );
+  }
   return (
     <Layout>
       <div className="py-8">
@@ -152,7 +164,7 @@ const StudentDashboard = () => {
 
           {/* Sidebar + Content */}
           <div className="flex gap-6">
-             <DashboardSidebar
+            <DashboardSidebar
               items={sidebarItems}
               basePath={`/student/${user.id}`}
             />
@@ -171,7 +183,7 @@ const StudentDashboard = () => {
                       </Link>
                     </div>
                     <div className="space-y-4">
-                      {courses.map((course, index) => {
+                      {enrollments.map((course, index) => {
                         const progress =
                           mockStudentProgress.find(
                             (p) => p.courseId === course.id,
@@ -183,9 +195,15 @@ const StudentDashboard = () => {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: index * 0.1 }}
                           >
-                          <Link  onClick={() =>
-    console.log("Navigate to:", `/course/${course.course._id}/learn`)
-  } to={`/course/${course.course._id}/learn`}>
+                            <Link
+                              onClick={() =>
+                                console.log(
+                                  "Navigate to:",
+                                  `/course/${course.course._id}/learn`,
+                                )
+                              }
+                              to={`/course/${course.course._id}/learn`}
+                            >
                               <div className="bg-card rounded-xl p-4 card-shadow hover:card-shadow-hover transition-all flex gap-4 group">
                                 <img
                                   src={`${BASE_URL}uploads/${course.course.thumbnail}`}
@@ -197,7 +215,7 @@ const StudentDashboard = () => {
                                     {course.course.title}
                                   </h3>
                                   <p className="text-sm text-muted-foreground mb-3">
-                                    {course.course.title}
+                                      {course.course.description}
                                   </p>
                                   <div className="flex items-center gap-3">
                                     <Progress
@@ -220,7 +238,7 @@ const StudentDashboard = () => {
                           </motion.div>
                         );
                       })}
-                      {courses.length === 0 && (
+                      {enrollments.length === 0 && (
                         <div className="bg-card rounded-xl p-8 text-center card-shadow">
                           <BookOpen className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
                           <h3 className="font-medium mb-2">No courses yet</h3>
@@ -245,7 +263,7 @@ const StudentDashboard = () => {
                       <Bookmark className="h-5 w-5 text-muted-foreground" />
                     </div>
                     <div className="bg-card rounded-xl card-shadow divide-y divide-border">
-                      {courses.map((video, index) => (
+                      {enrollments.map((video, index) => (
                         <motion.div
                           key={`${video.id}-${index}`}
                           initial={{ opacity: 0 }}
@@ -262,7 +280,7 @@ const StudentDashboard = () => {
                                 {video.course.title}
                               </p>
                               <p className="text-xs text-muted-foreground line-clamp-1">
-                                {video.course.description}
+                                {video.course.title}
                               </p>
                             </div>
                           </div>

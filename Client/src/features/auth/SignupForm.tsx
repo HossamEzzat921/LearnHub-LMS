@@ -19,6 +19,7 @@ const SignupForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [selectedRole, setSelectedRole] = useState<UserRole | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const roles = [
@@ -46,18 +47,37 @@ const SignupForm = () => {
   ];
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!selectedRole) return;
+
+    if (!selectedRole) {
+      setError("Please select a role");
+      return;
+    }
 
     setIsLoading(true);
+    setError(null); // reset error
+
     try {
-      const result = await signup({ username, email, selectedRole, password });
+      const result = await signup({
+        username,
+        email,
+        selectedRole,
+        password,
+      });
 
       if (result) {
-        
-          navigate("/login");
+        navigate("/login");
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error(err);
+
+      const message =
+        err?.response?.data?.message ||
+        err?.message ||
+        "Signup failed. Please try again.";
+
+      setError(message);
+    } finally {
+      setIsLoading(false);
     }
   };
   return (
@@ -98,7 +118,10 @@ const SignupForm = () => {
             type="text"
             placeholder="John Doe"
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => {
+              setUsername(e.target.value);
+              setError(null);
+            }}
             className="pl-10"
             required
           />
@@ -115,7 +138,10 @@ const SignupForm = () => {
             type="email"
             placeholder="you@example.com"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              setError(null);
+            }}
             className="pl-10"
             required
           />
@@ -132,13 +158,20 @@ const SignupForm = () => {
             type="password"
             placeholder="••••••••"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => {
+              setPassword(e.target.value);
+              setError(null);
+            }}
             className="pl-10"
             required
           />
         </div>
       </div>
-
+      {error && (
+        <div className="bg-red-100 text-red-600 p-2 rounded text-sm">
+          {error}
+        </div>
+      )}
       <Button
         type="submit"
         className="w-full hero-gradient text-primary-foreground hover:opacity-90 gap-2"

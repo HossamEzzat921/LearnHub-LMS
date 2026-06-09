@@ -7,8 +7,24 @@ const fs = require('fs');
 const path = require('path');
 //Get All Courses
 const getAllCourses = asyncHandler(async (req, res) => {
-  const courses = await Course.find().lean();
-  res.json(courses);
+   const courses = await Course.find({ status: "published" })
+  .populate("teacher", "username email")
+  .populate({
+    path: "courseCurriculum",
+    select: "title lessons",
+  })
+  .lean();
+
+const formattedCourses = courses.map((course) => ({
+  ...course,
+  sectionsCount: course.courseCurriculum.length,
+  lessonsCount: course.courseCurriculum.reduce(
+    (total, section) => total + section.lessons.length,
+    0
+  ),
+}));
+
+res.json(formattedCourses);
 });
 
 

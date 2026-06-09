@@ -136,11 +136,13 @@ const getTeacherEnrollments = asyncHandler(async (req, res) => {
 
   res.json(enrollments);
 });
+
 module.exports = {
   enrollCourse,
   getStudentEnrollments,
   getEnrollment,
   updateProgress,
   deleteEnrollment,
-  getTeacherEnrollments
+  getTeacherEnrollments,
+  
 };

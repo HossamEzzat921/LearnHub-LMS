@@ -10,6 +10,7 @@ interface CourseCardProps {
 
 const CourseCard = ({ course, index = 0 }: CourseCardProps) => {
   const BASE_URL = "http://localhost:3500/";
+  console.log(course)
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -47,8 +48,8 @@ const CourseCard = ({ course, index = 0 }: CourseCardProps) => {
               {course.title}
             </h3>
 
-            <p className="text-muted-foreground text-sm mb-3">
-              {course.instructor}
+            <p className="text-muted-foreground text-sm mb-3 capitalize">
+              {course.teacher.username}
             </p>
 
             {/* Stats */}
@@ -81,7 +82,7 @@ const CourseCard = ({ course, index = 0 }: CourseCardProps) => {
               </div>
               <div className="flex items-center gap-1 text-muted-foreground text-sm">
                 <BookOpen className="h-4 w-4" />
-                <span>5 lessons</span>
+                <span>{course.lessonsCount} lessons</span>
               </div>
             </div>
           </div>

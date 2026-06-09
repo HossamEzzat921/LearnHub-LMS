@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/context/AuthContext';
-import { LogOut, Menu, X, User } from 'lucide-react';
+import { LogOut, Menu, X, User, BookOpen } from 'lucide-react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import learnhubLogo from '@/assets/learnhub-logo-clean.png';
@@ -34,14 +34,16 @@ const Header = () => {
     <header className="sticky top-0 z-50 bg-card/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
+          
           {/* Logo */}
-          <Link to="/" className="flex items-center group">
-            <img 
-              src={learnhubLogo} 
-              alt="LearnHub" 
-              className="h-10 object-contain"
-            />
-          </Link>
+                    <Link to="/" className="flex items-center gap-3  group">
+                     <div className="p-2.5 rounded-xl hero-gradient shadow-lg transition-transform group-hover:scale-110">
+                       <BookOpen className="h-6 w-6 text-white" />
+                     </div>
+                     <span className="font-display font-bold text-2xl tracking-tight text-gray-900 dark:text-white">
+                       Learn <span className="text-primary-600">Hub</span>
+                     </span>
+                   </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">
@@ -68,7 +70,8 @@ const Header = () => {
                 <Link to="/profile">
                   <Button variant="ghost" size="sm" className="gap-2">
                     <User className="h-4 w-4" />
-                    {user?.username}
+                      <span className="capitalize">  {user?.username}</span>
+                  
                   </Button>
                 </Link>
                 <Button variant="outline" size="sm" onClick={handleLogout} className="gap-2">

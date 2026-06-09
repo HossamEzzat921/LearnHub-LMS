@@ -14,7 +14,7 @@ export interface Course {
   _id: string;
   title: string;
   description: string;
-  instructor: string;
+  teacher: {username:string,email:string};
   price: number;
   originalPrice?: number;
   thumbnail: string;
@@ -178,7 +178,7 @@ export const mockCourses: Course[] = [
     _id: '5',
     title: 'Mobile App Development with React Native',
     description: 'Build cross-platform mobile apps for iOS and Android using React Native and Expo.',
-    instructor: 'Maximilian Schwarzmüller',
+    teacher: {username:'Maximilian Schwarzmüller',email:"max@getMaxListeners.com"},
     price: 99.99,
     originalPrice: 219.99,
     thumbnail: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800',

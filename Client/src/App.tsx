@@ -25,6 +25,8 @@ import TeacherLayout from "./layouts/teacherLayout";
 import CreateCourse from "./pages/dashboards/CreateCourse";
 import TeacherCourses from "./pages/dashboards/TeacherCourses";
 import EditCourse from "./pages/dashboards/EditCourse";
+import Assignment from "./features/teacher/Assignment";
+import Enrollments from "./features/teacher/Enrollments";
 
 const queryClient = new QueryClient();
 
@@ -37,11 +39,12 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
               <Route element={<PersistLogin />}>
                 {/* Public Routes */}
                 <Route path="/" element={<Home />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/signup" element={<Signup />} />
+              
                 <Route path="/courses" element={<Courses />} />
                 <Route path="/courses/:courseId" element={<CourseDetails />} />
 
@@ -68,15 +71,12 @@ const App = () => (
                     <Route path="dashboard" element={<TeacherDashboard />} />
                     <Route path="create-course" element={<CreateCourse />} />
                     <Route path="courses" element={<TeacherCourses />} />
+                    <Route path="enrollments" element={<Enrollments />} />
+                    <Route path="assignments" element={<Assignment />} />
                     <Route
                       path="courses/edit/:courseId"
                       element={<EditCourse />}
                     />
-                    {/* 
-<Route path="enrollments" element={<Enrollments />} />
-<Route path="assignments" element={<Assignment />} />
-<Route path="courses/:courseId" element={<Course />} />
-*/}
                   </Route>
                 </Route>
                 {/* Profile */}

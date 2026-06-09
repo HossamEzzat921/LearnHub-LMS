@@ -20,6 +20,7 @@ import {
   Award,
   Globe,
   Download,
+  Loader2,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { getCourse } from "@/api/course/getCourse";
@@ -36,25 +37,66 @@ const CourseDetails = () => {
   const { courseId } = useParams();
   const [courseData, setCourseData] = useState<Course | null>(null);
   const navigate = useNavigate();
-  // const { isAuthenticated, user } = useAuth();
+  
   const { isPurchased, purchaseCourse } = usePurchase();
   const [expandedSections, setExpandedSections] = useState<string[]>([]);
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showStudentOnlyModal, setShowStudentOnlyModal] = useState(false);
+  const [loading , setLoading] = useState(false)
 
-  useEffect(() => {
-    const fetchCourse = async () => {
+ useEffect(() => {
+  const fetchCourse = async () => {
+    try {
+      setLoading(true);
+
       const data = await getCourse(courseId);
       setCourseData(data);
-      // Set the first lesson's video as default if it exists
+    } catch (error) {
+      console.error(error);
+      setCourseData(null);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchCourse();
+}, [courseId]);
+ const [enrollments, setEnrollments] = useState([]);
+
+  
+
+  useEffect(() => {
+    const getCourses = async () => {
+      try {
+        setLoading(true);
+        const { data } = await axios.get(`/enrollments/students/${user.id}`);
+
+        setEnrollments(data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
     };
-    fetchCourse();
-  }, [courseId]);
 
-  const coursePurchased =
-    user?.role === "Student" && isPurchased(courseId || "");
-
+    getCourses();
+  }, []);
+  const lessonsCount =
+    courseData?.courseCurriculum?.reduce(
+      (total, section) => total + section.lessons.length,
+      0,
+    ) || 0;
+ 
+if (loading) {
+  return (
+    <Layout>
+      <div className="flex items-center justify-center min-h-[60vh]">
+        <Loader2 className="h-10 w-10 animate-spin text-teal-700" />
+      </div>
+    </Layout>
+  );
+}
   if (!courseData) {
     return (
       <Layout>
@@ -81,20 +123,18 @@ const CourseDetails = () => {
     setShowPaymentModal(true);
   };
   const handleEnroll = async () => {
-    
-
     // 3. Enroll API
     try {
-       const enrolled = await axios.post(`/enrollments/courses/${courseId}/enroll`, {
-        studentId: user?.id,
-      });
-      if(enrolled){
-        toast.success('Enrolled successfully')
+      const enrolled = await axios.post(
+        `/enrollments/courses/${courseId}/enroll`,
+        {
+          studentId: user?.id,
+        },
+      );
+      if (enrolled) {
+        toast.success("Enrolled successfully");
         navigate(`/student/${user.id}/dashboard`);
-
       }
-
-     
     } catch (err) {
       console.error(err);
     }
@@ -116,9 +156,10 @@ const CourseDetails = () => {
   const handleStartLearning = () => {
     navigate(`/course/${courseId}/learn`);
   };
+const coursePurchased = enrollments?.some(
+  (enrollment) => enrollment.course._id === courseId
+);
 
-  // const totalLessons = course.sections.reduce((acc, section) => acc + section.lessons.length, 0);
-  console.log(courseData);
   return (
     <Layout>
       {/* Vodafone Cash Payment Modal */}
@@ -167,13 +208,16 @@ const CourseDetails = () => {
                   </div>
                   <div className="flex items-center gap-1">
                     <BookOpen className="h-5 w-5" />
-                    <span>7 lessons</span>
+                    <span>{lessonsCount} lessons</span>
                   </div>
                 </div>
 
                 <p className="mt-6 opacity-90">
                   Created by{" "}
-                  <span className="font-semibold"><p>{courseData.teacher.username}</p></span>
+                  <span className="font-semibold">
+                      
+                    <p  className="capitalize">{courseData.teacher.username}</p>
+                  </span>
                 </p>
               </motion.div>
             </div>
@@ -187,7 +231,11 @@ const CourseDetails = () => {
               <div className="bg-card rounded-2xl overflow-hidden shadow-2xl">
                 <div className="aspect-video relative">
                   <img
-                    src={`${BASE_URL}uploads/${courseData.thumbnail}`}
+                    src={
+                      courseData.thumbnail
+                        ? `${BASE_URL}uploads/${courseData.thumbnail}`
+                        : "/course.avif"
+                    }
                     alt={courseData.title}
                     className="w-full h-full object-cover"
                   />
@@ -366,20 +414,9 @@ const CourseDetails = () => {
                               className="p-4 pl-12 flex items-center justify-between hover:bg-muted/50"
                             >
                               <div className="flex items-center gap-3">
-                                {lesson.isCompleted ? (
-                                  <CheckCircle className="h-5 w-5 text-primary" />
-                                ) : !coursePurchased ? (
-                                  <Lock className="h-5 w-5 text-muted-foreground" />
-                                ) : (
-                                  <Play className="h-5 w-5 text-muted-foreground" />
-                                )}
-                                <span
-                                  className={
-                                    lesson.isCompleted ? "text-primary" : ""
-                                  }
-                                >
-                                  {lesson.title}
-                                </span>
+                                <Lock className="h-5 w-5 text-muted-foreground" />
+
+                                <span>{lesson.title}</span>
                               </div>
                               <span className="text-sm text-muted-foreground">
                                 {lesson.duration}

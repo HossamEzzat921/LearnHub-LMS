@@ -11,43 +11,55 @@ import { login } from "@/api/auth/login";
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState<string | null>(null);
 
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    setIsLoading(true);
-    try {
-      const result = await login({ email, password });
+  setIsLoading(true);
+  setError(null); // reset error
 
-      if (result) {
-        dispatch(
-          setCredentials({
-            user: result.user,
-            accessToken: result.accessToken,
-          }),
-        );
-       
-        if(result.user.role === "Student"){
-           navigate(`/student/${result.user.id}/dashboard`);
-        }
-        if(result.user.role === "Teacher"){
-           navigate(`/teacher/${result.user.id}/dashboard`);
-        }
-        if(result.user.role === "Parent"){
-           navigate(`/parent/dashboard`);
-        }
-        
+  try {
+    const result = await login({ email, password });
+
+    if (result) {
+      dispatch(
+        setCredentials({
+          user: result.user,
+          accessToken: result.accessToken,
+        })
+      );
+
+      if (result.user.role === "Student") {
+        navigate(`/student/${result.user.id}/dashboard`);
       }
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setIsLoading(false);
+
+      if (result.user.role === "Teacher") {
+        navigate(`/teacher/${result.user.id}/dashboard`);
+      }
+
+      if (result.user.role === "Parent") {
+        navigate(`/parent/dashboard`);
+      }
     }
-  };
+  } catch (err: any) {
+    console.error(err);
+
+    
+    const message =
+      err?.response?.data?.message ||
+      err?.message ||
+      "Login failed. Please try again.";
+
+    setError(message);
+  } finally {
+    setIsLoading(false);
+  }
+};
   return (
     <form onSubmit={handleLogin} className="space-y-6">
       {/* Email */}
@@ -60,7 +72,10 @@ const LoginForm = () => {
             type="email"
             placeholder="email@example.cpom"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+           onChange={(e) => {
+  setEmail(e.target.value);
+  setError(null);
+}}
             className="pl-10"
             required
           />
@@ -77,13 +92,20 @@ const LoginForm = () => {
             type="password"
             placeholder="••••••••"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => {
+  setPassword(e.target.value);
+  setError(null);
+}}
             className="pl-10"
             required
           />
         </div>
       </div>
-
+{error && (
+  <div className="bg-red-100 text-red-600 p-2 rounded text-sm">
+    {error}
+  </div>
+)}
       <Button
         type="submit"
         className="w-full hero-gradient text-primary-foreground hover:opacity-90 gap-2"

@@ -4,22 +4,30 @@ import CourseCard from "@/components/courses/CourseCard";
 
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Search, Filter } from "lucide-react";
+import { Search, Filter, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { getAllCourses } from "@/api/course/getAllCourses";
 
 const Courses = () => {
   const [searchQuery, setSearchQuery] = useState("");
+    const [loading, setLoading] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 const [coursesData,setCoursesData] = useState([])
-  useEffect(()=>{
-    const fetchCourses = async () => {
-      const data = await getAllCourses();
-     setCoursesData(data)
-      }
-    
-    fetchCourses();
-  },[])
+  useEffect(() => {
+      const fetchCourses = async () => {
+        try {
+          setLoading(true);
+          const data = await getAllCourses();
+          setCoursesData(data);
+        } catch (error) {
+          console.error(error);
+        } finally {
+          setLoading(false);
+        }
+      };
+  
+      fetchCourses();
+    }, []);
   const categories = [...new Set(coursesData.map((course) => course.category))];
 
   const filteredCourses = coursesData.filter((course) => {
@@ -30,7 +38,15 @@ const [coursesData,setCoursesData] = useState([])
       !selectedCategory || course.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
-
+if (loading) {
+    return (
+      <Layout>
+        <div className="flex items-center justify-center min-h-[60vh]">
+          <Loader2 className="h-10 w-10 animate-spin text-teal-700" />
+        </div>
+      </Layout>
+    );
+  }
   return (
     <Layout>
       {/* Header */}

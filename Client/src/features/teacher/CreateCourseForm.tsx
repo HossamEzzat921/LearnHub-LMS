@@ -34,7 +34,11 @@ const CreateCourseForm = ({ onSubmit }: CourseFormProps) => {
   trigger,
   watch,
   getFieldState,
-  formState: { errors },
+ formState: {
+    errors,
+    isValid,
+    isSubmitting,
+  },
 } = useForm<courseType>({
   defaultValues: {
     teacher: user.id,
@@ -200,12 +204,17 @@ const categoryOptions = categories.map((category) => ({
           </div>
 
           <div>
-            <Button
-              type="submit"
-              className="hero-gradient text-primary-foreground"
-            >
-              <span>Save Course</span>
-            </Button>
+           <Button
+  type="submit"
+  disabled={
+    !isValid ||
+    isSubmitting ||
+    titleAvailabilityStatus === "checking" ||
+    titleAvailabilityStatus === "notAvailable"
+  }
+>
+  {isSubmitting ? "Saving..." : "Save Course"}
+</Button>
           </div>
         </div>
       </form>

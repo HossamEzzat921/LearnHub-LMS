@@ -6,6 +6,7 @@ import { CourseContext } from "@/features/teacher/useCourseContext";
 import { Course } from "@/types/Course";
 import { Section } from "@/types/Section";
 import { courseType } from "@/validations/coureseSchema";
+import { Loader2 } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "sonner";
@@ -16,6 +17,25 @@ const EditCourse = () => {
   const [courseData, setCourseData] = useState<Course | null>(null);
   const [sections, setSections] = useState<Section[]>([]);
   const [editingSectionId, setEditingSectionId] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    const fetchCourse = async () => {
+      try {
+        setLoading(true);
+        const data = await getCourse(courseId);
+        setCourseData(data);
+        if (data) {
+          setSections(data.courseCurriculum);
+        }
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCourse();
+  }, [courseId]);
 
   const handleUpdateCourse = async (data: courseType) => {
     try {
@@ -23,25 +43,20 @@ const EditCourse = () => {
 
       if (result) {
         setCourseData(result);
-         toast.success("Course Updated successfully!");
+        toast.success("Course Updated successfully!");
       }
     } catch (err) {
       console.error(err);
     }
   };
-  useEffect(() => {
-    const fetchCourse = async () => {
-      const data = await getCourse(courseId);
-      setCourseData(data);
-      if (data) {
-        setSections(data.courseCurriculum);
-      }
-    };
 
-    fetchCourse();
-  }, [courseId]);
-
-  if (!courseData) return <div>Loading course details...</div>;
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-[60vh]">
+        <Loader2 className="h-10 w-10 animate-spin text-teal-700" />
+      </div>
+    );
+  }
   const tabs = [
     {
       label: "  Edit Course",

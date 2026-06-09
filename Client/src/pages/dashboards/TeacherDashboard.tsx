@@ -1,13 +1,8 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 
-import { useAuth } from "@/context/AuthContext";
-import { mockTeacherCourses } from "@/data/mockData";
-import { mockAssignments, mockSubmissions } from "@/data/assignmentsData";
 import { Button } from "@/components/ui/button";
-import DashboardSidebar, {
-  SidebarItem,
-} from "@/components/dashboard/DashboardSidebar";
+
 import {
   BookOpen,
   Users,
@@ -15,32 +10,41 @@ import {
   DollarSign,
   Plus,
   TrendingUp,
-  MoreVertical,
   Upload,
   Video,
   FileText,
-  Download,
-  CheckCircle,
-  Clock,
-  UserCheck,
+  Loader2,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import UploadAssignmentModal from "@/components/assignments/UploadAssignmentModal";
-import EnrollmentRequestsTab from "@/components/enrollments/EnrollmentRequestsTab";
+
 import { toast } from "sonner";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "@/features/auth/authSlice";
 import { MyCourses } from "@/features/teacher";
-
-const sidebarItems: SidebarItem[] = [
-  { id: "courses", label: "My Courses", icon: BookOpen },
-  { id: "assignments", label: "Assignments", icon: FileText },
-  { id: "submissions", label: "Submissions", icon: Upload },
-  { id: "enrollments", label: "Enrollments", icon: UserCheck },
-];
+import { getTeacherCourses } from "@/api/course/getTeacherCourses";
 
 const TeacherDashboard = () => {
   const navigate = useNavigate();
+  const user = useSelector(selectCurrentUser);
+  const [myCourses, setMyCourses] = useState([]);
+  const [loading, setLoading] = useState(false);
+  
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        setLoading(true);
+        const data = await getTeacherCourses(user.id);
+        setMyCourses(data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCourses();
+  }, []);
   const [uploadModalOpen, setUploadModalOpen] = useState(false);
   const location = useLocation();
   const activeTab =
@@ -54,7 +58,7 @@ const TeacherDashboard = () => {
   const stats = [
     {
       label: "Total Courses",
-      value: mockTeacherCourses.length,
+      value: myCourses?.length,
       icon: BookOpen,
       color: "bg-teacher",
     },
@@ -77,10 +81,41 @@ const TeacherDashboard = () => {
     setUploadModalOpen(false);
   };
 
-  const handleDownloadSubmission = (studentName: string) => {
-    toast.success(`Downloading submission from ${studentName}...`);
-  };
-  const user = useSelector(selectCurrentUser);
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-[60vh]">
+        <Loader2 className="h-10 w-10 animate-spin text-teal-700" />
+      </div>
+    );
+  }
+  if (myCourses?.length === 0) {
+    return (
+      <div className="container mx-auto px-4 py-20 text-center">
+        {/* Welcome */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mx-auto px-4 pt-20 pb-5 text-center "
+        >
+          <div>
+            <h1 className="font-display font-bold text-3xl mb-2">
+              Welcome, Mr <span className="capitalize"> {user?.username}</span>!
+              👨‍🏫
+            </h1>
+            <p className="text-muted-foreground">
+              Manage your courses and connect with your students.
+            </p>
+          </div>
+        </motion.div>
+
+        <Button onClick={() => navigate(`/teacher/${user?.id}/create-course`)}>
+          <Plus className="h-4 w-4" />
+          Create New Course
+        </Button>
+      </div>
+    );
+  }
+
   return (
     <div>
       <div className="py-8">
@@ -93,7 +128,8 @@ const TeacherDashboard = () => {
           >
             <div>
               <h1 className="font-display font-bold text-3xl mb-2">
-                Welcome, Mr {user?.username}! 👨‍🏫
+                Welcome, Mr{" "}
+                <span className="capitalize"> {user?.username}</span>! 👨‍🏫
               </h1>
               <p className="text-muted-foreground">
                 Manage your courses and connect with your students.
@@ -141,7 +177,7 @@ const TeacherDashboard = () => {
                   Your Courses
                 </h2>
 
-                <MyCourses classname="space-y-4" />
+                <MyCourses classname="space-y-4" myCourses={myCourses} />
               </div>
 
               <div>
@@ -205,154 +241,6 @@ const TeacherDashboard = () => {
                   </div>
                 </div>
               </div>
-            </div>
-
-            <div className="flex-1 min-w-0">
-              {activeTab === "assignments" && (
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between mb-4">
-                    <h2 className="font-display font-semibold text-xl">
-                      Published Assignments
-                    </h2>
-                    <Button
-                      className="hero-gradient text-primary-foreground gap-2"
-                      onClick={() => setUploadModalOpen(true)}
-                    >
-                      <Plus className="h-4 w-4" />
-                      New Assignment
-                    </Button>
-                  </div>
-                  <div className="grid lg:grid-cols-2 gap-4">
-                    {mockAssignments.map((assignment, index) => (
-                      <motion.div
-                        key={assignment.id}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.1 }}
-                        className="bg-card rounded-xl p-5 card-shadow border border-border"
-                      >
-                        <div className="flex items-start justify-between mb-3">
-                          <div className="flex items-center gap-3">
-                            <div className="p-2 bg-primary/10 rounded-lg">
-                              <FileText className="h-5 w-5 text-primary" />
-                            </div>
-                            <div>
-                              <h3 className="font-semibold">
-                                {assignment.title}
-                              </h3>
-                              <p className="text-sm text-muted-foreground">
-                                {assignment.courseName}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <p className="text-sm text-muted-foreground mb-4">
-                          {assignment.description}
-                        </p>
-                        <div className="flex items-center justify-between text-sm">
-                          <span className="text-muted-foreground">
-                            Due: {assignment.dueDate}
-                          </span>
-                          <span className="text-muted-foreground">
-                            {
-                              mockSubmissions.filter(
-                                (s) => s.assignmentId === assignment.id,
-                              ).length
-                            }{" "}
-                            submissions
-                          </span>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {activeTab === "submissions" && (
-                <div className="space-y-4">
-                  <h2 className="font-display font-semibold text-xl mb-4">
-                    Student Submissions
-                  </h2>
-                  {mockSubmissions.length > 0 ? (
-                    <div className="bg-card rounded-xl card-shadow overflow-hidden">
-                      <div className="divide-y divide-border">
-                        {mockSubmissions.map((submission, index) => {
-                          const assignment = mockAssignments.find(
-                            (a) => a.id === submission.assignmentId,
-                          );
-                          return (
-                            <motion.div
-                              key={submission.id}
-                              initial={{ opacity: 0 }}
-                              animate={{ opacity: 1 }}
-                              transition={{ delay: index * 0.1 }}
-                              className="p-4 flex items-center justify-between"
-                            >
-                              <div className="flex items-center gap-4">
-                                <div className="w-10 h-10 bg-muted rounded-full flex items-center justify-center">
-                                  <span className="font-medium text-sm">
-                                    {submission.studentName
-                                      .split(" ")
-                                      .map((n) => n[0])
-                                      .join("")}
-                                  </span>
-                                </div>
-                                <div>
-                                  <p className="font-medium">
-                                    {submission.studentName}
-                                  </p>
-                                  <p className="text-sm text-muted-foreground">
-                                    {assignment?.title || "Assignment"}
-                                  </p>
-                                </div>
-                              </div>
-                              <div className="flex items-center gap-4">
-                                <div className="text-right">
-                                  <p className="text-sm text-muted-foreground">
-                                    Submitted: {submission.submittedAt}
-                                  </p>
-                                  {submission.status === "graded" ? (
-                                    <span className="text-sm text-green-600 flex items-center gap-1">
-                                      <CheckCircle className="h-3 w-3" />
-                                      Graded: {submission.grade}%
-                                    </span>
-                                  ) : (
-                                    <span className="text-sm text-yellow-600 flex items-center gap-1">
-                                      <Clock className="h-3 w-3" />
-                                      Pending Review
-                                    </span>
-                                  )}
-                                </div>
-                                <Button
-                                  variant="outline"
-                                  size="sm"
-                                  onClick={() =>
-                                    handleDownloadSubmission(
-                                      submission.studentName,
-                                    )
-                                  }
-                                >
-                                  <Download className="h-4 w-4" />
-                                </Button>
-                              </div>
-                            </motion.div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="bg-card rounded-xl p-8 text-center card-shadow">
-                      <Upload className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-                      <h3 className="font-medium mb-2">No submissions yet</h3>
-                      <p className="text-muted-foreground">
-                        Student submissions will appear here.
-                      </p>
-                    </div>
-                  )}
-                </div>
-              )}
-
-              {activeTab === "enrollments" && <EnrollmentRequestsTab />}
             </div>
           </div>
         </div>

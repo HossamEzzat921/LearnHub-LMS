@@ -34,7 +34,11 @@ const UpdateCourseForm = ({ onSubmit }: CourseFormProps) => {
   watch,
   getFieldState,
   reset,
-  formState: { errors },
+  formState: {
+    errors,
+    isValid,
+    isSubmitting,
+  },
 } = useForm<courseType>({
   defaultValues: {
     teacher: "",
@@ -62,9 +66,17 @@ const UpdateCourseForm = ({ onSubmit }: CourseFormProps) => {
       checkCourseTitleAvailability(value);
     }
   };
- useEffect(() => {
+useEffect(() => {
   if (course) {
-    reset(course);
+    reset({
+      teacher: course.teacher?._id || "",
+      title: course.title,
+      description: course.description,
+      category: course.category,
+      level: course.level,
+      price: course.price,
+      thumbnail: course.thumbnail,
+    });
   }
 }, [course, reset]);
 const categories = [
@@ -192,12 +204,17 @@ const categoryOptions = categories.map((category) => ({
           </div>
 
           <div>
-            <Button
-              type="submit"
-              className="hero-gradient text-primary-foreground"
-            >
-              Save Course
-            </Button>
+           <Button
+             type="submit"
+             disabled={
+               !isValid ||
+               isSubmitting ||
+               titleAvailabilityStatus === "checking" ||
+               titleAvailabilityStatus === "notAvailable"
+             }
+           >
+             {isSubmitting ? "Saving..." : "Save Course"}
+           </Button>
              
           </div>
         </div>
