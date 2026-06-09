@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
-import { useAuth } from "@/context/AuthContext";
-import { usePurchase } from "@/context/PurchaseContext";
+
 import {
   
   mockStudentProgress
@@ -59,7 +58,7 @@ const StudentDashboard = () => {
     getCourses();
   }, []);
   
-  const { purchasedCourses } = usePurchase();
+  
   const [uploadModalOpen, setUploadModalOpen] = useState(false);
   const [selectedAssignment, setSelectedAssignment] =
     useState<Assignment | null>(null);
@@ -69,10 +68,7 @@ const StudentDashboard = () => {
     window.scrollTo(0, 0);
   }, [activeTab]);
 
-  const studentAssignments = mockAssignments.filter((a) =>
-    purchasedCourses.includes(a.courseId),
-  );
-
+  
   const stats = [
     {
       label: "Enrolled Courses",
@@ -84,7 +80,7 @@ const StudentDashboard = () => {
     { label: "Hours Learned", value: "18.5", icon: Clock, color: "bg-accent" },
     {
       label: "Assignments",
-      value: studentAssignments.length,
+      value: 0,
       icon: FileText,
       color: "bg-teacher",
     },
@@ -293,23 +289,9 @@ const StudentDashboard = () => {
 
               {activeTab === "assignments" && (
                 <div className="grid lg:grid-cols-2 gap-4">
-                  {studentAssignments.length > 0 ? (
-                    studentAssignments.map((assignment, index) => (
-                      <motion.div
-                        key={assignment.id}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.1 }}
-                      >
-                        <AssignmentCard
-                          assignment={assignment}
-                          onDownload={handleDownload}
-                          onUpload={handleUpload}
-                          userRole="student"
-                        />
-                      </motion.div>
-                    ))
-                  ) : (
+                 
+                  
+                  
                     <div className="col-span-2 bg-card rounded-xl p-8 text-center card-shadow">
                       <FileText className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
                       <h3 className="font-medium mb-2">No assignments yet</h3>
@@ -317,7 +299,7 @@ const StudentDashboard = () => {
                         Assignments from your courses will appear here.
                       </p>
                     </div>
-                  )}
+                
                 </div>
               )}
             </div>

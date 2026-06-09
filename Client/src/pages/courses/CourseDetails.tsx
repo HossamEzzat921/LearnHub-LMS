@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import { mockCourses } from "@/data/mockData";
-import { useAuth } from "@/context/AuthContext";
-import { usePurchase } from "@/context/PurchaseContext";
+
 import VodafoneCashModal from "@/components/payment/VodafoneCashModal";
 import {
   Star,
@@ -37,34 +35,31 @@ const CourseDetails = () => {
   const { courseId } = useParams();
   const [courseData, setCourseData] = useState<Course | null>(null);
   const navigate = useNavigate();
-  
-  const { isPurchased, purchaseCourse } = usePurchase();
+
   const [expandedSections, setExpandedSections] = useState<string[]>([]);
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showStudentOnlyModal, setShowStudentOnlyModal] = useState(false);
-  const [loading , setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
- useEffect(() => {
-  const fetchCourse = async () => {
-    try {
-      setLoading(true);
+  useEffect(() => {
+    const fetchCourse = async () => {
+      try {
+        setLoading(true);
 
-      const data = await getCourse(courseId);
-      setCourseData(data);
-    } catch (error) {
-      console.error(error);
-      setCourseData(null);
-    } finally {
-      setLoading(false);
-    }
-  };
+        const data = await getCourse(courseId);
+        setCourseData(data);
+      } catch (error) {
+        console.error(error);
+        setCourseData(null);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  fetchCourse();
-}, [courseId]);
- const [enrollments, setEnrollments] = useState([]);
-
-  
+    fetchCourse();
+  }, [courseId]);
+  const [enrollments, setEnrollments] = useState([]);
 
   useEffect(() => {
     const getCourses = async () => {
@@ -87,28 +82,7 @@ const CourseDetails = () => {
       (total, section) => total + section.lessons.length,
       0,
     ) || 0;
- 
-if (loading) {
-  return (
-    <Layout>
-      <div className="flex items-center justify-center min-h-[60vh]">
-        <Loader2 className="h-10 w-10 animate-spin text-teal-700" />
-      </div>
-    </Layout>
-  );
-}
-  if (!courseData) {
-    return (
-      <Layout>
-        <div className="container mx-auto px-4 py-20 text-center">
-          <h1 className="text-2xl font-bold mb-4">Course Not Found</h1>
-          <Link to="/courses">
-            <Button>Browse Courses</Button>
-          </Link>
-        </div>
-      </Layout>
-    );
-  }
+
   const handleBuyCourse = () => {
     if (!user) {
       setShowLoginModal(true);
@@ -156,9 +130,30 @@ if (loading) {
   const handleStartLearning = () => {
     navigate(`/course/${courseId}/learn`);
   };
-const coursePurchased = enrollments?.some(
-  (enrollment) => enrollment.course._id === courseId
-);
+  const coursePurchased = enrollments?.some(
+    (enrollment) => enrollment.course._id === courseId,
+  );
+  if (!courseData) {
+    return (
+      <Layout>
+        <div className="container mx-auto px-4 py-20 text-center">
+          <h1 className="text-2xl font-bold mb-4">Course Not Found</h1>
+          <Link to="/courses">
+            <Button>Browse Courses</Button>
+          </Link>
+        </div>
+      </Layout>
+    );
+  }
+  if (loading) {
+    return (
+      <Layout>
+        <div className="flex items-center justify-center min-h-[60vh]">
+          <Loader2 className="h-10 w-10 animate-spin text-teal-700" />
+        </div>
+      </Layout>
+    );
+  }
 
   return (
     <Layout>
@@ -215,8 +210,7 @@ const coursePurchased = enrollments?.some(
                 <p className="mt-6 opacity-90">
                   Created by{" "}
                   <span className="font-semibold">
-                      
-                    <p  className="capitalize">{courseData.teacher.username}</p>
+                    <p className="capitalize">{courseData.teacher.username}</p>
                   </span>
                 </p>
               </motion.div>

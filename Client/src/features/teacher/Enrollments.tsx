@@ -116,7 +116,7 @@ const Enrollments = () => {
                 </div>
 
                 <div className="flex flex-col sm:items-end gap-1 text-sm">
-                  <p className="font-medium">{request.courseName}</p>
+                  <p className="font-medium">{request.course.title}</p>
                   <p className="text-muted-foreground">
                     Vodafone Cash ${request.course.price}
                   </p>

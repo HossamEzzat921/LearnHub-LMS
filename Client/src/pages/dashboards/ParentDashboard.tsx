@@ -1,13 +1,15 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Layout from '@/components/layout/Layout';
-import { useAuth } from '@/context/AuthContext';
+
 import { mockLinkedStudents } from '@/data/mockData';
 import { Progress } from '@/components/ui/progress';
 import { Button } from '@/components/ui/button';
 import DashboardSidebar, { SidebarItem } from '@/components/dashboard/DashboardSidebar';
 import { Users, TrendingUp, BookOpen, Bell, Plus, Eye, Activity } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useSelector } from 'react-redux';
+import { selectCurrentUser } from '@/features/auth/authSlice';
 
 
 const sidebarItems: SidebarItem[] = [
@@ -16,7 +18,7 @@ const sidebarItems: SidebarItem[] = [
 ];
 
 const ParentDashboard = () => {
-  const { user } = useAuth();
+  const user = useSelector(selectCurrentUser);
   const location = useLocation();
   const activeTab = location.pathname.replace('/parent/dashboard', '').replace(/^\//, '') || 'students';
 
@@ -42,7 +44,7 @@ const ParentDashboard = () => {
             className="mb-8"
           >
             <h1 className="font-display font-bold text-3xl mb-2">
-              Welcome, {user?.name?.split(' ')[0]}! 👨‍👩‍👧
+              Welcome, {user?.username?.split(' ')[0]}! 👨‍👩‍👧
             </h1>
             <p className="text-muted-foreground">
               Monitor your children's learning progress and achievements.

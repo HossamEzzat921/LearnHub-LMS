@@ -1,11 +1,9 @@
-import { Toaster } from "@/components/ui/toaster";
+
 import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+import { QueryClient } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { AuthProvider } from "@/context/AuthContext";
-import { PurchaseProvider } from "@/context/PurchaseContext";
-import ProtectedRoute from "@/components/ProtectedRoute";
+
 
 // Pages
 import Home from "./pages/Home";
@@ -21,23 +19,24 @@ import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 import PersistLogin from "./features/auth/PersistLogin";
 import RequireAuth from "./features/auth/RequireAuth";
-import TeacherLayout from "./layouts/teacherLayout";
-import CreateCourse from "./pages/dashboards/CreateCourse";
-import TeacherCourses from "./pages/dashboards/TeacherCourses";
-import EditCourse from "./pages/dashboards/EditCourse";
+import TeacherLayout from "./features/teacher/teacherLayout";
+import CreateCourse from "./pages/courses/CreateCourse";
+import TeacherCourses from "./pages/courses/TeacherCourses";
+import EditCourse from "./pages/courses/EditCourse";
 import Assignment from "./features/teacher/Assignment";
 import Enrollments from "./features/teacher/Enrollments";
 
-const queryClient = new QueryClient();
+
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <AuthProvider>
-      <PurchaseProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
+  
+    
+      
+       
+          
+        
           <BrowserRouter>
+  <Sonner />
             <Routes>
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
@@ -91,10 +90,9 @@ const App = () => (
               />
             </Routes>
           </BrowserRouter>
-        </TooltipProvider>
-      </PurchaseProvider>
-    </AuthProvider>
-  </QueryClientProvider>
+       
+      
+ 
 );
 
 export default App;
